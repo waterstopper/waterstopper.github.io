@@ -87,7 +87,7 @@ You can put images anywhere in the `/content` folder.
 
 ```markdown
 Example image (source is in content/notes/images/example.png)
-![Example Image](/content/notes/images/example.png)
+![Example Image](/content/regina/notes/images/example.png)
 ```
 
 ### My Interactive Graph and Backlinks aren't up to date

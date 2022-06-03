@@ -61,7 +61,7 @@ Still having problems? Checkout our [FAQ and Troubleshooting guide](notes/troubl
 
 ## Multilingual
 
-[CJK + Latex Support (测试)](notes/CJK%20+%20Latex%20Support%20(测试).md) comes out of the box with Quartz.
+[CJK + Latex Support (测试)](regina/notes/CJK%20+%20Latex%20Support%20(测试).md) comes out of the box with Quartz.
 
 Want to support languages that read from right-to-left (like Arabic)? Hugo (and by proxy, Quartz) supports this
 natively.

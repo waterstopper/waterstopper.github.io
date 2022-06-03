@@ -18,7 +18,7 @@ nice editor and graphical interface to preview all of your local files.
 
 This step is **highly recommended**.
 
-🔗 [How to setup your Obsidian Vault to work with Quartz](notes/obsidian.md)
+🔗 [How to setup your Obsidian Vault to work with Quartz](regina/notes/obsidian.md)
 
 ### Ignoring Files
 
