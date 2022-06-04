@@ -1,6 +1,6 @@
 # Regina
 
-is a [dynamically typed](regina/notes/typization.md) language with [syntax](regina/notes/syntax.md) similar to Kotlin
+is a [dynamically typed](notes/typization.md) language with [syntax](notes/syntax) similar to Kotlin
 and Python.
 
 ## Core idea

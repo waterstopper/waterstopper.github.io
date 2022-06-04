@@ -16,7 +16,7 @@ should already be good to go! Follow the steps below.
 By default, GitHub disables workflows from running automatically on Forked Repostories. Head to the 'Actions' tab of
 your forked repository and Enable Workflows to setup deploying your Quartz site!
 
-![Enable GitHub Actions](notes/images/github-actions.png)*Enable GitHub Actions*
+![Enable GitHub Actions](images/github-actions.png)*Enable GitHub Actions*
 
 ### Enable GitHub Pages
 
