@@ -1,4 +1,4 @@
-baseURL = "https://alex5041.github.io/regina-wiki/"
+baseURL = "https://alex5041.github.io/"
 languageCode = "en-us"
 googleAnalytics = "G-XYFD95KB4J"
 pygmentsUseClasses = true
