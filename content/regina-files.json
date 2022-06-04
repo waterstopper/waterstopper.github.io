@@ -1,0 +1,12 @@
+{
+  "std": {
+    "files": []
+  },
+  "generators": {
+    "files": [
+      "plant",
+      "house",
+      "animal"
+    ]
+  }
+}

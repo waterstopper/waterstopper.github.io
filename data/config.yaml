@@ -6,9 +6,9 @@ enableLatex: true
 enableSPA: true
 enableContextualBacklinks: true
 description:
-  Create procedural generators for any type of content rapidly.
+  WaterStop site
 page_title:
-  "ReGIna"
+  "WaterStop"
 links:
   - link_name: Itch.io
     link: https://waterstop.itch.io

@@ -1,7 +1,10 @@
-# Regina
+---
+title: "ReGIna"
+---
 
 is a [dynamically typed](notes/typization.md) language with [syntax](notes/syntax) similar to Kotlin
 and Python.
+[files](../regina-files.json)
 
 ## Core idea
 
