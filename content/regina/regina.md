@@ -10,7 +10,7 @@ and Python.
 Difference between other languages and ReGIna is [dynamic instantiation](regina/notes/dynamic-instantiation.md). In
 short, properties in classes will be assigned only after their dependencies are assigned, allowing recursive properties
 of same class `A` inside class `A`.
-
+[plant](generators/plant.json)
 ## Advantages
 
 * **Can be embedded into web**. Regina is written in Kotlin and compiled into Javascript.
