@@ -2,7 +2,7 @@
 title: "ReGIna"
 ---
 
-is a [dynamically typed](notes/typization.md) language with [syntax](notes/syntax) similar to Kotlin
+is a [dynamically typed](notes/typization.md) language with [syntax](syntax.md) similar to Kotlin
 and Python.
 [files](../regina-files.json)
 
