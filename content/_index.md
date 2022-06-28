@@ -7,6 +7,4 @@ title: WaterStop
 
 [Insta](regina/dynamic-instantiation.md)
 
-[Other notes](notes/eyes)
-
-$$a = 2$$
+[Other notes](notes)
