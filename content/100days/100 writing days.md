@@ -13,4 +13,4 @@ following these rules:
 
 Links to all articles: 
 
-28 June: [Heap and Stack](Heap%20and%20Stack.md)
+28 June: [Heap and Stack](Heap and Stack.md)
