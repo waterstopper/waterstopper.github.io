@@ -2,7 +2,7 @@
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
 <script src=https://alex5041.github.io/js/popover.b09d478d74c2f86dcb7758afddc318bf.min.js></script>
-<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.b2b7c5d8c7112546d9bf4a2d4aba0c63.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.da9be5a17a3b8c5107f37f3cfe401319.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
+<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.423f4d276f948918ec4211b6e9667987.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.9ab540b1bc896f582379bdd64add74c6.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
     import { attachSPARouting } from 'https:\/\/alex5041.github.io\/js\/router.88d6def7f687fe498bfc6de6c16d554b.min.js';
     
     const draw = () => {
@@ -55,7 +55,7 @@ be followed by <code>delete</code> to prevent memory leak. Additionally, it is p
 instance on stack in C++, if variable is declared without <code>new</code>. Such local variable will
 be popped from stack after method
 execution.
-<a href=/100days/cpp_pointers/ rel=noopener class=internal-link data-src=/100days/cpp_pointers/>A little bit more about C++ memory model</a>.</p><a href=#heap-fragmentation><h3 id=heap-fragmentation><span class=hanchor arialabel=Anchor># </span>Heap fragmentation</h3></a><p>Heap is a single block of memory. When some memory from heap is released, a chunk of unused memory
+<a href=/100-days/cpp_pointers/ rel=noopener class=internal-link data-src=/100-days/cpp_pointers/>A little bit more about C++ memory model</a>.</p><a href=#heap-fragmentation><h3 id=heap-fragmentation><span class=hanchor arialabel=Anchor># </span>Heap fragmentation</h3></a><p>Heap is a single block of memory. When some memory from heap is released, a chunk of unused memory
 is formed. After many iterations heap becomes a bunch of alternating fragments of used and unused
 memory.</p><p>Essentially this is an inefficient memory utilization, because overall there might be $n$
 bytes of free memory, however not all bytes can be allocated. It is possible to allocate no more
