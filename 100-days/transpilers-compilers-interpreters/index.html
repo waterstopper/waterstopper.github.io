@@ -2,7 +2,7 @@
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
 <script src=https://alex5041.github.io/js/popover.b09d478d74c2f86dcb7758afddc318bf.min.js></script>
-<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.423f4d276f948918ec4211b6e9667987.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.b8974631e4d0f34647d511ec80beb6f4.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
+<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.423f4d276f948918ec4211b6e9667987.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.b1100dfdecff8037768c98d0f4fcd8cd.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
     import { attachSPARouting } from 'https:\/\/alex5041.github.io\/js\/router.88d6def7f687fe498bfc6de6c16d554b.min.js';
     
     const draw = () => {
@@ -60,9 +60,13 @@ Usually referred to as translators between two high level languages. Transpiler 
 source compiler sometimes.</p><a href=#assembler><h3 id=assembler><span class=hanchor arialabel=Anchor># </span>Assembler</h3></a><p>Also, there is a less frequently used term. <strong>Assemblers</strong>. Essentially, they are compilers for
 assembly language. Assemblers convert assembly code into machine code before runtime. I think it
 is a part of a compiler (compilation is a two-step process: translate language into assembly
-language, then translate assembly into machine language).</p><a href=#is-java-compiled-or-interpreted><h3 id=is-java-compiled-or-interpreted><span class=hanchor arialabel=Anchor># </span>Is Java compiled or interpreted?</h3></a><p>Java&rsquo;s source code is compiled into a binary byte code. This code runs on JVM, that is usually an
-interpreter (and often with JIT compiler). Java can be considered both compiled and interpreted
-language, similarly to Kotlin and Scala.</p><p>But I think it is easy to write an interpreter for any compiled language and hard to
+language, then translate assembly into machine language).</p><a href=#is-java-compiled-or-interpreted><h3 id=is-java-compiled-or-interpreted><span class=hanchor arialabel=Anchor># </span>Is Java compiled or interpreted?</h3></a><p>Java&rsquo;s source code is compiled into a binary byte code.
+This code runs on JVM (technically not a
+processor), that is usually a blazingly fast interpreter (and
+often with JIT compiler), that maps byte-code commands to processor
+commands. Java can be considered both compiled and
+interpreted language, similarly to Kotlin and Scala. Oftentimes though, Java is said to be
+compiled.</p><p>But I think it is easy to write an interpreter for any compiled language and hard to
 write a compiler for an interpreted language. Therefore, any compiled language can be interpreted.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>I&rsquo;m not sure that compiler cannot target multiple processors at once. ISA (Instruction set
 architecture) of processor is an important thing. Different processors with similar ISAs might be
 targeted by one compiler.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>And this cannot be fixed by compiling a program twice: first to run it and find optimizations
