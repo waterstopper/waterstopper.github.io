@@ -48,7 +48,7 @@ interpreter).
 
 Briefly, interpreters:
 
-1. Translate code during runtime, line by line 
+1. Translate code during runtime, line by line
 2. (that is why most of the debuggers are interpreters).
 3. Do not create executable files.
 
@@ -69,9 +69,13 @@ language, then translate assembly into machine language).
 
 ### Is Java compiled or interpreted?
 
-Java's source code is compiled into a binary byte code. This code runs on JVM, that is usually an
-interpreter (and often with JIT compiler). Java can be considered both compiled and interpreted
-language, similarly to Kotlin and Scala.
+Java's source code is compiled into a binary byte code.
+This code runs on JVM (technically not a
+processor), that is usually a blazingly fast interpreter (and
+often with JIT compiler), that maps byte-code commands to processor
+commands. Java can be considered both compiled and
+interpreted language, similarly to Kotlin and Scala. Oftentimes though, Java is said to be
+compiled.
 
 But I think it is easy to write an interpreter for any compiled language and hard to
 write a compiler for an interpreted language. Therefore, any compiled language can be interpreted.
