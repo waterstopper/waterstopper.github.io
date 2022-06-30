@@ -1,0 +1,167 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="Abstract Syntax Tree (AST) is key concept in program evaluation. It is a tree with tokens as its nodes. Tree is a better structure than sequence."><title>Abstract Syntax free</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/svg href=https://alex5041.github.io//avatar.svg><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code:wght@400;700&display=swap" rel=stylesheet><link href=https://alex5041.github.io/styles.f811980eeb0ad579a3b6a7a4d13552a4.min.css rel=stylesheet><script src=https://alex5041.github.io/js/darkmode.46b07878b7f5d9e26ad7a3c40f8a0605.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script src=https://alex5041.github.io/js/popover.b09d478d74c2f86dcb7758afddc318bf.min.js></script>
+<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.44dbfb1f01ec888b0340cfd2d3f62b00.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.6c33c647fc98a65a487e3a5f1cce8b0b.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
+    import { attachSPARouting } from 'https:\/\/alex5041.github.io\/js\/router.88d6def7f687fe498bfc6de6c16d554b.min.js';
+    
+    const draw = () => {
+      const container = document.getElementById("graph-container")
+      
+      if (!container) return requestAnimationFrame(draw)
+      
+      container.textContent = ""
+
+      drawGraph(
+        "https://alex5041.github.io",
+        [{"/moc":"var(--tertiary)"}],
+         -1 ,
+         true ,
+         true ,
+         true 
+      );
+
+      
+      initPopover("https://alex5041.github.io",  false )
+      
+      
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        throwOnError : false
+      });
+      
+    };
+    attachSPARouting(draw);
+  </script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-XYFD95KB4J"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XYFD95KB4J",{anonymize_ip:!1})}</script><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=https://alex5041.github.io/js/search.7c24ccf709dbc2daa3900b46c3269409.min.js></script><div class=singlePage><header><h1 id=page-title><a href=https://alex5041.github.io/>WaterStop</a></h1><svg tabindex="0" id="search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg><div class=spacer></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>Abstract Syntax free</h1><p class=meta>Last updated June 30, 2022</p><ul class=tags></ul><p>Abstract Syntax Tree (AST) is key concept in program evaluation. It is a tree with
+tokens as its nodes. Tree is a better structure than sequence. Here is why:</p><ol><li>Operator precedence.</li><li>Hierarchy</li></ol><a href=#operator-precedence><h3 id=operator-precedence><span class=hanchor arialabel=Anchor># </span>Operator precedence</h3></a><p>Consider a following expression : $5 + 7 \cdot 2 + 3$. It is obvious to us humans which arithmetic
+operator. we should calculate first. But it is not that simple for a machine.
+Hence, we introduce a tree structure:</p><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="69.188545mm" height="89.817238mm" viewBox="0 0 69.188545 89.817238" id="svg8" inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)" sodipodi:docname="ast_arithmetic.svg"><defs id="defs2"/><sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:zoom="1.4" inkscape:cx="103.33721" inkscape:cy="193.47371" inkscape:document-units="mm" inkscape:current-layer="layer1" inkscape:document-rotation="0" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1001" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1"/><g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-35.715768,-21.54733)"><path style="fill:var(--dark);stroke-width:.264583" d="m37.920079 110.95554c-.09644-.25131-.05473-.9088.09268-1.46108.25731-.96402.240647-1.00735-.416909-1.08398-.401254-.0468-.721363-.27192-.772896-.54364-.089-.46929.05531-.56134 1.307203-.83376.541491-.11783.75328-.38233.960824-1.19999.146423-.57686.200964-1.1141.1212-1.19387-.334528-.33452-2.00012-.12143-2.304504.29485-.478171.65393-1.191909.25629-1.191909-.66405.0-.98973 1.074497-1.49065 2.703523-1.26034.623115.0881 1.452531.1592 1.843146.15801.390618-.001.780095.11091.865508.24911.08541.1382-.04816.98304-.296813 1.87742-.354853 1.27633-.385439 1.73289-.142192 2.12239.386569.619.145299 1.31092-.45711 1.31092-.310875.0-.577575.39661-.844336 1.25561-.407651 1.31266-1.148469 1.80358-1.467419.9724zm35.366526-1.78971c0-.41922.429987-.98262 1.327581-1.73948 1.878179-1.5837 3.01091-4.09638 2.100365-4.65913-.412525-.25496-1.507905.56351-1.982536 1.48134-.51154.98921-1.277019.94967-1.395367-.0721-.167619-1.44714 1.42394-2.85727 3.224905-2.85727 2.140017.0 2.677766 2.80007.995974 5.18604l-.830019 1.17756.678021.25778c.956839.36379 1.067949.33853 1.820405-.41393.551487-.55149.766744-.62085 1.20265-.38756.765218.40953.658207.89271-.404312 1.82562-1.062294.93271-1.625772.99824-3.396197.395-1.14994-.39183-1.28865-.39183-1.721612.0-.730284.6609-1.619858.55443-1.619858-.19388zM40.654662 97.967811c-.544364-.544361.236445-1.368253 4.519964-4.769358 2.582995-2.050891 4.923166-3.979754 5.200383-4.286364.69588-.769667 1.480346-.733747 1.480346.06778.0.745808-1.318736 2.021499-5.376619 5.201124-1.574694 1.233879-3.347021 2.630368-3.938505 3.103311-1.06472.851334-1.544005 1.025073-1.885569.683507zm33.425693-2.088644c-.800365-.641956-2.110053-1.611191-2.910417-2.153854-3.186105-2.160246-4.620067-4.047779-3.075104-4.047779.345982.0.786209.189352.978281.420786.192069.231431 1.129382.973653 2.082916 1.649386.953535.67573 1.971824 1.44898 2.262865 1.718334.291042.269353.826823.647594 1.190625.840533 1.05237.55812 2.204747 1.903548 2.027047 2.366624-.259609.676532-1.015521.441725-2.556213-.79403zm25.353892-8.631772c-1.085294-.288902-1.483529-.916118-.931904-1.467742.294177-.294177.593775-.306578 1.555617-.06438 1.5378.387223 3.01899-.147211 3.27898-1.183111.25943-1.033637-.31397-1.552702-1.53439-1.389009-.80629.108146-1.061.03427-1.27768-.370591-.22501-.420434-.0906-.676953.79764-1.521878.58754-.558917 1.06644-1.123943 1.06421-1.255615-.0147-.869765-1.36359-1.479148-2.441975-1.10322-.400936.139766-.728975.361537-.728975.492824.0.131283-.297656.238699-.661458.238699-.940099.0-.901118-1.095373.06615-1.858727.608957-.480582.982096-.555998 2.288288-.462497 1.35085.0967 1.66211.225245 2.3151.956064.78388.877313.95149 1.825476.47881 2.708677-.22628.422815-.14342.628687.46302 1.150323.63123.542963.73863.834184.73863 2.002872.0 1.204183-.10102 1.457794-.84579 2.123245-.80192.716513-2.38979 1.345136-3.25525 1.288722-.21828-.01423-.834338-.142322-1.369019-.284652zM56.529661 84.209478c-.371281-.371279-.146325-1.020061.632196-1.823291l.808585-.834248-.789458-.327003c-1.028581-.426054-1.725991-1.21212-1.529565-1.724004.212612-.554056.927495-.509154 1.965018.123425 1.171509.714269 1.477312.676709 1.268371-.155781-.259213-1.032783.05148-1.697292.793586-1.697292.559186.0.643628.121494.643628.926042.0.509323.06983.926042.155183.926042.08535.0.667904-.368208 1.294559-.818238.973439-.699071 1.222912-.773527 1.712976-.511251.771704.413004.598336.76223-.851612 1.715465-.673166.442556-1.230426.864881-1.238356.938499-.0079.07362.313005.283104.713187.465526 1.27394.580726 2.013286 1.284819 1.835542 1.748018-.222957.581017-1.044343.542512-2.09373-.09815L60.98348 82.534366 60.849487 83.26168c-.09235.501253-.319387.753707-.730464.812236-.481613.06857-.62779-.07169-.75913-.728374l-.162657-.813295-1.025869.926809c-1.039077.938744-1.323414 1.068716-1.641706.750422zm6.35-13.758333c-.651552-.65155.269359-1.754487 2.734027-3.274426.800365-.493577 2.288646-1.512641 3.307292-2.264582 2.347587-1.732938 3.42452-2.275009 4.314785-2.171837 1.2446.14424 1.048009.939678-.383942 1.553482-.697246.298876-1.747859.931617-2.334697 1.406091-1.326573 1.072574-7.01616 4.927661-7.272559 4.927661-.103685.0-.267894-.07937-.364906-.176389zm32.44897-2.27779c-3.216981-2.056025-6.960777-5.372942-6.960777-6.167091.0-.507479.137972-.639146.669761-.639146.368371.0.729554.155807.802629.346241.208582.543555 3.708414 3.386193 6.398964 5.197377 1.657887 1.116029 2.447396 1.810563 2.447396 2.152981.0.862544-1.051499.58374-3.357973-.890362zM36.821635 58.709111c-.43435-.176258-.589137-.423746-.529166-.846082.07474-.526354.217974-.588537 1.21113-.525793 1.04888.06626 1.155999.009 1.557046-.831977.739188-1.550096-.17554-3.340225-1.706803-3.340225-1.444752.0-1.656855-.40918-1.577501-3.043237.06755-2.242217.106357-2.38564.667035-2.465269.327422-.0465.595313.02681.595313.16291.0.148862.448035.160787 1.124479.02993 1.994368-.385818 3.325974-.294479 3.616328.248052.388858.726585-.148342 1.098867-1.585651 1.098867-.68031.0-1.608997.07441-2.06375.165365-.748072.149614-.826823.259024-.826823 1.148744.0.915813.07174 1.004874 1.044139 1.296212 3.457252 1.035818 3.366862 6.403369-.118097 7.012824-.436563.07635-1.070017.0267-1.407679-.110318zm42.980937-1.186103c-.09128-.237877-.167791-.928781-.170018-1.535343-.0021-.60656-.09153-1.230633-.198438-1.386827-.106913-.156194-.908762-.394319-1.781887-.529167-1.329385-.205314-1.5875-.331216-1.5875-.774345.0-.456607.202388-.539861 1.475994-.607163l1.475994-.078-.119663-1.442955c-.129685-1.563849.184888-2.23751 1.044835-2.23751.607525.0.92126.669139.533053 1.136901-.253794.3058-.03882 2.132063.289634 2.460514.06375.06375.818301.203647 1.676781.310883 1.435759.179345 1.560872.247904 1.560872.855316.0.631994-.06418.65822-1.494972.610875l-1.494975-.04947.03977 1.769258c.03634 1.61667-.0087 1.776172-.521872 1.849395-.331266.04727-.629713-.09727-.727604-.352369zm-41.52916-15.38228c-.09701-.09701-.17639-.445196-.17639-.773737.0-.743873 4.46165-4.944409 7.072437-6.658531.985107-.646776 2.35513-1.589691 3.044494-2.095368 1.344187-.986014 2.142352-1.062058 2.258221-.215146.05596.409013-.702722 1.057703-3.400742 2.907713-1.910022 1.309688-4.556122 3.423047-5.880222 4.696355-2.427438 2.33432-2.597523 2.458989-2.917798 2.138714zm38.055901-.774473c-.436563-.521721-2.579688-2.158319-4.7625-3.636882-2.880963-1.951467-3.96875-2.832342-3.96875-3.21384.0-1.057597.992061-.675006 4.705281 1.814606 4.310187 2.889862 5.83538 4.287367 5.702191 5.224804-.133998.943139-.79103.86918-1.676222-.188688zM56.787114 30.477014c-.07204-.254662-.211926-1.099926-.310853-1.878364l-.179875-1.415343-1.889786.09243c-1.790406.08757-1.894229.06114-1.974279-.50246-.105074-.739798.77211-1.124905 2.56227-1.124905h1.252702l-.01315-2.050521c-.01294-2.014342-.0016-2.050521.648301-2.050521.720082.0.71779-.0077.765624 2.579687l.02812 1.521355h1.860386c1.445067.0 1.895912.09257 2.019509.414659.169688.442205-.251531 1.015546-.781198 1.063324-.176316.0159-.897808.04705-1.603322.06922l-1.282748.0403.187982 1.619667c.143745 1.238518.103161 1.673408-.172458 1.848032-.566971.359214-.974919.276489-1.117225-.226553z" id="path847"/></g></svg><p>Now we need to recursively evaluate each child before calculating the result of the overall
+expression.</p><a href=#hierarchy><h3 id=hierarchy><span class=hanchor arialabel=Anchor># </span>Hierarchy</h3></a><p>Let&rsquo;s look at the following python code:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>some_method</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>SomeClass</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>field</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>    <span class=n>other</span> <span class=o>=</span> <span class=s2>&#34;other&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>class_method</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=bp>self</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>other_one</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=s2>&#34;not classMethod&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Here is a sketch of AST representation:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>some_method:
+</span></span><span class=line><span class=cl>    type: function
+</span></span><span class=line><span class=cl>    children:
+</span></span><span class=line><span class=cl>        params: ...
+</span></span><span class=line><span class=cl>        body: ...
+</span></span><span class=line><span class=cl>SomeClass:
+</span></span><span class=line><span class=cl>    type: class
+</span></span><span class=line><span class=cl>    children:
+</span></span><span class=line><span class=cl>        field:
+</span></span><span class=line><span class=cl>            type: variable
+</span></span><span class=line><span class=cl>            children:
+</span></span><span class=line><span class=cl>                value: ...
+</span></span><span class=line><span class=cl>        other:
+</span></span><span class=line><span class=cl>            type: variable
+</span></span><span class=line><span class=cl>            children:
+</span></span><span class=line><span class=cl>                value: ...
+</span></span><span class=line><span class=cl>        class_method:
+</span></span><span class=line><span class=cl>            type: function
+</span></span><span class=line><span class=cl>            children:
+</span></span><span class=line><span class=cl>                params: ...
+</span></span><span class=line><span class=cl>                body: ...
+</span></span><span class=line><span class=cl>         other_one:
+</span></span><span class=line><span class=cl>            type: function
+</span></span><span class=line><span class=cl>            children:
+</span></span><span class=line><span class=cl>                params: ...
+</span></span><span class=line><span class=cl>                body: ...
+</span></span><span class=line><span class=cl>        
+</span></span></code></pre></td></tr></table></div></div><p>Notice how all the functions of class are on the same level. We could even add <code>fields</code> and
+<code>functions</code> and <code>classes</code> nodes to separate statements of different kinds:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>functions:
+</span></span><span class=line><span class=cl>    some_method:
+</span></span><span class=line><span class=cl>        ...
+</span></span><span class=line><span class=cl>classes:
+</span></span><span class=line><span class=cl>    SomeClass:
+</span></span><span class=line><span class=cl>        type: class
+</span></span><span class=line><span class=cl>        children:
+</span></span><span class=line><span class=cl>            fields:
+</span></span><span class=line><span class=cl>                field:
+</span></span><span class=line><span class=cl>                    ...
+</span></span><span class=line><span class=cl>                other:
+</span></span><span class=line><span class=cl>                   ...
+</span></span><span class=line><span class=cl>            functions:
+</span></span><span class=line><span class=cl>                class_method:
+</span></span><span class=line><span class=cl>                    ...
+</span></span><span class=line><span class=cl>                 other_one:
+</span></span><span class=line><span class=cl>                    ...
+</span></span></code></pre></td></tr></table></div></div><p>This hierarchical structure is predictable and manageable.</p><a href=#node-structure><h3 id=node-structure><span class=hanchor arialabel=Anchor># </span>Node structure</h3></a><p>AST trees do not have a commonly accepted structure. It&rsquo;s content varies depending on
+usage. But I found some general structure of AST node. Nodes usually include.</p><ul><li>node type (declaration of class, method, variable, infix operator, block etc)</li><li>node value: e.g. name of a particular identifier</li><li>children: nodes that a re children of the current one</li><li>meta information: position in the initial file, path to initial file&mldr;</li></ul><a href=#creating-ast><h1 id=creating-ast><span class=hanchor arialabel=Anchor># </span>Creating AST</h1></a><p>A pipeline consists of two steps:</p><p><code>Code (text) -> Tokens -> AST</code></p><p>To create tokens from code, a tokenizer (aka Lexer) is used. Usually it&rsquo;s pretty straightforward:
+read until next whitespace, identify obtained token.</p><p>To create AST from tokens, we need a parser. I won&rsquo;t go into much detail here, because parsers are
+complicated enough for a separate post. Classification of parsers:</p><ul><li>Top-down parser. This parser creates a tree from root to leaves.<ul><li>Back-tracking. The one which looks some tokens behind to define a position of current token
+in a
+tree.</li><li>Non back-tracking. These parsers do not use previous tokens.<ul><li>LL$(k)$ parser. Parser from left to right, looking $k$ tokens ahead. Basically is a
+pushdown automata. Note: a subset of languages that can be parsed with LL$(k)$ parser is
+called LL$(k)$ languages. These terms parsed go beyond ASTs.</li></ul></li></ul></li><li>Bottom-up parser. Unlike top-down, creates tree starting from leaves and finishing at root.</li></ul></article><hr><div class=page-end><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=https://alex5041.github.io/js/graph.0eb0c81d58a703569f31b6053242af38.js></script></div></div><div id=contact_buttons><footer><p>Made by WaterStop, © 2022</p><ul><li><a href=/>Home</a></li><li><a href=https://waterstop.itch.io>Itch.io</a></li><li><a href=https://github.com/alex5041>Github</a></li><li><a href=https://twitter.com/>Twitter</a></li></ul></footer></div></div></body></html>
