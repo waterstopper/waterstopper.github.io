@@ -77,8 +77,9 @@ commands. Java can be considered both compiled and
 interpreted language, similarly to Kotlin and Scala (JVM languages). Oftentimes though, Java is
 thought to be compiled.
 
-But I think it is easy to write an interpreter for any compiled language and hard to
-write a compiler for an interpreted language. Therefore, any compiled language can be interpreted.
+But I think it is possible to write an interpreter for any compiled language and a compiler for any
+interpreted language. Therefore, language classification in terms of compiled/interpreted
+languages is suggestive, not mandatory.
 
 [^1]: I'm not sure that compiler cannot target multiple processors at once. ISA (Instruction set
 architecture) of processor is an important thing. Different processors with similar ISAs might be
