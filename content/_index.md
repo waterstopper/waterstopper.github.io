@@ -5,6 +5,6 @@ title: WaterStop
 
 [ReGIna](regina/regina)
 
-[Insta](regina/dynamic-instantiation.md)
+[Instantiation](regina/dynamic-instantiation.md)
 
 [Other notes](notes)
