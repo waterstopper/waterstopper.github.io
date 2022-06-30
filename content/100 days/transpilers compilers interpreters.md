@@ -8,18 +8,18 @@ before let's create some sort of programming language hierarchy:
 
 1. High level programming language
 2. Assembly language (low-level language that is still programmable by humans)
-3. Machine code (run on processor, no reason to write on it, because it is undecipherable without
+3. Machine code (runs on processor, no reason to write it, because it is undecipherable without
    helper tools and is processor-specific)
 
 ### Translator
 
-**Translator** is a general word for transpilers, compilers and interpreters, that means a tool,
+**Translator** is a general word for transpilers, compilers and interpreters. It's a tool
 converting one code to another one (low-level or high level).
 
 ### Compiler
 
-**Compilers** create machine code before runtime, which they save into a binary file. Each
-processor[^1] requires a special compiler. Plus, compiler depend on a platform. Say, there is
+**Compilers** create machine code before runtime, which they save into binary files. Each
+processor[^1] requires a special compiler. Plus, compiler depends on a platform. Say, there is
 a compiler for C++ targeted for the Linux OS and a particular processor.
 
 Benefits of compilers are:
@@ -32,7 +32,7 @@ Benefits of compilers are:
 But there is a considerable drawback for a compiled language. Every little change in the program
 requires recompilation of the whole module.
 
-Languages that are compiled: C, C++
+Languages that are compiled: C, C++, Haskell, Rust, Go
 
 ### Interpreter
 
@@ -49,8 +49,8 @@ interpreter).
 Briefly, interpreters:
 
 1. Translate code during runtime, line by line
-2. (that is why most of the debuggers are interpreters).
-3. Do not create executable files.
+   (that is why most of the debuggers are interpreters).
+2. Do not create executable files.
 
 Interpreted languages: Python, Perl, Ruby
 
@@ -71,11 +71,11 @@ language, then translate assembly into machine language).
 
 Java's source code is compiled into a binary byte code.
 This code runs on JVM (technically not a
-processor), that is usually a blazingly fast interpreter (and
-often with JIT compiler), that maps byte-code commands to processor
+processor), that usually is a blazingly fast interpreter (and
+often with a JIT compiler), that maps byte-code commands to processor
 commands. Java can be considered both compiled and
-interpreted language, similarly to Kotlin and Scala. Oftentimes though, Java is said to be
-compiled.
+interpreted language, similarly to Kotlin and Scala (JVM languages). Oftentimes though, Java is
+thought to be compiled.
 
 But I think it is easy to write an interpreter for any compiled language and hard to
 write a compiler for an interpreted language. Therefore, any compiled language can be interpreted.
