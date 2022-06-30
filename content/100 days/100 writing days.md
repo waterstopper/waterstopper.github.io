@@ -13,8 +13,8 @@ following these rules:
 
 Links to all articles: 
 
-28 June: [Heap and Stack](Heap and Stack.md)
+28 June: [Heap and Stack](Heap%20and%20Stack.md)
 
-29 June: [How languages are run?](transpilers compilers interpreters.md)
+29 June: [How languages are run?](transpilers%20compilers%20interpreters.md)
 
 30 June: [Abstract syntax tree](ast.md)
