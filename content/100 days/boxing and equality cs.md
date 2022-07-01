@@ -23,8 +23,8 @@ Reference equality is applicable only to reference types.
 It checks that two objects point to the same value in heap.
 Value equality checks that two variables contain the same value.
 
-*Note: `==` operator will call `ReferenceEquals` and is not applicable for two variables of
-different type.*
+*Note: `==` operator will call `ReferenceEquals` for reference types and is not applicable for two
+variables of different type.*
 
 ### Examples
 
