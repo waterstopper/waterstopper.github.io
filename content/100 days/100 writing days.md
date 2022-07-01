@@ -18,3 +18,5 @@ Links to all articles:
 29 June: [How languages are run?](transpilers%20compilers%20interpreters.md)
 
 30 June: [Abstract syntax tree](ast.md)
+
+1 July: [C#: boxing, unboxing and equality operator](boxing%20and%20equality%20cs.md)
