@@ -2,9 +2,13 @@
 title: WaterStop
 ---
 
+Hello! My name is Alex and I'm a programmer. On [itch.io](https://waterstop.itch.io/) I put
+my playable projects
 
-[ReGIna](regina/regina)
+# Site content 
 
-[Instantiation](regina/dynamic-instantiation.md)
+[ReGIna WIP](regina/regina) - documentation about WIP programming language
 
-[Other notes](notes)
+[100 days](100-days/100-writing-days) of English essays
+
+[other notes](notes)

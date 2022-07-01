@@ -1,4 +1,6 @@
-# Syntax
+---
+title: "Syntax"
+---
 
 ReGIna's syntax is an amalgamation of kotlin and python.
 

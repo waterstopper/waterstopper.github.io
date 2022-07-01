@@ -2,11 +2,11 @@
 title: "ReGIna"
 ---
 
-is a [dynamically typed](notes/typization.md) language with [syntax](syntax.md) similar to Kotlin and Python.
+is a [dynamically typed](notes/typization.md) language with [syntax](regina/syntax) similar to Kotlin and Python.
 
 ## Core idea
 
-Difference between other languages and ReGIna is [dynamic instantiation](regina/notes/dynamic-instantiation.md). In
+Difference between other languages and ReGIna is [dynamic instantiation](regina/dynamic-instantiation). In
 short, properties in classes will be assigned only after their dependencies are assigned, allowing recursive properties
 of same class `A` inside class `A`.
 [plant](generators/plant.json)

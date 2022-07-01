@@ -11,12 +11,12 @@ following these rules:
    writing ability.
 2. Write at least 10 sentences and 300 words.
 
-Links to all articles: 
+Links to all articles:
 
-28 June: [Heap and Stack](Heap%20and%20Stack.md)
+28 June: [Heap and Stack](100-days/heap-and-stack)
 
-29 June: [How languages are run?](transpilers%20compilers%20interpreters.md)
+29 June: [How languages are run?](100-days/transpilers-compilers-interpreters)
 
-30 June: [Abstract syntax tree](ast.md)
+30 June: [Abstract syntax tree](100-days/ast)
 
-1 July: [C#: boxing, unboxing and equality operator](boxing%20and%20equality%20cs.md)
+1 July: [C#: boxing, unboxing and equality operator](100-days/boxing-and-equality-cs)
