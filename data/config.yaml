@@ -4,7 +4,7 @@ openToc: false
 enableLinkPreview: true
 enableLatex: true
 enableSPA: true
-enableContextualBacklinks: false
+enableContextualBacklinks: true
 description:
   WaterStop site
 page_title:
