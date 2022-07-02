@@ -88,6 +88,6 @@ Unrestricted grammars are grammars without any restrictions to their rules.
 
 ### BNF, EBNF
 
-There is a special Backus-Nour form and Extended Backus-Nour form (BNF, EBNF) to
+There is a special Backus-Naur form and Extended Backus-Naur form (BNF, EBNF) to
 describe a context free grammar. this notation is used most commonly. Here is
 a [python grammar defined with EBNF](https://docs.python.org/3/reference/grammar.html). 
