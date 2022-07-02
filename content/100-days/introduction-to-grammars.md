@@ -65,7 +65,7 @@ S -> EOW // (end of word)
 X -> bS
 ```
 
-This grammar defines a language $L(gR) = \\{a^nb^n|n\geqslant0\\}$
+This grammar defines a language $L(gR) = \\{(ab)^n|n\geqslant0\\}$
 
 Context free grammar is a pushdown automata, regular grammar is a finite state machine.
 {{< svg "static/finite_state_regular.svg" >}}
