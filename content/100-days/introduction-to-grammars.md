@@ -49,7 +49,8 @@ grammars. Because no context is required for replacing a non-terminal.
 
 #### Regular grammar (type 3)
 
-Subset of content free grammars is regular grammars. It puts a restriction on right-hand side of
+Subset of content free grammars is regular grammars.
+It puts a restriction on the right-hand side of
 its rules, three types of expressions are allowed:
 
 * empty string
@@ -78,7 +79,7 @@ $$c_0Ac_1 \rightarrow c_0bc_1$$ where:
 
 * $c_0,\\; c_1$ are sequences of terminals and non-terminals
   (sequence might be empty),
-* $A$ is non-terminal
+* $A$ is a non-terminal
 * $b$ is a non-empty sequence of terminals and non-terminals.
 
 #### Unrestricted grammar (type 0)
