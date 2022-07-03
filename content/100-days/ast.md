@@ -1,5 +1,5 @@
 ---
-title: "Abstract Syntax free"
+title: "Abstract Syntax Tree"
 ---
 
 Abstract Syntax Tree (AST) is key concept in program evaluation. It is a tree with
