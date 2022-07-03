@@ -110,20 +110,18 @@ usage. But I found some general structure of AST node. Nodes usually include.
 
 A pipeline consists of two steps:
 
-`Code (text) -> Tokens -> AST`
+`Code (text) -> Tokens -> CST`[^1]` -> AST`
 
 To create tokens from code, a tokenizer (aka Lexer) is used. Usually it's pretty straightforward:
 read until next whitespace, identify obtained token.
 
 To create AST from tokens, we need a parser. I won't go into much detail here, because parsers are
-complicated enough for a separate post. Classification of parsers:
+complicated enough for a separate [post](100-days/parsers). 
 
-* Top-down parser. This parser creates a tree from root to leaves.
-    * Back-tracking. The one which looks some tokens behind to define a position of current token
-      in a
-      tree.
-    * Non back-tracking. These parsers do not use previous tokens.
-        * LL$(k)$ parser. Parser from left to right, looking $k$ tokens ahead. Basically is a
-          pushdown automata. Note: a subset of languages that can be parsed with LL$(k)$ parser is
-          called LL$(k)$ languages. These terms parsed go beyond ASTs.
-* Bottom-up parser. Unlike top-down, creates tree starting from leaves and finishing at root.
+[^1]: Some parsers create an intermediate representation of AST called concrete syntax tree. The
+difference between AST and CST is that each AST node has a semantic purpose, while CST may contain
+detrimental tokens that are used to make parsing of a grammar work. Example of CST generated probably
+with a parser based on EBNF arithmetic [grammar](100-days/introduction-to-grammars):
+![cst.png](100-days/images/cst.png)
+`Expr`, `Term` and `Factor` nodes do not have a semantic purpose, therefore technically it is not
+an AST.

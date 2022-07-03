@@ -45,7 +45,7 @@ Grammar with a smaller type number contains all grammars with a bigger type numb
 #### Context free grammar (type 2)
 
 Grammars with a single non-terminal symbol on the left of each rule are called context free
-grammars. Because no context is required for replacing a non-terminal.
+grammars (CFG). Because no context is required for replacing a non-terminal.
 
 #### Regular grammar (type 3)
 
@@ -90,4 +90,103 @@ Unrestricted grammars are grammars without any restrictions to their rules.
 
 There is a special Backus-Naur form and Extended Backus-Naur form (BNF, EBNF) to
 describe a context free grammar. This notation is used most commonly. Here is
-a [python grammar defined with EBNF and PEG](https://docs.python.org/3/reference/grammar.html). 
+a [python grammar defined with EBNF and PEG](https://docs.python.org/3/reference/grammar.html).
+
+# Non formal grammars
+
+Before going any further, let's bring in some clarifications.
+
+### Grammar notation
+
+Previously we used capitals for non-terminals and lowercase for terminals. But in real grammars
+identifiers are used. We consider every identifier that appears on the left hand-side a
+non-terminal (we work with grammars having only a non-terminal on the left-hand side),
+other identifiers are terminals.
+
+Introduce new symbols:
+
+* `|` - choice operator (or). Grammar rule that contains `|` is actually multiple grammar rules:
+  `S -> a | b | ... | n` is
+
+```
+S -> a
+S -> b
+...
+S -> n
+```
+
+If the rule is more complicated, containing nested choice operators, it is rewritten in a similar
+manner:
+
+```
+S -> (a | b) '+' d | c
+// rewritten to
+S -> a '+' d 
+S -> b '+' d
+S -> c
+```
+
+* `:` in EBNF colon replaces arrow to divide two sides of a rule. I'll stick to the arrow for
+  the time, to keep the style consistent and justify the use of code blocks
+  (I use FiraCode with ligatures in code blocks to make arrow a continuous symbol)
+
+All grammars discussed before are formal grammars. Formal grammars have terminals and non-terminals
+in their rules and no other operators of special symbols.
+
+### Parsing expression grammars or PEGs
+
+PEGs are very similar to CFGs, but they are not **ambiguous**,
+meaning that for any input only one AST can be generated. It is achieved by selecting the first
+match in a choice operator. For CFG[^1] each variant in a choice operator is equal in terms of
+precedence (and because of that two ASTs may be generated from one input).
+
+### Recursive grammars
+
+if there is a rule with a non-terminal on the left side, which can be derived again by applying
+some rules to the resulting expression.
+
+```
+grammar rG
+A -> aBC
+B -> Db
+C -> c
+D -> Ad
+```
+
+rG is recursive, because:
+
+1. starting with `A -> aBC`
+2. apply `B -> Db` to `aBC`, get `aDbC`
+3. apply `D -> Ad` to `aDbC` get `aAddC`. Non-terminal `A` is derived again.
+   Proved, that rG is recursive.
+
+Almost all non-trivial grammars are recursive.
+
+#### Left recursion
+
+Left recursive grammar is a grammar that contains a recursive rule, deriving form which will
+eventually create the same non-terminal as the first symbol.
+
+```
+grammar lrG
+A -> BC
+B -> Db
+C -> c
+D -> Ad
+```
+
+lrG is left recursive, because same sequence of rules as in rG will produce AddC. A is the first
+symbol, therefore lrG is left recursive.
+
+Some parsers are unable to parse left recursive grammars, descending into infinite recursion.
+For that reason, a grammar is rewritten, making it less humanly readable.
+Any sensible left-recursive grammar can be rewritten, I think.
+This grammar is not reasonable: `A -> A`.
+
+[^1]: When introducing CFG, I stated that it is a part of a Chomsky hierarchy, hence it is a formal
+grammar. Consequently, only terminals and non-terminals are allowed in the rules.
+But CFG can be mentioned outside the formal grammar set, keeping its distinctive characteristic of
+one
+non-terminal on the left-hand side. Therefore, CFG right-hand side can contain other special
+symbols. From now on, if not explicitly specified, I'll use CFG term implying that **it is not a
+formal grammar**.

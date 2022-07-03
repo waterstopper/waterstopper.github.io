@@ -22,3 +22,9 @@ Links to all articles:
 1 July: [C#: boxing, unboxing and equality operator](100-days/boxing-and-equality-cs)
 
 2 July: [Introduction to grammars](100-days/introduction-to-grammars)
+
+3 July: 
+1. [Parsers](100-days/parsers), 
+2. added CST definition to [AST post](100-days/ast) and moved
+parser classification to parsers, 
+3. added non-formal grammars section to [grammars post](100-days/introduction-to-grammars),
