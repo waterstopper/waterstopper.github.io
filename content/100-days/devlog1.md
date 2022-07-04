@@ -34,7 +34,7 @@ many times. It lead to all kinds of issues:
 To fix that, I added `clear()` function to make global Table a blank table and delete all imports.
 It is called at the end of `evaluate()` and `eval()` (which is a light version of `evaluate()`).
 But it was treating a symptom, not dealing with a problem. I plan to make it possible to run
-multiple threads in parallel. So I need to remove these globals (probably I can create an array of
+multiple threads in parallel. So I need to remove these globals. Probably I can create an array of
 global tables, each thread will write to a separate table, although
 I would like to make stateless code, not add another crutch.
 
