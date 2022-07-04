@@ -12,7 +12,7 @@ mentioned, so it's good to know what they mean.
 
 ### Recursive descent
 
-Recursive descent parser is a program, where each grammar rule is implemented as a separate method.
+Recursive descent parser is a program, where each [grammar](100-days/introduction-to-grammars) rule is implemented as a separate method.
 Sometimes all rules describing one terminal are combined into a single method.
 
 {{< svg "static/recursive_parser.svg" >}}

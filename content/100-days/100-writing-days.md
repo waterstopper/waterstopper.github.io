@@ -28,3 +28,5 @@ Links to all articles:
 2. added CST definition to [AST post](100-days/ast) and moved
 parser classification to parsers, 
 3. added non-formal grammars section to [grammars post](100-days/introduction-to-grammars),
+
+4 July: [Devlog 1. Bad globals](100-days/devlog1)
