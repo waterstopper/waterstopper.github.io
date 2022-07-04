@@ -2,7 +2,7 @@
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
 <script src=https://alex5041.github.io/js/popover.b09d478d74c2f86dcb7758afddc318bf.min.js></script>
-<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.09273620bb1e7165b2e90062383380bb.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.c8d46d6eb64450bd4661b1d0a12278aa.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
+<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.09273620bb1e7165b2e90062383380bb.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.d80acf492c974b05aeaf497973dadc00.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
     import { attachSPARouting } from 'https:\/\/alex5041.github.io\/js\/router.88d6def7f687fe498bfc6de6c16d554b.min.js';
     
     const draw = () => {
@@ -51,7 +51,7 @@ many times. It lead to all kinds of issues:</p><ol><li>Functions appeared twice,
 failed session were saved.</li><li>Phantom functions were called from unclean imports</li></ol><p>To fix that, I added <code>clear()</code> function to make global Table a blank table and delete all imports.
 It is called at the end of <code>evaluate()</code> and <code>eval()</code> (which is a light version of <code>evaluate()</code>).
 But it was treating a symptom, not dealing with a problem. I plan to make it possible to run
-multiple threads in parallel. So I need to remove these globals (probably I can create an array of
+multiple threads in parallel. So I need to remove these globals. Probably I can create an array of
 global tables, each thread will write to a separate table, although
 I would like to make stateless code, not add another crutch.</p><p>Then I discovered same problems with tests that check failure behavior. Particularly check whether
 exceptions are thrown correctly. It appeared they
