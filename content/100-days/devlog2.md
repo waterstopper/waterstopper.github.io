@@ -18,7 +18,7 @@ assigned. For example:
 
 ```kotlin
 class Start {
-    a = mid.end.endProperty // a is not assigned until mid, end and endProperty aren't
+    a = mid.end.endProperty // a is not assigned until mid, end and endProperty are
     mid = Middle()
     mid.end.addedEndProperty = "anotherEndValue" /** it is applicable for
         left hand-side of assignment too. mid and end need to be assigned first
@@ -34,14 +34,14 @@ class End {
 
 ### Adding state, encountering problems
 
-For convenience, I added state to the link instance:
+For convenience, I added these properties to the link instance:
 
 * `index`: index of currently resolved child
 * `currentVariable`: value of currently resolved child
 * `currentParent`: previously resolved child
 * `table`: symbolTable with `currentVariable` as `variableTable`
 * `initialTable`: symbolTable before link
-  evaluation, used to resolve function arguments:
+  evaluation, used to resolve function arguments. It is useful in the following code:
 
 ```kotlin
 class A {
@@ -49,8 +49,9 @@ class A {
     b = B()
     fun aFunction() {
         b.bFun(a, b) /** here table will change variableTable to B instance, therefore a and b
-         properties will ot be found for bFun call.
-         **/
+            properties will not be found for bFun call. That's why invocation arguments are resolved
+            using initialTable
+            **/
     }
 }
 class B {
@@ -76,15 +77,16 @@ class Nothing() {
 }
 ```
 
-In that case variable values weren't cleared. I might've come up with some hack, but again, I knew
-that was bad
+In that case, when calling `str()`, variable values weren't cleared. I might've come up with some
+hack, but again, I knew that was bad
 solution. Link represents a token, it is not a place to store evaluation values. So I moved state
 to function arguments. Link is still a poorly written class that has bugs. I work on fixing them
 and refactoring Link.
 
 [^1]: Identifier is a word, starting with a letter. All other symbols are letters, underscores or
 numbers
-[^2]: Index is a token for getting a value form string, array or dictionary. It is identifier with
-square brackets. Square brackets contain index (or a key, if identifier is a name of a dictionary)
-[^3]: Invocation is function call or class constructor. `call(a+b, someArgument=value)`
-, `ClassA(propertyName = value)`
+[^2]: Index is a token for getting a value from string, array or dictionary. It is an identifier
+with square brackets. Square brackets contain index (or a key, if identifier is a name of a
+dictionary). `arrayName[2]`, `dictionaryName["key"]`
+[^3]: Invocation is a function call or a class constructor. `call(a+b, someArgument=value)`
+, `ClassA(propertyName=value)`
