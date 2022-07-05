@@ -30,3 +30,5 @@ parser classification to parsers,
 3. added non-formal grammars section to [grammars post](100-days/introduction-to-grammars),
 
 4 July: [Devlog 1. Bad globals](100-days/devlog1)
+
+5 July: [Devlog 2. Link class. Removing state](100-days/devlog2)
