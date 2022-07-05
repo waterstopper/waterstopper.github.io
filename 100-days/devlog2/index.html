@@ -1,0 +1,130 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="Link class is for evaluating links. A link is a statement in form of a.b.c, where all expressions after dots (in this case b and c) are either identifiers1, indexes2 or invocations3."><title>Devlog 2. Link class. Removing state</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/svg href=https://alex5041.github.io//avatar.svg><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code:wght@400;700&display=swap" rel=stylesheet><link href=https://alex5041.github.io/styles.f811980eeb0ad579a3b6a7a4d13552a4.min.css rel=stylesheet><script src=https://alex5041.github.io/js/darkmode.46b07878b7f5d9e26ad7a3c40f8a0605.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script src=https://alex5041.github.io/js/popover.b09d478d74c2f86dcb7758afddc318bf.min.js></script>
+<script>const BASE_URL="https://alex5041.github.io/",fetchData=Promise.all([fetch("https://alex5041.github.io/indices/linkIndex.6047598e6add32c275a1d0b6efc49b5a.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://alex5041.github.io/indices/contentIndex.f7ed90d7b624b1268f460fe1c573a09b.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n}))</script><script type=module>
+    import { attachSPARouting } from 'https:\/\/alex5041.github.io\/js\/router.88d6def7f687fe498bfc6de6c16d554b.min.js';
+    
+    const draw = () => {
+      const container = document.getElementById("graph-container")
+      
+      if (!container) return requestAnimationFrame(draw)
+      
+      container.textContent = ""
+
+      drawGraph(
+        "https://alex5041.github.io",
+        [{"/moc":"var(--tertiary)"}],
+         -1 ,
+         true ,
+         true ,
+         true 
+      );
+
+      
+      initPopover("https://alex5041.github.io",  true )
+      
+      
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        throwOnError : false
+      });
+      
+    };
+    attachSPARouting(draw);
+  </script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-XYFD95KB4J"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XYFD95KB4J",{anonymize_ip:!1})}</script><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=https://alex5041.github.io/js/search.7c24ccf709dbc2daa3900b46c3269409.min.js></script><div class=singlePage><header><h1 id=page-title><a href=https://alex5041.github.io/>WaterStop</a></h1><svg tabindex="0" id="search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg><div class=spacer></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>Devlog 2. Link class. Removing state</h1><p class=meta>Last updated July 6, 2022</p><ul class=tags></ul><p>Link class is for evaluating links. A link is a statement in form of <code>a.b.c</code>, where all expressions
+after dots (in this case <code>b</code> and <code>c</code>) are either identifiers<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, indexes<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> or invocations<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.
+Expression before the dot is anything, even the ternary operator.
+These expressions are link children.</p><a href=#link-evaluation><h3 id=link-evaluation><span class=hanchor arialabel=Anchor># </span>Link evaluation</h3></a><p>Links are resolved iteratively, starting from the first expression. Every evaluated expression
+returns a property (a type or a primitive). But the first child might be a name of an imported
+file, therefore it is resolved differently from all the next children.</p><p>During dynamic creation of a class it is important to know what parts of the link are
+assigned. For example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>class</span> <span class=nc>Start</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>a</span> <span class=p>=</span> <span class=n>mid</span><span class=p>.</span><span class=n>end</span><span class=p>.</span><span class=n>endProperty</span> <span class=c1>// a is not assigned until mid, end and endProperty aren&#39;t
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>mid</span> <span class=p>=</span> <span class=n>Middle</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>mid</span><span class=p>.</span><span class=n>end</span><span class=p>.</span><span class=n>addedEndProperty</span> <span class=p>=</span> <span class=s2>&#34;anotherEndValue&#34;</span> <span class=cm>/** it is applicable for
+</span></span></span><span class=line><span class=cl><span class=cm>        left hand-side of assignment too. mid and end need to be assigned first
+</span></span></span><span class=line><span class=cl><span class=cm>        **/</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Middle</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>end</span> <span class=p>=</span> <span class=n>End</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>End</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>endProperty</span> <span class=p>=</span> <span class=s2>&#34;endValue&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#adding-state-encountering-problems><h3 id=adding-state-encountering-problems><span class=hanchor arialabel=Anchor># </span>Adding state, encountering problems</h3></a><p>For convenience, I added state to the link instance:</p><ul><li><code>index</code>: index of currently resolved child</li><li><code>currentVariable</code>: value of currently resolved child</li><li><code>currentParent</code>: previously resolved child</li><li><code>table</code>: symbolTable with <code>currentVariable</code> as <code>variableTable</code></li><li><code>initialTable</code>: symbolTable before link
+evaluation, used to resolve function arguments:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>class</span> <span class=nc>A</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>a</span> <span class=p>=</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>    <span class=n>b</span> <span class=p>=</span> <span class=n>B</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>fun</span> <span class=nf>aFunction</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>b</span><span class=p>.</span><span class=n>bFun</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>)</span> <span class=cm>/** here table will change variableTable to B instance, therefore a and b
+</span></span></span><span class=line><span class=cl><span class=cm>         properties will ot be found for bFun call.
+</span></span></span><span class=line><span class=cl><span class=cm>         **/</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>B</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>fun</span> <span class=nf>bFun</span><span class=p>(</span><span class=n>arg1</span><span class=p>,</span><span class=n>arg2</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// do something
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>These variables are cleared after the end of the evaluation. However, I didn&rsquo;t think about
+recursive functions:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>class</span> <span class=nc>A</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>a</span> <span class=p>=</span> <span class=k>if</span><span class=p>(</span><span class=n>iter</span> <span class=p>&lt;</span> <span class=m>5</span><span class=p>)</span> <span class=n>A</span><span class=p>()</span> <span class=k>else</span> <span class=n>Nothing</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>iter</span> <span class=p>=</span> <span class=k>if</span><span class=p>(</span><span class=n>parent</span> <span class=o>==</span> <span class=m>0</span><span class=p>)</span> <span class=m>0</span> <span class=k>else</span> <span class=n>parent</span><span class=p>.</span><span class=n>iter</span> <span class=cm>/** parent is a special property.
+</span></span></span><span class=line><span class=cl><span class=cm>        It returns an instance from which this instance is created or 0 **/</span>
+</span></span><span class=line><span class=cl>    <span class=k>fun</span> <span class=nf>str</span><span class=p>()</span> <span class=p>{</span><span class=k>return</span> <span class=s2>&#34;iter, &#34;</span> <span class=p>+</span> <span class=n>a</span><span class=p>.</span><span class=n>str</span><span class=p>()}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Nothing</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>fun</span> <span class=nf>str</span><span class=p>()</span> <span class=p>{</span> <span class=k>return</span> <span class=s2>&#34;end&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>In that case variable values weren&rsquo;t cleared. I might&rsquo;ve come up with some hack, but again, I knew
+that was bad
+solution. Link represents a token, it is not a place to store evaluation values. So I moved state
+to function arguments. Link is still a poorly written class that has bugs. I work on fixing them
+and refactoring Link.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Identifier is a word, starting with a letter. All other symbols are letters, underscores or
+numbers&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Index is a token for getting a value form string, array or dictionary. It is identifier with
+square brackets. Square brackets contain index (or a key, if identifier is a name of a dictionary)&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>Invocation is function call or class constructor. <code>call(a+b, someArgument=value)</code>
+, <code>ClassA(propertyName = value)</code>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></article><hr><div class=page-end><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li><a href=/100-days/100-writing-days/ data-ctx="Devlog 2. Link class. Removing state" data-src=/100-days/100-writing-days class=internal-link>100 writing days</a></li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=https://alex5041.github.io/js/graph.0eb0c81d58a703569f31b6053242af38.js></script></div></div><div id=contact_buttons><footer><p>Made by WaterStop, © 2022</p><ul><li><a href=/>Home</a></li><li><a href=https://waterstop.itch.io>Itch.io</a></li><li><a href=https://github.com/alex5041>Github</a></li><li><a href=https://twitter.com/>Twitter</a></li></ul></footer></div></div></body></html>
