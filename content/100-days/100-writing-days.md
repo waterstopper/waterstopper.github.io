@@ -33,4 +33,4 @@ parser classification to parsers,
 
 5 July: [Devlog 2. Link class. Removing state](100-days/devlog2)
 
-6 July: [Shallow traits of a villain](100-days/shallow-villain-traits)
+6 July: [Shallow traits of a villain](100-days/shallow-villain-traits). Update a page to view
