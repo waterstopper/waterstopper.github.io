@@ -23,14 +23,16 @@ Links to all articles:
 
 2 July: [Introduction to grammars](100-days/introduction-to-grammars)
 
-3 July: 
-1. [Parsers](100-days/parsers), 
+3 July:
+
+1. [Parsers](100-days/parsers),
 2. added CST definition to [AST post](100-days/ast) and moved
-parser classification to parsers, 
+   parser classification to parsers,
 3. added non-formal grammars section to [grammars post](100-days/introduction-to-grammars),
 
 4 July: [Devlog 1. Bad globals](100-days/devlog1)
 
 5 July: [Devlog 2. Link class. Removing state](100-days/devlog2)
 
-6 July: [Shallow traits of a villain](100-days/shallow-villain-traits). Update a page to view
+6 July: [Shallow traits of a villain](100-days/shallow-villain-traits). Update a page to view.
+Similarly, update on return
