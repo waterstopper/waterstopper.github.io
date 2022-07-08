@@ -37,4 +37,6 @@ Links to all articles:
 6 July: [Shallow traits of a villain](100-days/shallow-villain-traits). Update a page to view.
 Similarly, update on return
 
-7 July: [Multithreading. Primitive tools, definitions](100-days/multithreading)
+7 July: [Multithreading. Primitive tools, definitions](100-days/multithreading1)
+
+8 July: [Multithreading. Problems](100-days/multithreading2)
