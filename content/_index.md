@@ -2,7 +2,7 @@
 title: WaterStop
 ---
 
-Hello! My name is Alex and I'm a programmer. On [itch.io](https://waterstop.itch.io/) I put
+Hello! My name is Alex, and I'm a software engineer. On [itch.io](https://waterstop.itch.io/) I put
 my playable projects
 
 # Site content 

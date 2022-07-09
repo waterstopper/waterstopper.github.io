@@ -40,3 +40,5 @@ Similarly, update on return
 7 July: [Multithreading. Primitive tools, definitions](100-days/multithreading1)
 
 8 July: [Multithreading. Problems](100-days/multithreading2)
+
+9 July: [Quality of life](100-days/quality-of-life)
