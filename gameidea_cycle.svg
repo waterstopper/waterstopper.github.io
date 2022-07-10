@@ -1,308 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="191.25464mm"
-   height="125.41003mm"
-   viewBox="0 0 191.25464 125.41003"
-   version="1.1"
-   id="svg8"
-   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="gameidea_cycle.svg">
-  <defs
-     id="defs2">
-    <marker
-       style="overflow:visible"
-       id="marker1916"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Lend"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
-         id="path1914" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="marker1906"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Lend"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
-         id="path1904" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="marker1872"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Lend"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
-         id="path1870" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="marker1844"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Lend"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
-         id="path1842" />
-    </marker>
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect1828"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect1824"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect1820"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect1816"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-    <marker
-       style="overflow:visible"
-       id="Arrow1Lend"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow1Lend"
-       inkscape:isstock="true">
-      <path
-         transform="matrix(-0.8,0,0,-0.8,-10,0)"
-         style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:1pt;stroke-opacity:1"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path1005" />
-    </marker>
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect1000"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-    <inkscape:path-effect
-       effect="bspline"
-       id="path-effect996"
-       is_visible="true"
-       lpeversion="1"
-       weight="33.333333"
-       steps="2"
-       helper_size="0"
-       apply_no_weight="true"
-       apply_with_weight="true"
-       only_selected="false" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect835" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect835-4" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect860" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect835-0" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect912" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect835-8" />
-    <rect
-       x="66.817383"
-       y="43.564934"
-       width="91.94072"
-       height="45.703091"
-       id="rect912-6" />
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="259.70149"
-     inkscape:cy="403.6534"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata5">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-12.831351,-18.383467)">
-    <text
-       xml:space="preserve"
-       id="text833"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#rect835);fill:var(--dark);fill-opacity:1;stroke:none"
-       x="0"
-       y="0"
-       transform="translate(-7.1815478,-25.702381)"><tspan
-         x="69.919061"
-         y="52.643438"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">Come up with a </tspan></tspan><tspan
-         x="69.198178"
-         y="65.872564"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">new great game </tspan></tspan><tspan
-         x="101.9015"
-         y="79.10169"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">idea</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text833-1"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#rect835-4);fill:var(--dark);fill-opacity:1;stroke:none;"
-       x="0"
-       y="0"
-       transform="translate(52.508081,37.277438)"><tspan
-         x="73.603579"
-         y="52.643438"><tspan
-           style="shape-inside:url(#rect835-4)">Create a game</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text833-2"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#rect835-0);fill:var(--dark);fill-opacity:1;stroke:none;"
-       x="0"
-       y="0"
-       transform="translate(-5.7002527,74.319105)"><tspan
-         x="73.228926"
-         y="52.643438"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">It is not fun to </tspan></tspan><tspan
-         x="101.61987"
-         y="65.872564"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">play</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text833-7"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#rect835-8);fill:var(--dark);fill-opacity:1;stroke:none;"
-       x="0"
-       y="0"
-       transform="translate(-70.712158,38.411366)"><tspan
-         x="82.639175"
-         y="52.643438"><tspan
-           style="shape-inside:url(#rect835-8)">Frustration</tspan></tspan></text>
-    <path
-       style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1844)"
-       d="m 159.12797,29.860118 c 11.59155,0.503981 23.18282,1.00795 29.35631,8.504755 6.17348,7.496805 6.92942,21.985603 7.68536,36.474411"
-       id="path1814"
-       inkscape:path-effect="#path-effect1816"
-       inkscape:original-d="m 159.12797,29.860118 c 11.59154,0.504232 23.18281,1.008203 34.77381,1.511906 0.75623,14.489641 1.51217,28.978439 2.26786,43.46726" />
-    <path
-       style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1916)"
-       d="m 194.27976,103.94345 c -3.02386,12.09542 -6.04767,24.19066 -13.79614,29.73422 -7.74847,5.54356 -20.22143,4.53565 -32.69493,3.52769"
-       id="path1818"
-       inkscape:path-effect="#path-effect1820"
-       inkscape:original-d="m 194.27976,103.94345 c -3.02355,12.0955 -6.04736,24.19074 -9.07143,36.28571 -12.4732,-1.00769 -24.94616,-2.0156 -37.41964,-3.0238" />
-    <path
-       style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1872)"
-       d="m 60.47619,134.18155 c -10.331092,0.25198 -20.662441,0.50396 -26.710185,-5.41764 -6.047744,-5.9216 -7.811597,-18.01659 -9.575529,-30.112126"
-       id="path1822"
-       inkscape:path-effect="#path-effect1824"
-       inkscape:original-d="M 60.47619,134.18155 C 50.145105,134.4338 39.813756,134.68578 29.482142,134.9375 27.718483,122.84228 25.954629,110.74729 24.190476,98.651784" />
-    <path
-       style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1906)"
-       d="M 23.434524,74.839284 C 22.426607,60.35048 21.41867,45.861391 26.710568,38.301714 32.002466,30.742037 43.593502,30.112089 55.184523,29.482142"
-       id="path1826"
-       inkscape:path-effect="#path-effect1828"
-       inkscape:original-d="M 23.434524,74.839284 C 22.426852,60.350463 21.418915,45.861374 20.410714,31.372024 32.002481,30.742315 43.593517,30.112366 55.184523,29.482142" />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="722.852" height="473.991"
+     viewBox="0 0 191.255 125.41">
+    <defs>
+        <marker style="overflow:visible" id="f" refX="0" refY="0" orient="auto">
+            <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
+                  d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
+                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+        </marker>
+        <marker style="overflow:visible" id="h" refX="0" refY="0" orient="auto">
+            <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
+                  d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
+                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+        </marker>
+        <marker style="overflow:visible" id="g" refX="0" refY="0" orient="auto">
+            <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
+                  d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
+                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+        </marker>
+        <marker style="overflow:visible" id="e" refX="0" refY="0" orient="auto">
+            <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
+                  d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
+                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+        </marker>
+        <path id="a" d="M66.817 43.565h91.941v45.703H66.817z"/>
+        <path id="b" d="M66.817 43.565h91.941v45.703H66.817z"/>
+        <path id="c" d="M66.817 43.565h91.941v45.703H66.817z"/>
+        <path id="d" d="M66.817 43.565h91.941v45.703H66.817z"/>
+    </defs>
+    <text xml:space="preserve"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#a);fill:var(--dark);fill-opacity:1;stroke:none"
+          transform="translate(30 -44.086)"><tspan x="79.919" y="52.643"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">Come up with a </tspan></tspan>
+        <tspan x="82.198" y="65.873"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">new great game </tspan></tspan>
+        <tspan x="60.901" y="79.102"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">idea</tspan></tspan></text>
+    <text xml:space="preserve"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#b);fill:var(--dark);fill-opacity:1;stroke:none"
+          transform="translate(39.677 18.894)"><tspan x="73.604" y="52.643"><tspan style="shape-inside:url(#b)">Create a game</tspan></tspan></text>
+    <text xml:space="preserve"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#c);fill:var(--dark);fill-opacity:1;stroke:none"
+          transform="translate(40 55.936)"><tspan x="73.229" y="52.643"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">It is not fun to </tspan></tspan>
+        <tspan x="55.62" y="65.873"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">play</tspan></tspan></text>
+    <text xml:space="preserve"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#d);fill:var(--dark);fill-opacity:1;stroke:none"
+          transform="translate(-83.544 20.028)"><tspan x="82.639" y="52.643"><tspan style="shape-inside:url(#d)">Frustration</tspan></tspan></text>
+    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#e)"
+          d="M159.128 29.86c11.592.504 23.183 1.008 29.356 8.505 6.174 7.497 6.93 21.985 7.686 36.474"
+          transform="translate(-12.831 -18.383)"/>
+    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#f)"
+          d="M194.28 103.943c-3.024 12.096-6.048 24.191-13.796 29.735-7.749 5.543-20.222 4.535-32.695 3.527"
+          transform="translate(-12.831 -18.383)"/>
+    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#g)"
+          d="M60.476 134.182c-10.33.252-20.662.504-26.71-5.418-6.048-5.922-7.812-18.017-9.576-30.112"
+          transform="translate(-12.831 -18.383)"/>
+    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#h)"
+          d="M23.435 74.84c-1.008-14.49-2.016-28.979 3.276-36.538 5.291-7.56 16.883-8.19 28.474-8.82"
+          transform="translate(-12.831 -18.383)"/>
 </svg>
