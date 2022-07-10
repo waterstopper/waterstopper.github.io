@@ -42,3 +42,5 @@ Similarly, update on return
 8 July: [Multithreading. Problems](100-days/multithreading2)
 
 9 July: [Quality of life](100-days/quality-of-life)
+
+10 July: [Why game making is not for me](100-days/why-gamemaking-is-not-for-me)
