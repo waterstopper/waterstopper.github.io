@@ -81,6 +81,10 @@ But I think it is possible to write an interpreter for any compiled language and
 interpreted language. Therefore, language classification in terms of compiled/interpreted
 languages is suggestive, not mandatory.
 
+### Linker
+
+Linker is a program that links compiled files. It resolves imports.
+
 [^1]: I'm not sure that compiler cannot target multiple processors at once. ISA (Instruction set
 architecture) of processor is an important thing. Different processors with similar ISAs might be
 targeted by one compiler.

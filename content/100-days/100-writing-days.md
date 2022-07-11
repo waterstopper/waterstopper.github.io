@@ -44,3 +44,5 @@ Similarly, update on return
 9 July: [Quality of life](100-days/quality-of-life)
 
 10 July: [Why game making is not for me](100-days/why-gamemaking-is-not-for-me)
+
+11 July: Day off >_<
