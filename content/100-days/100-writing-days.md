@@ -46,3 +46,5 @@ Similarly, update on return
 10 July: [Why game making is not for me](100-days/why-gamemaking-is-not-for-me)
 
 11 July: Day off >_<
+
+12 July: after further consideration, I decided to take about 2 weeks off. 
