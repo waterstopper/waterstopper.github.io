@@ -1,0 +1,39 @@
+{
+  "folders": [
+    {
+      "name": "std"
+    },
+    {
+      "name": "generators"
+    }
+  ],
+  "files": [
+    {
+      "name": "intro.rgn"
+    },
+    {
+      "name": "math.rgn",
+      "parent": "std"
+    },
+    {
+      "name": "geometry2D.rgn",
+      "parent": "std"
+    },
+    {
+      "name": "svg.rgn",
+      "parent": "std"
+    },
+    {
+      "name": "plant.rgn",
+      "parent": "generators"
+    },
+    {
+      "name": "animal.rgn",
+      "parent": "generators"
+    },
+    {
+      "name": "house.rgn",
+      "parent": "generators"
+    }
+  ]
+}
