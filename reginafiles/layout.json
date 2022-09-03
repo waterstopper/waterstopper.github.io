@@ -1,13 +1,19 @@
 {
   "std": {
-    "math.rgn": "1",
-    "geometry2D.rgn": "1",
-    "svg.rgn": "1"
+    "isLib": "true",
+    "content": {
+      "math.rgn": "1",
+      "geometry2D.rgn": "1",
+      "svg.rgn": "1"
+    }
   },
   "generators": {
-    "plant.rgn": "1",
-    "animal.rgn" : "1",
-    "house.rgn": "1"
+    "isLib": "true",
+    "content": {
+      "plant.rgn": "1",
+      "animal.rgn": "1",
+      "house.rgn": "1"
+    }
   },
   "intro.rgn": "1"
 }
