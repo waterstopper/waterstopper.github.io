@@ -1,39 +1,13 @@
 {
-  "folders": [
-    {
-      "name": "std"
-    },
-    {
-      "name": "generators"
-    }
-  ],
-  "files": [
-    {
-      "name": "intro.rgn"
-    },
-    {
-      "name": "math.rgn",
-      "parent": "std"
-    },
-    {
-      "name": "geometry2D.rgn",
-      "parent": "std"
-    },
-    {
-      "name": "svg.rgn",
-      "parent": "std"
-    },
-    {
-      "name": "plant.rgn",
-      "parent": "generators"
-    },
-    {
-      "name": "animal.rgn",
-      "parent": "generators"
-    },
-    {
-      "name": "house.rgn",
-      "parent": "generators"
-    }
-  ]
+  "std": {
+    "math.rgn": "1",
+    "geometry2D.rgn": "1",
+    "svg.rgn": "1"
+  },
+  "generators": {
+    "plant.rgn": "1",
+    "animal.rgn" : "1",
+    "house.rgn": "1"
+  },
+  "intro.rgn": "1"
 }
