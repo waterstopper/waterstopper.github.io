@@ -65,7 +65,20 @@
     </tbody>
 </table>
 
+## Implicit type conversion
+
+In some cases it is convenient to automatically convert an operation result with operands of
+different types. Here are all the cases when operands of different types will be implicitly
+converted.
+
+```kotlin
+1 + 2.1 // Int
+"1" + 1 // = "11", String
+[1, 2] + 3 // = [1, 2, 3], Array
+```
+
 ## Arithmetic operators
 
-As there are integer and double values, there are type casts. Any arithmetic operation with integer and double wil
+As there are integer and double values, there are type casts. Any arithmetic operation with integer
+and double wil
 return double as a result.

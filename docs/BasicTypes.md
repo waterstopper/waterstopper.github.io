@@ -1,6 +1,6 @@
-# Basic types
+# Types
 
-There are three value types and two reference types.
+There are three value types and three reference types.
 
 ## Value types
 
@@ -8,7 +8,11 @@ There are three value types and two reference types.
 2. Double
 3. String
 
+**Note: Numeric system is similar to javascript. If floating part is 0, then number is Int,
+otherwise it is Double**
+
 ## Reference types
 
 1. Array
-2. Class instance
+2. Dictionary
+3. Class instance

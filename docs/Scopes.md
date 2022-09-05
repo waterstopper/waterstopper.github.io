@@ -1,6 +1,6 @@
 # Scopes
 
-Scopes define visibility of classes, functions. In GRVPL everything is public.
+Scopes define visibility of classes, functions. In Regina all top declarations are public.
 
 ## Global
 

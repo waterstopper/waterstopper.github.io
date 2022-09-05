@@ -1,4 +1,7 @@
-# Dynamic instantiation
+---
+title: "Dynamic instantiation"
+draft: true
+---
 
 Classes can have references to other classes inside them as
 properties. These property-classes are evaluated dynamically. Take a look at this example:
