@@ -1,0 +1,118 @@
+/**
+    exportArgs:
+        export: Bool = true - export or not
+        type: String = "element" - "attribute" or "element"
+        inParent: String = false - nest element inside parent element,
+            if both instances' type is "element"
+        name: String - name of exported attribute/element
+        value: Any - value of attribute node
+        attributes - Dictionary<String, Any> - all attributes are
+            added from dictionary to element
+
+*/
+object usedValues {
+    containers = ["group", "svg"]
+}
+
+// should have a name
+class Node {
+    attributes = []
+    children = []
+
+    fun toString() {
+        res = StringBuilder()
+        res.add("<" + this.name)
+        i = 0
+        while(i < attributes.size) {
+            res.add(" ")
+            res.add(attributes[i].toString())
+            i = i + 1
+        }
+        res.add(if(children.size == 0) "/>" else ">")
+        i = 0
+        while(i < children.size) {
+            res.add(children[i].toString())
+            i = i + 1
+        }
+        if(children.size != 0) {
+            res.add("<" + this.name + "/>")
+        }
+    }
+}
+// should have a name and a value
+class Attribute {
+    fun toString() {
+        return name + "=\"" + value + "\""
+    }
+}
+
+fun add(node, sb) {
+    containers = ["group, svg"]
+    added = node.exportArgs["exported"]
+    propertiesArray = array(node.properties)
+    attributes = array(node.exportArgs["attributes"])
+    if(added != 0) {
+        sb.add("<" + added)
+        i = 0
+        while(i < attributes.size) {
+
+            sb.add(attributes[i]["key"] + "=\"" + attributes[i]["value"] + "\"")
+            i = i + 1
+        }
+        sb.add(if(containers.has(added)) ">" else "/>")
+    }
+    if(containers.has(added)) {
+        i = 0
+        #stop
+        while(i < propertiesArray.size) {
+            if(propertiesArray[i]["value"].exportArgs["type"] == "node" \
+                && propertiesArray[i]["value"].exportArgs["inParent"]) {
+                add(propertiesArray[i]["value"], sb)
+                propertiesArray.removeAt(i)
+                i = i - 1
+            }
+            i = i + 1
+        }
+        sb.add("<" + added + "/>\n")
+    }
+    i = 0
+
+    while(i < propertiesArray.size) {
+        if((propertiesArray[i]["value"].properties["exportArgs"] != 0) \
+            && propertiesArray[i]["value"].exportArgs["type"] == "node" \
+            && (!propertiesArray[i]["value"].exportArgs["inParent"] && !containers.has(added))) {
+            if(propertiesArray[i]["key"]!="parent" && propertiesArray[i]["key"] != "this") {
+                add(propertiesArray[i]["value"], sb)
+               }
+            propertiesArray.removeAt(i)
+            i = i - 1
+        }
+        i = i + 1
+    }
+}
+
+fun addAttribute(node, sb) {
+    sb.add(" ")
+    sb.add(node.name)
+    sb.add("=\"" + node.properties["value"] + "\"")
+}
+
+fun create(root, width, height) {
+    sb = StringBuilder()
+    sb.add("<svg \"" + width + "\" height \"" + height + "\">\n")
+    add(root, sb)
+    sb.add("</svg>")
+    log(sb.toString())
+}
+
+class StringBuilder {
+    string = []
+    fun add(s) {
+        string.add(s)
+    }
+    fun toString() {
+        return string.joinToString("")
+    }
+}
+
+// class A : B -> ["exported":"svg", "inParent": true] {}
