@@ -153,6 +153,7 @@ button:hover {
 #bottom-left-panel {
     color: transparent;
     transition: color 0.3s ease;
+    background-color: var(--bg-color);
 }
 
 .top-gutter:hover,
@@ -162,7 +163,17 @@ button:hover {
 }
 
 #debug-panel {
-    color: var(--main-color)
+    color: var(--main-color);
+    background-color: var(--bg-color);
+}
+
+#settings-panel {
+    background-color: var(--bg-color);
+    z-index: 1;
+}
+
+#file-panel {
+    overflow-y: scroll;
 }
 
 #debug-button-panel {

@@ -9,17 +9,16 @@ import { closeTab } from "./tab.js";
 
 window.tabs = {};
 
-//localStorage.removeItem("closed")
 window.onbeforeunload = closingCode;
 function closingCode() {
     for (let [path, tab] of Object.entries(window.tabs)) closeTab(tab);
     return null;
 }
-document.getElementById("autosave").oninput = (e) => {
-    if (e.target.checked) {
-        localStorage.setItem("autosave", true);
-    } else localStorage.setItem("autosave", false);
-};
+// document.getElementById("autosave").oninput = (e) => {
+//     if (e.target.checked) {
+//         localStorage.setItem("autosave", true);
+//     } else localStorage.setItem("autosave", false);
+// };
 
 let fileMenu = document
     .getElementById("file-tree-menu")
@@ -74,11 +73,16 @@ fileMenu[2].onclick = () => {
     window.currentFile.parentElement.remove();
 };
 
-function showWarning(spanId, time = 1500) {
+function showWarning(spanId, time = 1500, additionalText = "") {
     const span = document.getElementById(spanId);
+    span.innerText += additionalText;
     span.style.display = "block";
     setTimeout(() => {
         span.style.display = "none";
+        span.innerText = span.innerText.substring(
+            0,
+            span.innerText.length - additionalText.length
+        );
     }, time);
 }
 

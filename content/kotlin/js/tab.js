@@ -194,7 +194,6 @@ function closeTab(tab) {
     delete tab.htmlElement;
     removeLineSelection(tab);
     localStorage.setItem(tab.path, JSON.stringify(tab));
-    console.log(localStorage.getItem(tab.path));
 }
 
 function removeLineSelection(tab) {
@@ -208,13 +207,6 @@ function removeOutOfLineBreakpoints(tab) {
     tab.bList = tab.bList.filter((element) => {
         element.range.startLineNumber <= numberOfLines;
     });
-}
-
-function findTab(path) {
-    let tabs = document.getElementsByClassName("tabs scrollable")[0];
-    for (let tab of tabs.children)
-        if (tab.getAttribute("path") == path) return tab;
-    return null;
 }
 
 export default {};

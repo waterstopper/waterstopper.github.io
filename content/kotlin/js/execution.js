@@ -5,6 +5,7 @@ import {
     addConsoleOutput,
 } from "./debug.js";
 import { showWarning } from "./index.js";
+import { createFileFromPath, setFileContent } from "./filetree.js";
 
 var worker;
 
@@ -61,7 +62,7 @@ async function handleWorkerMessage(e, withDebug, button) {
                         window.currentTab.bList
                     ),
                 },
-            }); //worker.postMessage([addBreakpointsToCode(), ""]);
+            });
             break;
         case "import":
             console.log(e.data);
@@ -75,7 +76,8 @@ async function handleWorkerMessage(e, withDebug, button) {
             });
             break;
         case "write":
-            console.log(e.data);
+            createFileFromPath(e.data.content.second_1, true);
+            setFileContent(e.data.content.second_1, e.data.content.first_1);
             break;
         case "finished":
             resetExecution(button);
@@ -98,8 +100,6 @@ async function handleWorkerMessage(e, withDebug, button) {
             break;
     }
 }
-
-function writeToFile() {}
 
 function resetExecution(button) {
     worker = null;
