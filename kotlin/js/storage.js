@@ -7,15 +7,7 @@
     files
     file tree files and their contents
 */
-
-function autosave() {
-    localStorage.setItem("code", window.editor.getValue());
-}
-
-var counter = 0;
-setInterval(function () {
-    autosave();
-}, 3000);
+import {createTree} from "./filetree.js"
 
 var holdingReset = false;
 var interval = null;
@@ -86,8 +78,6 @@ function setDefaults() {
     localStorage.setItem("leftSize", 33);
     localStorage.setItem("rightSize", 33);
     localStorage.setItem("consoleSize", 48);
-
-    localStorage.setItem("autosave", "true")
     localStorage.setItem("layout", "{}")
     localStorage.setItem(
         "main.rgn",
@@ -111,8 +101,6 @@ function openSettings() {
         localStorage.getItem("consoleEntries");
     document.getElementById("font-size").value =
         localStorage.getItem("fontSize");
-    document.getElementById("autosave").checked =
-        localStorage.getItem("autosave") == "true";
     updateFontSize();
 }
 
@@ -128,3 +116,5 @@ function changeTheme(themeName) {
 setDefaults();
 changeTheme(localStorage.getItem("theme"));
 openSettings();
+
+createTree()

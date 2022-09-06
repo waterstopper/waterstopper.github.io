@@ -573,7 +573,7 @@ var currentRoots;
                     currentRoots,
                     false
                 );
-            FileSystem_getInstance().write_kwtaoc_k$(path, content);
+            FileSystem_getInstance().write_kwtaoc_k$(path, content, true);
         };
         startImport = (startFileName) => {
             var tmp =
@@ -3621,7 +3621,6 @@ var currentRoots;
             return tmp;
         }
         var candidates = checkFiles(this, path, roots);
-        console.log(candidates, path, roots);
         if (candidates.isEmpty_y1axqb_k$()) {
             var tmp_0;
             if (importName instanceof Link) {
@@ -5285,6 +5284,7 @@ var currentRoots;
             }
             var node = tmp$ret$2;
             if (node == null) continue $l$loop;
+            var localSuperType = null;
             var tmp2_subject = node;
             var tmp;
             if (tmp2_subject instanceof Identifier) {
@@ -5312,14 +5312,20 @@ var currentRoots;
                                     break $l$block_3;
                                 }
                                 var t_5 = tmp$ret$4;
-                                tmp$ret$5 = t_5
+                                if (
+                                    t_5
                                     ._get_fileTable__504497375_8cd4nz_k$()
                                     .equals(
                                         type._get_fileTable__504497375_8cd4nz_k$()
                                     )
                                     ? t_5._get_name__804168992_das4rk_k$() ===
                                       node._get_value__3683422336_a43j40_k$()
-                                    : false;
+                                        : false
+                                )
+                                    localSuperType = t_5;
+                                tmp$ret$5 =
+                                    t_5._get_name__804168992_das4rk_k$() ===
+                                    node._get_value__3683422336_a43j40_k$();
                                 break $l$block_4;
                             }
                             if (tmp$ret$5) {
@@ -5447,6 +5453,9 @@ var currentRoots;
                 }
             }
             var superType = tmp;
+            if (!(localSuperType == null))
+                type._set_supertype__3811820336_k43hjc_k$(localSuperType);
+            else {
             if (!(superType._get_size__809037418_ddoh9m_k$() === 1)) {
                 throw PositionalException_init_$Create$(
                     "One super type not found",
@@ -5462,6 +5471,7 @@ var currentRoots;
                 first_0(superType._get_keys__801529559_d97k5z_k$())
             );
         }
+    }
     }
     function analyzeSemantics(startingFileName, roots, nodes) {
         var importGraphCreator = new ImportGraphCreator(
@@ -16524,8 +16534,13 @@ var currentRoots;
         }
         return tmp;
     };
-    FileSystem.prototype.write_kwtaoc_k$ = function (path, content) {
-        sendMessage(new Message("write", new Pair(path, content)));
+    FileSystem.prototype.write_kwtaoc_k$ = function (
+        path,
+        content,
+        written = false
+    ) {
+        if (!written)
+            sendMessage(new Message("write", new Pair(path, content)));
         {
             var tmp0_set_0 = this.fileSystem_1;
             tmp0_set_0.put_3mhbri_k$(path, content);
@@ -16608,7 +16623,7 @@ var currentRoots;
 });
 
 onmessage = (e) => {
-    console.log("Message in worker", e.data);
+    console.log("Message in worker");
     try {
         switch (e.data.data) {
             case "write":

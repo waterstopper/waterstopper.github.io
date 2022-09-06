@@ -1,4 +1,5 @@
 import { openTab } from "./tab.js";
+import { showWarning } from "./index.js";
 
 function getPath(fileElement) {
     let res = [];
@@ -26,13 +27,13 @@ function createTree() {
             }
             if (fileSystem["main.rgn"] == null) {
                 fileSystem["main.rgn"] = "1";
-
-                localStorage.setItem("layout", JSON.stringify(fileSystem));
-            }
-            setEmptyFile(
+                setFileContent(
                 "main.rgn",
                 `fun main() {\\n\\tlog(\\"Hello, World!\\") \\n}`
             );
+                localStorage.setItem("layout", JSON.stringify(fileSystem));
+            }
+
             addFolderBeforeLoad(
                 document.getElementById("file-tree"),
                 fileSystem,
@@ -47,8 +48,8 @@ function createTree() {
             );
             openTab("main.rgn", false);
         })
-        .catch((_) => {
-            console.log("Could not load");
+        .catch((e) => {
+            console.log("Could not load", e);
         });
 }
 
@@ -237,7 +238,7 @@ function addTreeElement(
     input.oninput = () => {
         input.style.width = input.value.length + "ch";
     };
-    function removeElement() {
+    function removeInputElement() {
         let name = fixFileName(input.value) + (isFolder ? "" : ".rgn");
         let element = isFolder
             ? createFolder(name, folderName, parent)
@@ -246,13 +247,13 @@ function addTreeElement(
         divInput.remove();
 
         let path = element.getAttribute("path");
-        element.innerText = addFile(path.split("/"));
+        element.innerText = addFileToLayout(path.split("/"));
         element.setAttribute(
             "path",
             path.substring(0, path.lastIndexOf("/") + 1) + element.innerText
         );
         path = element.getAttribute("path");
-        setEmptyFile(path);
+        setFileContent(path);
     }
 
     let pressed = false;
@@ -260,17 +261,17 @@ function addTreeElement(
         if (e.key.toLowerCase() != "enter") return;
         if (pressed) return;
         pressed = true;
-        removeElement();
+        removeInputElement();
     }
     input.onblur = () => {
         if (pressed) return;
-        removeElement();
+        removeInputElement();
     };
     addEventListener("keydown", handleEnterPress);
     input.focus();
 }
 
-function setEmptyFile(path, code = "") {
+function setFileContent(path, code = "") {
     localStorage.setItem(
         path,
         `{"state":{
@@ -285,21 +286,30 @@ function setEmptyFile(path, code = "") {
             "bList":[],
         "code":"${code}"}`
     );
+    if (path == "result.svg") {
+        document.getElementById("svg-result").innerHTML = code;
+    }
 }
 
-function addFile(path) {
+function addFileToLayout(path, overwrite = false) {
     let fileSystem = JSON.parse(localStorage.getItem("layout"));
     let fileName = path[path.length - 1];
     let folderNames = path.slice(0, -1);
     let currentFolder = fileSystem;
     for (let folderName of folderNames) {
-        console.log(currentFolder, folderName);
         currentFolder = currentFolder[folderName].content;
     }
+    if (overwrite)
+        currentFolder[fileName] = fileName.includes(".")
+            ? "1"
+            : { isLib: "false", content: {} };
+    else {
+        console.log("new")
     while (currentFolder[fileName] != null) fileName = nextName(fileName);
     currentFolder[fileName] = fileName.includes(".")
         ? "1"
         : { isLib: "false", content: {} };
+    }
     localStorage.setItem("layout", JSON.stringify(fileSystem));
     return fileName;
 }
@@ -339,18 +349,44 @@ function nextName(fileName) {
 }
 
 function getFolderUlByName(parent, name) {
+    console.log(parent, name);
     for (let element of parent.getElementsByTagName("li")) {
-        if (element.getElementsByClassName("span")[0].innerText == name)
+        let span = element.getElementsByTagName("span")[0];
+        if (span.innerText == name) {
+            if (span.getAttribute("lib") != null) {
+                return null;
+            }
             return element.getElementsByTagName("ul")[0];
     }
 }
+}
 
-createTree();
+function createFileFromPath(path, overwrite = false) {
+    let folders = path.split("/");
+    let fileName = folders[folders.length - 1];
+    folders = folders.slice(0, folders.length - 1);
+    let parent = document.getElementById("file-tree");
+    let folderName = "";
+    for (folderName of folders) {
+        parent = getFolderUlByName(parent, folderName);
+        if (parent == null) {
+            showWarning("add-library-folders", 1500, ": " + path);
+            return;
+        }
+    }
+    console.log(overwrite)
+    let newName = addFileToLayout(path.split("/"), overwrite);
+    if (!overwrite) {
+        createFile(newName, folderName, parent);
+    }
+}
 
 export {
     createLeaf,
     createParent,
     addTreeElement,
     deleteFile,
-    getFolderUlByName,
+    createFileFromPath,
+    setFileContent,
+    createTree
 };

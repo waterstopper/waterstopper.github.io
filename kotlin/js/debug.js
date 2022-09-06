@@ -223,6 +223,7 @@ function createCollection(
             );
         else if (parentText.getAttribute("cType") == "Type")
             addChildrenToType(tree, scope, parentText.getAttribute("cValue"));
+            parentText.setAttribute("added", "true")
     };
 }
 
@@ -266,7 +267,6 @@ function addChildrenToArray(arrayElement, scope, id) {
             createNonCollection(i, child.second_1, child.first_1, arrayElement);
         i++;
     }
-    arrayElement.setAttribute("added", "true");
 }
 
 function treeFromCaret(caret) {
@@ -321,7 +321,6 @@ function addChildrenToDictionary(dictElement, scope, id) {
                 tree
             );
     }
-    dictElement.setAttribute("added", "true");
 }
 
 function addChildrenToType(typeElement, scope, id) {
@@ -344,7 +343,6 @@ function addChildrenToType(typeElement, scope, id) {
                 tree
             );
     }
-    typeElement.setAttribute("added", "true");
 }
 
 function getType(id, scope) {

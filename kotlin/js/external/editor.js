@@ -359,9 +359,9 @@ require(["vs/editor/editor.main"], function () {
 
     window.editor = monaco.editor.create(document.getElementById("container"), {
         value:
-            localStorage.getItem("code") == null
-                ? ["class Rope {", "\tpoints = []", "}"].join("\n")
-                : localStorage.getItem("code"),
+            localStorage.getItem("main.rgn") == null
+                ? ["Hello, it is your first visit!", "Reload the page to proceed", ""].join("\n")
+                : JSON.parse(localStorage.getItem("main.rgn")).code,
         language: "Regina",
         glyphMargin: true,
         fontFamily: "Fira Code",
