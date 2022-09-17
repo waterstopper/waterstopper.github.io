@@ -2,6 +2,14 @@
 title: "Visibility scopes"
 ---
 
+{{ <ref .PAGE> }}
+
+{{< title_reference "https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature" "abc" >}}
+
+[About]({{< ref "/regina/scopes" >}})
+
+[A](regina/scopes/#global-scope)
+
 All scopes, sorted from the most visible to the least:
 
 ## Global scope
@@ -109,10 +117,10 @@ Function signature consists of:
 Priority:
 
 1. [Global](regina/syntax) function
-2. [Global](alex5041.github.io/regina/scopes/#global-scope) function
+2. [Global](https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature) function
 3. Class instance function
 4. [About]({{< ref "regina/syntax.md" >}})
-5. [About]({{< ref "regina/syntax.md" >}} "About us")
+5. {{< relref "#global-scope" >}}
 
 This is due to the fact that class instance function can be called with `this.` prefix. Current
 class function does not have a prefix to be called with.
