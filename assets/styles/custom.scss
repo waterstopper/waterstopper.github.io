@@ -1,4 +1,5 @@
 // Add your own CSS here!
+
 :root {
   --light: #faf8f8;
   --dark: #141021;
@@ -12,24 +13,30 @@
   --million-progress-bar-color: var(--secondary);
 
   // colorful
+  --identifier: #820d7c;
+  --keyword: #6197d3;
+  --string: #c29580;
+  --number: #6a8759;
+  --link: #820d7c;
+  --comment: #6a8759;
+
   --maintext: #000000;
   --background: #ffffff;
   --highlight: #44475a;
-  --keyword: #080;
+  //--keyword: #080;
   --linenumber: #7f7f7f;
   --variable: #0e84b5;
   --name: #B06;
-  --string: #D42;
-  --number: #60E;
-  --comment: #888;
+  //--string: #D42;
+  //--number: #60E;
+  //--comment: #888;
 
   --fontstylename: normal;
   --weightname: bold;
   --weightkeyword: bold;
 }
 
-
-[saved-theme=dark] {
+[saved-theme="dark"] {
   --light: #1e1e21 !important;
   --dark: #fbfffe !important;
   --secondary: #bd93f9;//#6b879a !important;
@@ -40,154 +47,29 @@
   --lightgray: #292633 !important;
   --outlinegray: #343434 !important;
 
+
+  --identifier: #cfcfc2;
+  --keyword: #ff79c6;
+  --string: #f1fa8c;
+  --number: #e69749;
+  --link: #820d7c;
+  --comment: #6272a4;
   // dracula
   --maintext: #f8f8f2;
   --background: #282a36;
   --highlight: #44475a;
-  --keyword: #ff7ec6;
+  //--keyword: #ff7ec6;
   --linenumber: #7f7f7f;
   --variable: #8be9fd;
   --name: #50fa7b;
-  --string: #bd93f9;
-  --number: #ffb86c;
-  --comment: #6272a4;
+  //--string: #bd93f9;
+  //--number: #ffb86c;
+  //--comment: #6272a4;
 
   --fontstylename: italic;
   --weightname: normal;
   --weightkeyword: normal;
 }
 
-[saved =''] {
-  --Whitespace: #f8f8f2;
 
-  --Comment: #6272a4;
-  --CommentHashbang: #6272a4;
-  --CommentMultiline: #6272a4;
-  --CommentPreproc: #ff79c6;
-  --CommentSingle: #6272a4;
-  --CommentSpecial: #6272a4;
 
-  --Generic: #f8f8f2;
-  --GenericDeleted: #8b080b;
-  --GenericEmph: #f8f8f2 underline;
-  --GenericError: #f8f8f2;
-  --GenericHeading: #f8f8f2 bold;
-  --GenericInserted: #f8f8f2 bold;
-  --GenericOutput: #44475a;
-  --GenericPrompt: #f8f8f2;
-  --GenericStrong: #f8f8f2;
-  --GenericSubheading: #f8f8f2 bold;
-  --GenericTraceback: #f8f8f2;
-
-  --Error: #f8f8f2;
-  --Keyword: #ff79c6;
-  --KeywordConstant: #ff79c6;
-  --KeywordDeclaration: #8be9fd italic;
-  --KeywordNamespace: #ff79c6;
-  --KeywordPseudo: #ff79c6;
-  --KeywordReserved: #ff79c6;
-  --KeywordType: #8be9fd;
-  --Literal: #f8f8f2;
-  --LiteralDate: #f8f8f2;
-  --Name: #f8f8f2;
-  --NameAttribute: #50fa7b;
-  --NameBuiltin: #8be9fd italic;
-  --NameBuiltinPseudo: #f8f8f2;
-  --NameClass: #50fa7b;
-  --NameConstant: #f8f8f2;
-  --NameDecorator: #f8f8f2;
-  --NameEntity: #f8f8f2;
-  --NameException: #f8f8f2;
-  --NameFunction: #50fa7b;
-  --NameLabel: #8be9fd italic;
-  --NameNamespace: #f8f8f2;
-  --NameOther: #f8f8f2;
-  --NameTag: #ff79c6;
-  --NameVariable: #8be9fd italic;
-  --NameVariableClass: #8be9fd italic;
-  --NameVariableGlobal: #8be9fd italic;
-  --NameVariableInstance: #8be9fd italic;
-  --Number: #ffb86c;
-  --NumberBin: #ffb86c;
-  --NumberFloat: #ffb86c;
-  --NumberHex: #ffb86c;
-  --NumberInteger: #ffb86c;
-  --NumberIntegerLong: #ffb86c;
-  --NumberOct: #ffb86c;
-  --Operator: #ff79c6;
-  --OperatorWord: #ff79c6;
-  --Other: #f8f8f2;
-  --Punctuation: #f8f8f2;
-  --String: #bd93f9;
-  --StringBacktick: #bd93f9;
-  --StringChar: #bd93f9;
-  --StringDoc: #bd93f9;
-  --StringDouble: #bd93f9;
-  --StringEscape: #bd93f9;
-  --StringHeredoc: #bd93f9;
-  --StringInterpol: #bd93f9;
-  --StringOther: #bd93f9;
-  --StringRegex: #bd93f9;
-  --StringSingle: #bd93f9;
-  --StringSymbol: #bd93f9;
-  --Text: #f8f8f2;
-}
-
-//:styles {
-//  --Whitespace:                #bbbbbb;
-//
-//  --Comment:                   #888;
-//  --CommentPreproc:           #579;
-//  --CommentSpecial:           bold #cc0000;
-//
-//  --Keyword:                   bold #080;
-//  --KeywordPseudo:            #038;
-//  --KeywordType:              #339;
-//
-//  --Operator:                  #333;
-//  --OperatorWord:             bold #000;
-//
-//  --NameBuiltin:              #007020;
-//  --NameFunction:             bold #06B;
-//  --NameClass:                bold #B06;
-//  --NameNamespace:            bold #0e84b5;
-//  --NameException:            bold #F00;
-//  --NameVariable:             #963;
-//  --NameVariableInstance:    #33B;
-//  --NameVariableClass:       #369;
-//  --NameVariableGlobal:      bold #d70;
-//  --NameConstant:             bold #036;
-//  --NameLabel:                bold #970;
-//  --NameEntity:               bold #800;
-//  --NameAttribute:            #00C;
-//  --NameTag:                  #070;
-//  --NameDecorator:            bold #555;
-//
-//  --String:                    bg:#fff0f0;
-//  --StringChar:               #04D bg:;
-//  --StringDoc:                #D42 bg:;
-//  --StringInterpol:           bg:#eee;
-//  --StringEscape:             bold #666;
-//  --StringRegex:              bg:#fff0ff #000;
-//  --StringSymbol:             #A60 bg:;
-//  --StringOther:              #D20;
-//
-//  --Number:                    bold #60E;
-//  --NumberInteger:            bold #00D;
-//  --NumberFloat:              bold #60E;
-//  --NumberHex:                bold #058;
-//  --NumberOct:                bold #40E;
-//
-//  --GenericHeading:           bold #000080;
-//  --GenericSubheading:        bold #800080;
-//  --GenericDeleted:           #A00000;
-//  --GenericInserted:          #00A000;
-//  --GenericError:             #FF0000;
-//  --GenericEmph:              italic;
-//  --GenericStrong:            bold;
-//  --GenericPrompt:            bold #c65d09;
-//  --GenericOutput:            #888;
-//  --GenericTraceback:         #04D;
-//
-//  --Error:                     #F00 bg:#FAA
-//}

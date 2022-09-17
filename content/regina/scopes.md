@@ -1,6 +1,11 @@
 ---
-title: "Visibility scopes"
+title: "Visibility scopes, access priorities"
+tags:
+
+- regina-docs
+
 ---
+{{< table_of_contents >}}
 
 All scopes, sorted from the most visible to the least:
 
@@ -103,11 +108,12 @@ fun someFunction() {
 }
 ```
 
-## Accessing global declarations with same names
+## Accessing declarations with same names
 
 Each file might contain only one function with a particular signature. Same holds for classes and
-objects. However, it is okay to have class and function with the same name 
+objects. However, it is okay to have class and function with the same name
 (and no function params) - in this case class will be shadowed by that function.
+
 ```kotlin
 class same {}
 fun same() {return 1}
@@ -119,16 +125,39 @@ fun main() {
 }
 ```
 
-#### Import priority
-If imported
-```kotlin {title="data/config.yaml"}
-dw
+### Import priority
+
+If imported file contains a declaration with the same name as existing,
+
+```kotlin {title="std.geometry2D.rgn"}
+class Point {
+...
+}
+...
 ```
 
-#### Using functions with same signature
-```yaml {title="data/config.yaml"}
- enableCodeBlockTitle: true  # example from step 1
+Current file's declaration is prioritized.
+
+```kotlin {title="main.rgn"}
+import std.geometry2D as geom
+
+class Point {}
+
+fun main() {
+    p = Point() // main.Point instance
+    pGeom = geom.Point() // std.geometry2D.Point instance
+}
 ```
+
+> [!warning]- Same in different imports
+>
+> If two imports contain two similarly named declarations (say, both of them
+> have `object Constants`) and current file does not have such declaration,
+> using that declaration without file prefix is prohibited. That's because it is ambiguous which
+> declaration to use.
+
+### Using functions with same signature
+
 Function signature consists of:
 
 1. function name

@@ -55,28 +55,62 @@ fun main() {
 ```
 
 ### Function
-Function has parameters and default parameters. Default parameters are after other ones.
+
+Function has non-default parameters and default parameters. Default parameters go after other ones.
+
 ```kotlin
 fun functionName(param0, param1, ..., default_param0 = defaultValue, ...) {
     functionBody
 }
 ```
 
-{{< refer "regina/scopes/#using-functions-with-same-signature" "abc" >}}
-
-[Accessing functions with same signature](https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature).
+{{< refer "regina/scopes/#using-functions-with-same-signature" 
+"Accessing functions with same signature" >}}.
 
 ### Imports
-*Do not use following file names: Global.rgn, this.rgn*
+
+>[!warning] Warning 
+> 
+> Do not use following file names: Global.rgn, this.rgn
+
+Imports are declarations that allow to use objects, classes and functions from an imported file.
 
 ## Operators
+*Take a look at [table of operator precedence](/regina/toop)*
+
 
 `+`
 
+`if(...) .. else ..` - ternary operator is kotlin-like.
+
 ### Boolean operators
+Boolean operators return 0 and 1 respectively
+(non-)equality: `==`, `!=`
 
-`==`
+Comparison: `>`, `<`, `>=`, `<=`
 
+Logical operators: `&&`, `||`. As in other languages, if left operand is enough to resolve an operator, right operator is not evaluated
+
+`!`: not prefix operator. Inverts expression.
+
+#### Boolean values
+`true` is 1, `false` is 0.  {{< refer "regina/types/#boolean" 
+"Boolean is Int." >}}
+
+Examples:
+
+```kotlin
+// true and false are 1 and 0 respectfully. 
+// There is no boolean type, only keywords,
+// that are changed to numbers during runtime 
+true // == 1
+false // == 0
+!true // == 0
+```
+
+>[!note] Notes
+>
+> In the future, `&` and `|` operators might be added.
 ### Property/variable assignment
 
 ```kotlin
@@ -103,7 +137,7 @@ References are expressions of form `a.b.c`. They serve 3 purposes:
 
 while is a cycle which body executes until the condition is false.
 
-```
+```kotlin
 condition = 1
 while(condition) {
     
@@ -122,7 +156,7 @@ Foreach will run the body for all the elements of collection
 
 #### Foreach in array
 
-```
+```kotlin
 arr = [1, [], 3, [], 5]
 foreach(i in arr) {
     if(i is Array)
@@ -158,7 +192,7 @@ Variables, functions start with lowercase letter.
 
 ### Array
 
-```
+```kotlin
 empty = [] // create empty array
 filled = [1, "2", [3, 4], {5:6}] // create array with elements
 
@@ -166,7 +200,7 @@ filled = [1, "2", [3, 4], {5:6}] // create array with elements
 
 ### Dictionary
 
-```
+```kotlin
 dict = {1:2} // dict key value pair is created with a colon
 dict[1] // accessing value by dict key
 dict["key"] = "value" // assigning value to key

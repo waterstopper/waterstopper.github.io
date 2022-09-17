@@ -14,10 +14,11 @@ enableGitInfo = true
 
 [markup]
     [markup.tableOfContents]
-        endLevel = 3
+        endLevel = 4
         ordered = true
         startLevel = 2
     [markup.highlight]
+        noClasses = false
         anchorLineNos = false
         codeFences = true
         guessSyntax = true
@@ -31,3 +32,5 @@ enableGitInfo = true
     [frontmatter]
         lastmod = ["lastmod", ":git", "date", "publishDate"]
         publishDate = ["publishDate", "date"]
+    [markup.goldmark.renderer]
+        unsafe = true
