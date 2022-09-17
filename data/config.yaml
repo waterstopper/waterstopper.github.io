@@ -2,10 +2,11 @@ name: WaterStop
 enableToc: false
 openToc: false
 enableLinkPreview: true
+enableCodeBlockTitle: true
+enableCodeBlockCopy: true
 enableLatex: true
 enableSPA: true
 enableContextualBacklinks: true
-enableCodeBlockTitle: true
 enableRecentNotes: true
 description:
   WaterStop site

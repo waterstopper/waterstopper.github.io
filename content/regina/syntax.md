@@ -55,14 +55,14 @@ fun main() {
 ```
 
 ### Function
-Function has parameters and default parameters.
+Function has parameters and default parameters. Default parameters are after other ones.
 ```kotlin
 fun functionName(param0, param1, ..., default_param0 = defaultValue, ...) {
-    ...
+    functionBody
 }
 ```
 
-{{< refer "https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature" "abc" >}}
+{{< refer "regina/scopes/#using-functions-with-same-signature" "abc" >}}
 
 [Accessing functions with same signature](https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature).
 
