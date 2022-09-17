@@ -1,4 +1,6 @@
-# Creating blocky animals
+---
+title: "Creating blocky animals"
+---
 
 *To understand this tutorial concept of object-oriented programming (classes and their properties, inheritance) should
 be clear.*

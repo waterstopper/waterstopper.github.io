@@ -43,14 +43,13 @@ p, ul, text {
 }
 
 .mainTOC details summary {
-  cursor: zoom-in;
+  cursor: pointer;
   font-family: Inter;
   color: var(--dark);
   font-weight: 700;
 }
 
 .mainTOC details[open] summary {
-    cursor: zoom-out;
 }
 
 #TableOfContents > ol {

@@ -5,6 +5,8 @@ enableLinkPreview: true
 enableLatex: true
 enableSPA: true
 enableContextualBacklinks: true
+enableCodeBlockTitle: true
+enableRecentNotes: true
 description:
   WaterStop site
 page_title:
