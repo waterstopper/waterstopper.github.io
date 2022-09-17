@@ -61,6 +61,7 @@ fun functionName(param0, param1, ..., default_param0 = defaultValue, ...) {
     ...
 }
 ```
+[Accessing functions with same signature](https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature).
 
 ### Imports
 *Do not use following file names: Global.rgn, this.rgn*
