@@ -4,7 +4,7 @@ title: "Visibility scopes"
 
 {{ <ref .PAGE> }}
 
-{{< title_reference "https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature" "abc" >}}
+{{< refer "https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature" "abc" >}}
 
 [About]({{< ref "/regina/scopes" >}})
 

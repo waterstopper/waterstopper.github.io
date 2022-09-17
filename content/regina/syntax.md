@@ -61,6 +61,9 @@ fun functionName(param0, param1, ..., default_param0 = defaultValue, ...) {
     ...
 }
 ```
+
+{{< refer "https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature" "abc" >}}
+
 [Accessing functions with same signature](https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature).
 
 ### Imports
