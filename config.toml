@@ -6,8 +6,7 @@ relativeURLs = false
 disablePathToLower = true
 ignoreFiles = [
     "/content/templates/*",
-    "/content/private/*",
-    "/content/kotlin/*",
+    "/content/private/*"
 ]
 summaryLength = 20
 paginate = 20

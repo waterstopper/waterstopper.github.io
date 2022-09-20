@@ -6,7 +6,7 @@ Class must have **a name**, and **a block of properties**:
 
 An example of a class declaration:
 
-``` kotlin
+```kotlin
 class name : superclass {
     variableName = variableValue
     parent.overrideName = overrideValue

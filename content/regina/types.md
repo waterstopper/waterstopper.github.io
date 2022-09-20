@@ -15,9 +15,6 @@ There are three value types and three reference types.
 2. Double
 3. String
 
-**Note: Numeric system is similar to javascript. If floating part is 0, then number is Int,
-otherwise it is Double**
-
 ### Reference types
 
 1. List
@@ -27,7 +24,7 @@ otherwise it is Double**
 Assigning another variable a variable of a reference type will pass it by reference. Same holds for
 passing function arguments
 
-```
+```kotlin
 fun main() {
     arr = []
     change(arr)
@@ -46,7 +43,7 @@ fun change() {
 
 An abstract class, has Int and Double as inheritants. `Number` can be encountered in type check:
 
-```
+```kotlin
 0.1 is Number // true
 2 is Number // true
 "3" is Number // false
@@ -101,7 +98,7 @@ Numeric values are interpreted as boolean values in conditions (e.g. `if(conditi
 Currently, NaN, positive infinity and negative infinity are not supported (expect a behaviour
 similar to kotlin, however working with these constants might give unexpected results).
 
-```
+```kotlin
 // do not use following expressions:
  0 / 0 // NaN
  1 / 0 // Infinity
@@ -121,31 +118,41 @@ similar to kotlin, however working with these constants might give unexpected re
 
 ### functions
 
-`substring(start: Int, end: Int = this.size): String` -
+These functions do not change initial string
 
-`replace(oldString: String, newString: String): String` -
+`has(found: String): Bool` - returns found's existence
 
-`reversed(): String` -
+`index(found: String): Int` - first index of found else -1
 
-`lowercase(): String` -
+`substring(start: Int, end: Int = this.size): String` - string from start (inclusive) to end (
+non-inclusive)
 
-`uppercase(): String` -
+`replace(oldString: String, newString: String): String` - returns string with all occurrences
+of `oldString` changed to `newString`
+
+`reversed(): String` - reversed string
+
+`lowercase(): String` - initial string with lowercase letters
+
+`uppercase(): String` - initial string with uppercase letters
 
 ## List
 
 ### properties
 
-`size` -
+`size` - number of list elements
 
 ### functions
 
-`add(element, index: Int = this.size)`
+`add(element, index: Int = this.size)` - inserts element to list at `index`
 
 `remove(element): Int` - remove element, get index of removed element (or -1, if not found)
 
 `removeAt(index: Int): Any` -
 
-`has(element): Bool`
+`has(element): Bool` - returns element's existence
+
+`index(found): Int` - first index of found else -1
 
 `joinToString(separator: String = ", ")` -
 

@@ -11,7 +11,7 @@ All scopes, sorted from the most visible to the least:
 
 ## Global scope
 
-Classes, objects and functions are declared in global scope. Imported file declarations are in
+Classes, objects and functions[^1] are declared in global scope. Imported file declarations are in
 global scope too. Global scope declarations are visible **everywhere**.
 
 ## Class instance scope
@@ -167,8 +167,8 @@ Priority:
 
 1. Local function **always** has priority over imported one (second step is not applicable, if
    there is a local function that can be called).
-2. Top level function is prioritized over a class function[^1].
-3. Then, find a function with the least number of unspecified default parameters[^2] (those which
+2. Top level function is prioritized over a class function[^2].
+3. Then, find a function with the least number of unspecified default parameters[^3] (those which
    are
    not arguments in a call). For instance, if there are functions:
 
@@ -177,7 +177,30 @@ Priority:
 
    and the call is `fn(1,1)`, first function is called.
 
-[^1]: This is due to the fact that class instance function can be called with `this.` prefix.
+Keep in mind, that inherited functions are simply added to the current subclass. If current class
+defines the same function, superclass function is shadowed. Following example might clear things:
+
+```kotlin
+fun main() {
+   s = Subclass()
+   log(s.fn()) // "base"
+   log(s.shadow()) // "this is called"
+}
+
+class Superclass {
+   fun fn() {return "base"} 
+   fun shadow() {return "not called"}
+}
+
+class Subclass: Superclass {
+   fun fn(a = 1) {"not called, because fn without default parameters has more priority"}
+   fun shadow() {return "this is called"}
+}
+```
+
+[^1]: Functions can be declared in classes too.
+
+[^2]: This is due to the fact that class instance function can be called with `this.` prefix.
 Current class function does not have a prefix to be called with.
-[^2]: Currently if there are two functions in **different** imports that both can be called,
+[^3]: Currently if there are two functions in **different** imports that both can be called,
 program will throw an error saying that it cannot pick needed function.
