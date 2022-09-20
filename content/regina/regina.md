@@ -2,24 +2,32 @@
 title: "ReGIna"
 ---
 
-is a [dynamically typed](notes/typization.md) language with [syntax](regina/syntax) similar to Kotlin and Python.
+is a [dynamically typed](notes/typization.md) language with [syntax](regina/syntax) similar to
+Kotlin and Python.
 
-## Core idea
+## Documentation
 
-Difference between other languages and ReGIna is [dynamic instantiation](regina/dynamic-instantiation). In
-short, properties in classes will be assigned only after their dependencies are assigned, allowing recursive properties
-of same class `A` inside class `A`.
-[plant](generators/plant.json)
+It is highly recommended to read in following order, don't click on links in articles for the first
+time:
+
+1. [syntax](regina/syntax) - language expressions and what they do.
+2. [visibility scopes, access priorities](regina/scopes) - how a file is structured.
+3. [variable types](regina/types) - all types are listed, their properties, functions and features.
+4. [dynamic instantiation](regina/dynamic-instantiation) - core language idea.
+
+
 
 ## Advantages
 
 * **Can be embedded into web**. Regina is written in Kotlin and compiled into Javascript.
-* **Rapid generator development**. Look at [examples](#Examples) to see what can be done and how much code is required.
-* **Customizable export**.
+* **Rapid generator development**. Look at [examples](#Examples) to see what can be done and how
+  much code is required.
 
 ## Drawbacks
 
-* **It's slow**. It's definitely slower than Python. Yet it's designed to be fast and concise in creating generators.
-    * **There is no community**. At least not yet. Mail me at kononal@gmail.com if you created something about Regina.
+* **It's slow**. It's definitely slower than Python. Yet it's designed to be fast and concise in
+  creating generators.
+* **There is no community**. At least not yet. Mail me at kononal@gmail.com if you created
+  something about Regina.
 
 ## Examples

@@ -7,6 +7,7 @@ disablePathToLower = true
 ignoreFiles = [
     "/content/templates/*",
     "/content/private/*",
+    "/content/kotlin/*",
 ]
 summaryLength = 20
 paginate = 20

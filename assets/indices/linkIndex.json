@@ -148,6 +148,13 @@
           "text": "CONTRIBUTING"
         }
       ],
+      "/regina/design-decisions": [
+        {
+          "source": "/regina/design-decisions",
+          "target": "/../docs/Scopes",
+          "text": "scopes"
+        }
+      ],
       "/regina/global": [
         {
           "source": "/regina/global",
@@ -173,6 +180,21 @@
         },
         {
           "source": "/regina/regina",
+          "target": "/regina/syntax",
+          "text": "syntax"
+        },
+        {
+          "source": "/regina/regina",
+          "target": "/regina/scopes",
+          "text": "visibility scopes, access priorities"
+        },
+        {
+          "source": "/regina/regina",
+          "target": "/regina/types",
+          "text": "variable types"
+        },
+        {
+          "source": "/regina/regina",
           "target": "/regina/dynamic-instantiation",
           "text": "dynamic instantiation"
         },
@@ -180,13 +202,6 @@
           "source": "/regina/regina",
           "target": "/",
           "text": "examples"
-        }
-      ],
-      "/regina/scopes": [
-        {
-          "source": "/regina/scopes",
-          "target": "/regina/syntax",
-          "text": "Global"
         }
       ],
       "/regina/syntax": [
@@ -211,6 +226,16 @@
           "source": "/regina/types",
           "target": "/",
           "text": "Boolean operators"
+        },
+        {
+          "source": "/regina/types",
+          "target": "/regina/dynamic-instantiation",
+          "text": "dynamic instantiation"
+        },
+        {
+          "source": "/regina/types",
+          "target": "/regina/dynamic-instantiation",
+          "text": "dynamic instantiation"
         }
       ]
     },
@@ -235,6 +260,13 @@
           "source": "/regina/types",
           "target": "/",
           "text": "Boolean operators"
+        }
+      ],
+      "/../docs/Scopes": [
+        {
+          "source": "/regina/design-decisions",
+          "target": "/../docs/Scopes",
+          "text": "scopes"
         }
       ],
       "/./CONTRIBUTING": [
@@ -431,6 +463,16 @@
           "source": "/regina/regina",
           "target": "/regina/dynamic-instantiation",
           "text": "dynamic instantiation"
+        },
+        {
+          "source": "/regina/types",
+          "target": "/regina/dynamic-instantiation",
+          "text": "dynamic instantiation"
+        },
+        {
+          "source": "/regina/types",
+          "target": "/regina/dynamic-instantiation",
+          "text": "dynamic instantiation"
         }
       ],
       "/regina/regina": [
@@ -440,6 +482,13 @@
           "text": "ReGIna WIP"
         }
       ],
+      "/regina/scopes": [
+        {
+          "source": "/regina/regina",
+          "target": "/regina/scopes",
+          "text": "visibility scopes, access priorities"
+        }
+      ],
       "/regina/syntax": [
         {
           "source": "/regina/regina",
@@ -447,9 +496,9 @@
           "text": "syntax"
         },
         {
-          "source": "/regina/scopes",
+          "source": "/regina/regina",
           "target": "/regina/syntax",
-          "text": "Global"
+          "text": "syntax"
         }
       ],
       "/regina/toop": [
@@ -457,6 +506,13 @@
           "source": "/regina/syntax",
           "target": "/regina/toop",
           "text": "table of operator precedence"
+        }
+      ],
+      "/regina/types": [
+        {
+          "source": "/regina/regina",
+          "target": "/regina/types",
+          "text": "variable types"
         }
       ]
     }
@@ -598,6 +654,11 @@
       "text": "CONTRIBUTING"
     },
     {
+      "source": "/regina/design-decisions",
+      "target": "/../docs/Scopes",
+      "text": "scopes"
+    },
+    {
       "source": "/regina/global",
       "target": "/",
       "text": "similar to other imports"
@@ -619,6 +680,21 @@
     },
     {
       "source": "/regina/regina",
+      "target": "/regina/syntax",
+      "text": "syntax"
+    },
+    {
+      "source": "/regina/regina",
+      "target": "/regina/scopes",
+      "text": "visibility scopes, access priorities"
+    },
+    {
+      "source": "/regina/regina",
+      "target": "/regina/types",
+      "text": "variable types"
+    },
+    {
+      "source": "/regina/regina",
       "target": "/regina/dynamic-instantiation",
       "text": "dynamic instantiation"
     },
@@ -626,11 +702,6 @@
       "source": "/regina/regina",
       "target": "/",
       "text": "examples"
-    },
-    {
-      "source": "/regina/scopes",
-      "target": "/regina/syntax",
-      "text": "Global"
     },
     {
       "source": "/regina/syntax",
@@ -651,6 +722,16 @@
       "source": "/regina/types",
       "target": "/",
       "text": "Boolean operators"
+    },
+    {
+      "source": "/regina/types",
+      "target": "/regina/dynamic-instantiation",
+      "text": "dynamic instantiation"
+    },
+    {
+      "source": "/regina/types",
+      "target": "/regina/dynamic-instantiation",
+      "text": "dynamic instantiation"
     }
   ]
 }

@@ -1,5 +1,5 @@
 ---
-title: "Visibility scopes, access priorities"
+title: "Visibility scopes"
 tags:
 
 - regina-docs
@@ -58,7 +58,7 @@ object Colors {
 class A {}
 
 fun change(argArr, argInstance) {
-    arg.add(2) // assuming arg is an array
+    arg.add(2) // assuming arg is a list
     Colors.BLACK = "111111" // Colors.BLACK is changed
     argInstance.property = 3 // property will change outside of function scope
 } 
@@ -162,15 +162,22 @@ Function signature consists of:
 
 1. function name
 2. number of parameters
-3.
 
 Priority:
 
-1. [Global](regina/syntax) function
-2. [Global](https://alex5041.github.io/regina/scopes/#using-functions-with-same-signature) function
-3. Class instance function
-4. [About]({{< ref "regina/syntax.md" >}})
-5. {{< relref "#global-scope" >}}
+1. Local function **always** has priority over imported one (second step is not applicable, if
+   there is a local function that can be called).
+2. Top level function is prioritized over a class function[^1].
+3. Then, find a function with the least number of unspecified default parameters[^2] (those which
+   are
+   not arguments in a call). For instance, if there are functions:
 
-This is due to the fact that class instance function can be called with `this.` prefix. Current
-class function does not have a prefix to be called with.
+    1. `fun fn(a1, a2) {...}`,
+    2. `fun fn(a1, a2, a3 = 1) {...}`,
+
+   and the call is `fn(1,1)`, first function is called.
+
+[^1]: This is due to the fact that class instance function can be called with `this.` prefix.
+Current class function does not have a prefix to be called with.
+[^2]: Currently if there are two functions in **different** imports that both can be called,
+program will throw an error saying that it cannot pick needed function.

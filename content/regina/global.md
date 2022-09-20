@@ -38,7 +38,7 @@ Use {{<refer "regina/std/math/#functions" "std.math.rndInt and std.math.rndDoubl
 
 `double(x)` -
 
-`array(x)` -
+`list(x)` -
 
 `type(x)` -
 

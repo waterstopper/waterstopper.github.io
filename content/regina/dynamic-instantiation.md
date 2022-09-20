@@ -1,7 +1,15 @@
 ---
 title: "Dynamic instantiation"
-draft: true
 ---
+
+## TLDR
+
+Difference between other languages and ReGIna is dynamic instantiation. In
+short, properties in classes will be assigned only after their dependencies are assigned, allowing
+recursive properties
+of same class `A` inside class `A`.
+
+## Idea
 
 Classes can have references to other classes inside them as
 properties. These property-classes are evaluated dynamically. Take a look at this example:
@@ -36,20 +44,23 @@ This will create following svg:
 </svg>
 ```
 
-First algorithm creates empty Node() (we'll call it *Node0*) from main(). Then, starting from top to bottom:
+First algorithm creates empty Node() (we'll call it *Node0*) from main(). Then, starting from top
+to bottom:
 
 1. algorithm assigns **iter** of *Node0* to 0 because parent returns 0 as an equivalent of null.
 2. After that, **childNode** is assigned a new Node (*Node1*).
-3. **position** cannot be assigned because **childNode.position** is not yet assigned. Algorithm goes to
-   childNode.position, that is *Node1*.position and tries to assign it. However, childNode is required, so we go to *
+3. **position** cannot be assigned because **childNode.position** is not yet assigned. Algorithm
+   goes to
+   childNode.position, that is *Node1*.position and tries to assign it. However, childNode is
+   required, so we go to *
    Node1*.childNode, which needs iter.
 
-*It's not important to consider while assigning values, but it shows why there cannot be any cyclic dependencies for
-properties*.
+*It's not important to consider while assigning values, but it shows why there cannot be any cyclic
+dependencies for properties*.
 
-## Implied decision
+## How not to write code with dynamic instantiation
 
-Also, it is the reason why class functions are impossible. Imagine this case:
+### Bad class function
 
 ```kotlin
 class FunctionOveruse {
@@ -64,7 +75,9 @@ class FunctionOveruse {
 
 Both lines in ```make()``` will execute forever.
 
-To make functions as expressive as possible, it is important to allow class instantiating inside them. If
+To make functions as expressive as possible, it is important to allow class instantiating inside
+them. If
 
-We either make internal class functions (which is purely decompositional thing) or make instantiating inside functions
+We either make internal class functions (which is purely decompositional thing) or make
+instantiating inside functions
 possible (and ```fun main()``` as an entry point)

@@ -22,7 +22,7 @@
   --callout-important: #00bfa5;
   --callout-important-accent: #5fffe9;
   --callout-warning: #ff9100;
-  --callout-warning-accent: #ffc87f;
+  --callout-warning-accent: #ffdeb1;
 }
 
 [saved-theme=dark] {
@@ -85,7 +85,7 @@ blockquote[class*="-callout"] {
   border-left: 6px solid var(--primary) !important;
   & > p {
     border-top-right-radius: 5px;
-    padding: 0.5em 1em;
+    padding: 0.2em 1em;
     margin: 0;
     color: var(--gray);
     &:first-child {
@@ -101,13 +101,13 @@ blockquote[class*="-callout"] > p:first-child::after, blockquote.callout-collaps
   height: 18px;
   width: 18px;
   position: absolute;
-  top: 0.4em;
+  top: 0.16em;
   margin: 0.2em 0.4em;
 }
 
 blockquote[class*="-callout"] > p:first-child {
   font-weight: bold;
-  padding: 0.4em 35px;
+  padding: 0.2em 35px;
 
   &::after {
     left: 0;

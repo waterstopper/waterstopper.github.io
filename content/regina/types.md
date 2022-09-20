@@ -20,7 +20,7 @@ otherwise it is Double**
 
 ### Reference types
 
-1. Array
+1. List
 2. Dictionary
 3. Class instance
 
@@ -80,7 +80,7 @@ Trigonometry: `sin(): Double`
 
 ### Null
 
-Null is number, and it equals to 0. 
+Null is number, and it equals to 0.
 {{<refer "regina/design-decisions/#Why-null-is-0?" "Why null is 0?" >}}
 
 ### Boolean
@@ -131,7 +131,7 @@ similar to kotlin, however working with these constants might give unexpected re
 
 `uppercase(): String` -
 
-## Array
+## List
 
 ### properties
 
@@ -151,16 +151,16 @@ similar to kotlin, however working with these constants might give unexpected re
 
 `clear()`
 
-`sort(desc: Bool = false)` - sorts target array in place, returns null.
+`sort(desc: Bool = false)` - sorts target list in place, returns null.
 
-`sorted(desc: Bool = false)` - does not sort target, returns sorted array.
+`sorted(desc: Bool = false)` - does not sort target, returns sorted list.
 ``
 
-// adds x to the end of array
+// adds x to the end of list
 fun add(arr, i, x) // inserts x at index i
 fun remove(arr, a) // removes element x if found and returns 1 if removed successfully, 0 if not
 fun removeAt(arr, i) // removes element by index
-fun has(arr, x) // returns 1 if array contains x, else returns 0
+fun has(arr, x) // returns 1 if list contains x, else returns 0
 
 ## Dictionary
 
@@ -168,11 +168,11 @@ fun has(arr, x) // returns 1 if array contains x, else returns 0
 
 `size` - number of entries in dictionary
 
-`keys` - array of all keys
+`keys` - list of all keys
 
-`values` - array of all values
+`values` - list of all values
 
-`entries` - array of dictionaries for all entries. For example,
+`entries` - list of dictionaries for all entries. For example,
 
 ```kotlin
 {1:2, "3":"4"}.entries 
@@ -191,5 +191,59 @@ fun has(arr, x) // returns 1 if array contains x, else returns 0
 
 Properties that each instance has:
 
-`parent` -
+`parent` - null or parent
+
 `properties` -
+
+### Constructor
+
+Class `A` instance is created with `A()` call. In parentheses properties are overridden and added.
+Constructor properties are the first ones to resolve
+during [dynamic instantiation](regina/dynamic-instantiation).
+
+```kotlin
+fun main() {
+    defaultA = A() // instance with property p == 2
+    changedA = A(t = 1, p = 3) // instance with properties t == 1 and p == 3
+}
+
+class A {
+    p = 2
+}
+```
+
+### Inheritance
+
+Subclass takes all properties and functions of a superclass. Although they are overridable:
+
+```kotlin
+class Base {
+    baseProp = "base"
+    unchanged = "same"
+
+    fun fn() { return "in base" }
+}
+
+class Inherited: Base {
+    baseProp = "overridden"
+    
+    fun fn() {return "inherited"}
+}
+
+fun main() {
+    i = Inherited()
+    // i.unchanged == "same"
+    // i.baseProp == "overridden"
+    // i.fn() == "inherited"
+}
+```
+
+> [!note] Note
+>
+> In future each class might have a `super` keyword to access parent functions. Parent properties
+> aren't going to be accessible due to [dynamic instantiation](regina/dynamic-instantiation)
+
+## Object
+
+Object is a singleton type. It does not have a constructor and is closed for inheritance.
+Everything else is similar to class.
