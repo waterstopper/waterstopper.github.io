@@ -3,12 +3,12 @@ title: WaterStop
 ---
 
 Hello! My name is Alex, and I'm a software engineer. On [itch.io](https://waterstop.itch.io/) I put
-my playable projects
+my playable projects. On [GitHub](https://github.com/Alex5041) I put source code.
 
-# Site content 
+# Site content
 
-[ReGIna WIP](regina/regina) - documentation about WIP programming language
+[ReGIna WIP](regina/regina) - documentation of WIP programming language
 
-[100 days](100-days/100-writing-days) of English essays
+[Programming notes](programming/programming-notes)
 
-[other notes](notes)
+[Other notes](notes)

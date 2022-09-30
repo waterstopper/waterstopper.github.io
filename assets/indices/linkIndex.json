@@ -9,121 +9,13 @@
         },
         {
           "source": "/",
-          "target": "/100-days/100-writing-days",
-          "text": "100 days"
+          "target": "/programming/programming-notes",
+          "text": "Programming notes"
         },
         {
           "source": "/",
           "target": "/notes",
-          "text": "other notes"
-        }
-      ],
-      "/100-days/100-writing-days": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/heap-and-stack",
-          "text": "Heap and Stack"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/transpilers-compilers-interpreters",
-          "text": "How languages are run?"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/ast",
-          "text": "Abstract syntax tree"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/boxing-and-equality-cs",
-          "text": "C#: boxing, unboxing and equality operator"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "Introduction to grammars"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/parsers",
-          "text": "Parsers"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/ast",
-          "text": "AST post"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "grammars post"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/devlog1",
-          "text": "Devlog 1. Bad globals"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/devlog2",
-          "text": "Devlog 2. Link class. Removing state"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/shallow-villain-traits",
-          "text": "Shallow traits of a villain"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/multithreading1",
-          "text": "Multithreading. Primitive tools, definitions"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/multithreading2",
-          "text": "Multithreading. Problems"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/quality-of-life",
-          "text": "Quality of life"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/why-gamemaking-is-not-for-me",
-          "text": "Why game making is not for me"
-        }
-      ],
-      "/100-days/ast": [
-        {
-          "source": "/100-days/ast",
-          "target": "/100-days/parsers",
-          "text": "post"
-        },
-        {
-          "source": "/100-days/ast",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "grammar"
-        }
-      ],
-      "/100-days/heap-and-stack": [
-        {
-          "source": "/100-days/heap-and-stack",
-          "target": "/100-days/cpp-pointers",
-          "text": "A little more about C++ memory model"
-        }
-      ],
-      "/100-days/parsers": [
-        {
-          "source": "/100-days/parsers",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "grammar"
-        },
-        {
-          "source": "/100-days/parsers",
-          "target": "/100-days/ast",
-          "text": "AST arithmetic example"
+          "text": "Other notes"
         }
       ],
       "/kotlin/monaco-editor/README": [
@@ -146,6 +38,126 @@
           "source": "/kotlin/monaco-editor/README",
           "target": "/./CONTRIBUTING",
           "text": "CONTRIBUTING"
+        }
+      ],
+      "/programming/SQL": [
+        {
+          "source": "/programming/SQL",
+          "target": "/Definitions",
+          "text": "multiset"
+        }
+      ],
+      "/programming/ast": [
+        {
+          "source": "/programming/ast",
+          "target": "/programming/parsers",
+          "text": "post"
+        },
+        {
+          "source": "/programming/ast",
+          "target": "/programming/introduction-to-grammars",
+          "text": "grammar"
+        }
+      ],
+      "/programming/heap-and-stack": [
+        {
+          "source": "/programming/heap-and-stack",
+          "target": "/programming/cpp-pointers",
+          "text": "A little more about C++ memory model"
+        }
+      ],
+      "/programming/parsers": [
+        {
+          "source": "/programming/parsers",
+          "target": "/programming/introduction-to-grammars",
+          "text": "grammar"
+        },
+        {
+          "source": "/programming/parsers",
+          "target": "/programming/ast",
+          "text": "AST arithmetic example"
+        }
+      ],
+      "/programming/programming-notes": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/heap-and-stack",
+          "text": "Heap and Stack"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/transpilers-compilers-interpreters",
+          "text": "How languages are run?"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/ast",
+          "text": "Abstract syntax tree"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/boxing-and-equality-cs",
+          "text": "C#: boxing, unboxing and equality operator"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/introduction-to-grammars",
+          "text": "Introduction to grammars"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/parsers",
+          "text": "Parsers"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/ast",
+          "text": "AST post"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/introduction-to-grammars",
+          "text": "grammars post"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/devlog1",
+          "text": "Devlog 1. Bad globals"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/devlog2",
+          "text": "Devlog 2. Link class. Removing state"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/shallow-villain-traits",
+          "text": "Shallow traits of a villain"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/multithreading1",
+          "text": "Multithreading. Primitive tools, definitions"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/multithreading2",
+          "text": "Multithreading. Problems"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/quality-of-life",
+          "text": "Quality of life"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/why-gamemaking-is-not-for-me",
+          "text": "Why game making is not for me"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/SQL",
+          "text": "SQL basics"
         }
       ],
       "/regina/design-decisions": [
@@ -297,139 +309,11 @@
           "text": "complete samples"
         }
       ],
-      "/100-days/100-writing-days": [
+      "/Definitions": [
         {
-          "source": "/",
-          "target": "/100-days/100-writing-days",
-          "text": "100 days"
-        }
-      ],
-      "/100-days/ast": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/ast",
-          "text": "Abstract syntax tree"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/ast",
-          "text": "AST post"
-        },
-        {
-          "source": "/100-days/parsers",
-          "target": "/100-days/ast",
-          "text": "AST arithmetic example"
-        }
-      ],
-      "/100-days/boxing-and-equality-cs": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/boxing-and-equality-cs",
-          "text": "C#: boxing, unboxing and equality operator"
-        }
-      ],
-      "/100-days/cpp-pointers": [
-        {
-          "source": "/100-days/heap-and-stack",
-          "target": "/100-days/cpp-pointers",
-          "text": "A little more about C++ memory model"
-        }
-      ],
-      "/100-days/devlog1": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/devlog1",
-          "text": "Devlog 1. Bad globals"
-        }
-      ],
-      "/100-days/devlog2": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/devlog2",
-          "text": "Devlog 2. Link class. Removing state"
-        }
-      ],
-      "/100-days/heap-and-stack": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/heap-and-stack",
-          "text": "Heap and Stack"
-        }
-      ],
-      "/100-days/introduction-to-grammars": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "Introduction to grammars"
-        },
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "grammars post"
-        },
-        {
-          "source": "/100-days/ast",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "grammar"
-        },
-        {
-          "source": "/100-days/parsers",
-          "target": "/100-days/introduction-to-grammars",
-          "text": "grammar"
-        }
-      ],
-      "/100-days/multithreading1": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/multithreading1",
-          "text": "Multithreading. Primitive tools, definitions"
-        }
-      ],
-      "/100-days/multithreading2": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/multithreading2",
-          "text": "Multithreading. Problems"
-        }
-      ],
-      "/100-days/parsers": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/parsers",
-          "text": "Parsers"
-        },
-        {
-          "source": "/100-days/ast",
-          "target": "/100-days/parsers",
-          "text": "post"
-        }
-      ],
-      "/100-days/quality-of-life": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/quality-of-life",
-          "text": "Quality of life"
-        }
-      ],
-      "/100-days/shallow-villain-traits": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/shallow-villain-traits",
-          "text": "Shallow traits of a villain"
-        }
-      ],
-      "/100-days/transpilers-compilers-interpreters": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/transpilers-compilers-interpreters",
-          "text": "How languages are run?"
-        }
-      ],
-      "/100-days/why-gamemaking-is-not-for-me": [
-        {
-          "source": "/100-days/100-writing-days",
-          "target": "/100-days/why-gamemaking-is-not-for-me",
-          "text": "Why game making is not for me"
+          "source": "/programming/SQL",
+          "target": "/Definitions",
+          "text": "multiset"
         }
       ],
       "/Syntax.md/": [
@@ -448,7 +332,7 @@
         {
           "source": "/",
           "target": "/notes",
-          "text": "other notes"
+          "text": "Other notes"
         }
       ],
       "/notes/typization": [
@@ -456,6 +340,148 @@
           "source": "/regina/regina",
           "target": "/notes/typization",
           "text": "dynamically typed"
+        }
+      ],
+      "/programming/SQL": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/SQL",
+          "text": "SQL basics"
+        }
+      ],
+      "/programming/ast": [
+        {
+          "source": "/programming/parsers",
+          "target": "/programming/ast",
+          "text": "AST arithmetic example"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/ast",
+          "text": "Abstract syntax tree"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/ast",
+          "text": "AST post"
+        }
+      ],
+      "/programming/boxing-and-equality-cs": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/boxing-and-equality-cs",
+          "text": "C#: boxing, unboxing and equality operator"
+        }
+      ],
+      "/programming/cpp-pointers": [
+        {
+          "source": "/programming/heap-and-stack",
+          "target": "/programming/cpp-pointers",
+          "text": "A little more about C++ memory model"
+        }
+      ],
+      "/programming/devlog1": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/devlog1",
+          "text": "Devlog 1. Bad globals"
+        }
+      ],
+      "/programming/devlog2": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/devlog2",
+          "text": "Devlog 2. Link class. Removing state"
+        }
+      ],
+      "/programming/heap-and-stack": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/heap-and-stack",
+          "text": "Heap and Stack"
+        }
+      ],
+      "/programming/introduction-to-grammars": [
+        {
+          "source": "/programming/ast",
+          "target": "/programming/introduction-to-grammars",
+          "text": "grammar"
+        },
+        {
+          "source": "/programming/parsers",
+          "target": "/programming/introduction-to-grammars",
+          "text": "grammar"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/introduction-to-grammars",
+          "text": "Introduction to grammars"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/introduction-to-grammars",
+          "text": "grammars post"
+        }
+      ],
+      "/programming/multithreading1": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/multithreading1",
+          "text": "Multithreading. Primitive tools, definitions"
+        }
+      ],
+      "/programming/multithreading2": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/multithreading2",
+          "text": "Multithreading. Problems"
+        }
+      ],
+      "/programming/parsers": [
+        {
+          "source": "/programming/ast",
+          "target": "/programming/parsers",
+          "text": "post"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/parsers",
+          "text": "Parsers"
+        }
+      ],
+      "/programming/programming-notes": [
+        {
+          "source": "/",
+          "target": "/programming/programming-notes",
+          "text": "Programming notes"
+        }
+      ],
+      "/programming/quality-of-life": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/quality-of-life",
+          "text": "Quality of life"
+        }
+      ],
+      "/programming/shallow-villain-traits": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/shallow-villain-traits",
+          "text": "Shallow traits of a villain"
+        }
+      ],
+      "/programming/transpilers-compilers-interpreters": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/transpilers-compilers-interpreters",
+          "text": "How languages are run?"
+        }
+      ],
+      "/programming/why-gamemaking-is-not-for-me": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/why-gamemaking-is-not-for-me",
+          "text": "Why game making is not for me"
         }
       ],
       "/regina/dynamic-instantiation": [
@@ -519,119 +545,19 @@
   },
   "links": [
     {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/heap-and-stack",
-      "text": "Heap and Stack"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/transpilers-compilers-interpreters",
-      "text": "How languages are run?"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/ast",
-      "text": "Abstract syntax tree"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/boxing-and-equality-cs",
-      "text": "C#: boxing, unboxing and equality operator"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/introduction-to-grammars",
-      "text": "Introduction to grammars"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/parsers",
-      "text": "Parsers"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/ast",
-      "text": "AST post"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/introduction-to-grammars",
-      "text": "grammars post"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/devlog1",
-      "text": "Devlog 1. Bad globals"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/devlog2",
-      "text": "Devlog 2. Link class. Removing state"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/shallow-villain-traits",
-      "text": "Shallow traits of a villain"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/multithreading1",
-      "text": "Multithreading. Primitive tools, definitions"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/multithreading2",
-      "text": "Multithreading. Problems"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/quality-of-life",
-      "text": "Quality of life"
-    },
-    {
-      "source": "/100-days/100-writing-days",
-      "target": "/100-days/why-gamemaking-is-not-for-me",
-      "text": "Why game making is not for me"
-    },
-    {
-      "source": "/100-days/ast",
-      "target": "/100-days/parsers",
-      "text": "post"
-    },
-    {
-      "source": "/100-days/ast",
-      "target": "/100-days/introduction-to-grammars",
-      "text": "grammar"
-    },
-    {
-      "source": "/100-days/heap-and-stack",
-      "target": "/100-days/cpp-pointers",
-      "text": "A little more about C++ memory model"
-    },
-    {
-      "source": "/100-days/parsers",
-      "target": "/100-days/introduction-to-grammars",
-      "text": "grammar"
-    },
-    {
-      "source": "/100-days/parsers",
-      "target": "/100-days/ast",
-      "text": "AST arithmetic example"
-    },
-    {
       "source": "/",
       "target": "/regina/regina",
       "text": "ReGIna WIP"
     },
     {
       "source": "/",
-      "target": "/100-days/100-writing-days",
-      "text": "100 days"
+      "target": "/programming/programming-notes",
+      "text": "Programming notes"
     },
     {
       "source": "/",
       "target": "/notes",
-      "text": "other notes"
+      "text": "Other notes"
     },
     {
       "source": "/kotlin/monaco-editor/README",
@@ -652,6 +578,116 @@
       "source": "/kotlin/monaco-editor/README",
       "target": "/./CONTRIBUTING",
       "text": "CONTRIBUTING"
+    },
+    {
+      "source": "/programming/SQL",
+      "target": "/Definitions",
+      "text": "multiset"
+    },
+    {
+      "source": "/programming/ast",
+      "target": "/programming/parsers",
+      "text": "post"
+    },
+    {
+      "source": "/programming/ast",
+      "target": "/programming/introduction-to-grammars",
+      "text": "grammar"
+    },
+    {
+      "source": "/programming/heap-and-stack",
+      "target": "/programming/cpp-pointers",
+      "text": "A little more about C++ memory model"
+    },
+    {
+      "source": "/programming/parsers",
+      "target": "/programming/introduction-to-grammars",
+      "text": "grammar"
+    },
+    {
+      "source": "/programming/parsers",
+      "target": "/programming/ast",
+      "text": "AST arithmetic example"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/heap-and-stack",
+      "text": "Heap and Stack"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/transpilers-compilers-interpreters",
+      "text": "How languages are run?"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/ast",
+      "text": "Abstract syntax tree"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/boxing-and-equality-cs",
+      "text": "C#: boxing, unboxing and equality operator"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/introduction-to-grammars",
+      "text": "Introduction to grammars"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/parsers",
+      "text": "Parsers"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/ast",
+      "text": "AST post"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/introduction-to-grammars",
+      "text": "grammars post"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/devlog1",
+      "text": "Devlog 1. Bad globals"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/devlog2",
+      "text": "Devlog 2. Link class. Removing state"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/shallow-villain-traits",
+      "text": "Shallow traits of a villain"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/multithreading1",
+      "text": "Multithreading. Primitive tools, definitions"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/multithreading2",
+      "text": "Multithreading. Problems"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/quality-of-life",
+      "text": "Quality of life"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/why-gamemaking-is-not-for-me",
+      "text": "Why game making is not for me"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/SQL",
+      "text": "SQL basics"
     },
     {
       "source": "/regina/design-decisions",

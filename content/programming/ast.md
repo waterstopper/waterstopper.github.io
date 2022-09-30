@@ -116,12 +116,12 @@ To create tokens from code, a tokenizer (aka Lexer) is used. Usually it's pretty
 read until next whitespace, identify obtained token.
 
 To create AST from tokens, we need a parser. I won't go into much detail here, because parsers are
-complicated enough for a separate [post](100-days/parsers). 
+complicated enough for a separate [post](programming/parsers). 
 
 [^1]: Some parsers create an intermediate representation of AST called concrete syntax tree. The
 difference between AST and CST is that each AST node has a semantic purpose, while CST may contain
 detrimental tokens that are used to make parsing of a grammar work. Example of CST generated probably
-with a parser based on EBNF arithmetic [grammar](100-days/introduction-to-grammars):
-![cst.png](100-days/images/cst.png)
+with a parser based on EBNF arithmetic [grammar](programming/introduction-to-grammars):
+![cst.png](programming/images/cst.png)
 `Expr`, `Term` and `Factor` nodes do not have a semantic purpose, therefore technically it is not
 an AST.

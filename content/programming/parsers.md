@@ -12,7 +12,7 @@ mentioned, so it's good to know what they mean.
 
 ### Recursive descent
 
-Recursive descent parser is a program, where each [grammar](100-days/introduction-to-grammars) rule is implemented as a separate method.
+Recursive descent parser is a program, where each [grammar](programming/introduction-to-grammars) rule is implemented as a separate method.
 Sometimes all rules describing one terminal are combined into a single method.
 
 {{< svg "static/recursive_parser.svg" >}}
@@ -49,7 +49,7 @@ Unlike top-down, creates tree starting from leaves and finishing at root.
 
 Left-to-right, rightmost derivation. Uses CFG. Starts with tokens of higher priority, eventually
 building its way from leaves to root (the higher the node, the less priority it has. Look
-at [AST arithmetic example](100-days/ast)).
+at [AST arithmetic example](programming/ast)).
 
 Implementation uses pushdown automata or deterministic finite automation. Works in linear time.
 

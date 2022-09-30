@@ -51,7 +51,7 @@ should
 be followed by `delete` to prevent memory leak. Additionally, it is possible to store object
 instance on stack in C++, if variable is declared without `new`. Such local variable will
 be popped from stack after method
-execution. [A little more about C++ memory model](100-days/cpp-pointers).
+execution. [A little more about C++ memory model](programming/cpp-pointers).
 
 ### Heap fragmentation
 
