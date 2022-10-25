@@ -6,7 +6,7 @@ async function getFile(path) {
     if (localStorage.getItem(path) == null) {
         let res = (
             await (
-                await fetch("https://alex5041.github.io/reginafiles/" + path)
+                await fetch("https://llesha.github.io/reginafiles/" + path)
             ).text()
         ).toString();
         //console.log(res, typeof res)
