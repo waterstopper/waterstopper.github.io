@@ -3,7 +3,7 @@ title: WaterStop
 ---
 
 Hello! My name is Alex, and I'm a software engineer. On [itch.io](https://waterstop.itch.io/) I put
-my playable projects. On [GitHub](https://github.com/Alex5041) I put source code.
+my playable projects. On [GitHub](https://github.com/llesha) I put source code.
 
 # Site content
 

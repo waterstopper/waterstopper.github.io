@@ -40,13 +40,6 @@
           "text": "CONTRIBUTING"
         }
       ],
-      "/programming/SQL": [
-        {
-          "source": "/programming/SQL",
-          "target": "/Definitions",
-          "text": "multiset"
-        }
-      ],
       "/programming/ast": [
         {
           "source": "/programming/ast",
@@ -307,13 +300,6 @@
           "source": "/kotlin/monaco-editor/README",
           "target": "/./samples/",
           "text": "complete samples"
-        }
-      ],
-      "/Definitions": [
-        {
-          "source": "/programming/SQL",
-          "target": "/Definitions",
-          "text": "multiset"
         }
       ],
       "/Syntax.md/": [
@@ -578,11 +564,6 @@
       "source": "/kotlin/monaco-editor/README",
       "target": "/./CONTRIBUTING",
       "text": "CONTRIBUTING"
-    },
-    {
-      "source": "/programming/SQL",
-      "target": "/Definitions",
-      "text": "multiset"
     },
     {
       "source": "/programming/ast",

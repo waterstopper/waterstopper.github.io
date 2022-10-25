@@ -45,7 +45,7 @@ issue only in a language where null as a no-reference exists.
 
 Embedded functions are functions that are translated from kotlin. All global functions and
 type functions are embedded.
-[Here is an implementation of global functions (GitHub).](https://github.com/Alex5041/Regina/blob/ab48513b0a11ed21e710eec94660b7951137eafb/src/commonMain/kotlin/evaluation/FunctionFactory.kt#L49)
+[Here is an implementation of global functions (GitHub).](https://github.com/llesha/Regina/blob/ab48513b0a11ed21e710eec94660b7951137eafb/src/commonMain/kotlin/evaluation/FunctionFactory.kt#L49)
 
 It seems natural for me to shorten embedded functions quantity as much as possible (and write them
 in created language[^2]). I had three reasons to add many:
@@ -77,11 +77,11 @@ Symbol table is a solution to three concerns:
 
 It is organized as three tables:
 
-1. [FileTable](https://github.com/Alex5041/Regina/blob/master/src/commonMain/kotlin/table/FileTable.kt)
+1. [FileTable](https://github.com/llesha/Regina/blob/master/src/commonMain/kotlin/table/FileTable.kt)
     - for storing all declarations in class (imports are references to other FileTables)
 2. VariableTable - contains all declarations for type instance (properties and functions).
    VariableTable is a variable itself (class or a primitive).
-3. [ScopeTable](https://github.com/Alex5041/Regina/blob/master/src/commonMain/kotlin/table/ScopeTable.kt)
+3. [ScopeTable](https://github.com/llesha/Regina/blob/master/src/commonMain/kotlin/table/ScopeTable.kt)
     - contains all assigned variables inside a function body.
 
 SymbolTable is a [God-manager](https://en.wikipedia.org/wiki/God_object), but it is needed to

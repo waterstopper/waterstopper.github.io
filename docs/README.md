@@ -2,6 +2,6 @@
 
 Language with recursive generation and instantiation.
 
-[IDE (WIP)](https://alex5041.github.io/regina/ide/)
+[IDE (WIP)](https://llesha.github.io/regina/ide/)
 
-[Docs (WIP)](https://alex5041.github.io/regina/regina/)
+[Docs (WIP)](https://llesha.github.io/regina/regina/)

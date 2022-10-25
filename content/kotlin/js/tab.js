@@ -110,7 +110,7 @@ window.getFileContentByPath = async function (path) {
     if (isLocal == null) {
         let res = (
             await (
-                await fetch("https://alex5041.github.io/reginafiles/" + path)
+                await fetch("https://llesha.github.io/reginafiles/" + path)
             ).text()
         ).toString();
         if (
@@ -135,7 +135,7 @@ async function openTab(path, isLib) {
     if (isLib) {
         code = (
             await (
-                await fetch("https://alex5041.github.io/reginafiles/" + path)
+                await fetch("https://llesha.github.io/reginafiles/" + path)
             ).text()
         ).toString();
     } else {
