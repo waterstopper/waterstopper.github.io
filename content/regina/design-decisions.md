@@ -2,7 +2,7 @@
 title: "Design decisions"
 ---
 
-## Why null is 0?
+## ~~Why null is 0?~~ *now it is not*
 
 First, let's provide some context.
 

@@ -1,0 +1,68 @@
+import std.math as math
+import svg as svg
+import geom as geom
+import utils
+
+object Constants {
+    palette = {\
+        "black":"#000000",\
+        "blue":"#253092",\
+        "red":"#bf3011",\
+        "orange":"#df8022",\
+        "yellow":"#e5b527",\
+        "green":"#06694a",\
+        "purple":"#820d7c",\
+        "white":"#fffafb"}
+}
+
+class Body: Rectangle {
+    center = Point(x=50,y=50)
+    fill = Constants.palette.values[\
+        rndInt(0, Constants.palette.size-2)]
+    width = rndInt(25, 50)
+    height = 25
+    head = if(rndInt(0,1)) Head() else RoundHead()
+    leg0 = Limb(start = downLeft(5,-5))
+    leg1 = Limb(start = downRight(-5,-5))
+}
+
+class Head: Polyline {
+    fill = parent.fill
+    points = [Point(x=parent.center.x+parent.width*rndDouble(1, 2),y=parent.center.y),\
+        parent.downRight(),\
+        parent.upRight()]
+    eye = Eye(center=center())
+}
+
+class RoundHead: Polyline {
+    center = parent.center.plus(\
+        Point(x=parent.width/2))
+    eye = Eye(center=center)
+    circle = Circle(center=center,\
+        r=parent.height/2,\
+        fill=parent.fill)
+}
+
+class Eye {
+    center = Point()
+    iris = Circle(r=7,center=center,\
+    fill = Constants.palette["white"])
+    pupil = Circle(r=5,center=center)
+    svgArgs = {"order":["iris", "pupil"]}
+}
+class Limb {
+    start = Point(x=1, y=1)
+    first = Segment(p1=copy(start),p2=Point(x=start.x,y=start.y+rndInt(10, 20)),\
+        stroke=parent.fill,strokeWidth=5)\
+        .rotate(rndInt(-50,50), start)
+    second = Segment(p1=first.p2,\
+    p2=Point(x=first.p2.x+rndInt(5,10),\
+    y=first.p2.y),\
+        stroke=parent.fill,strokeWidth=5)
+}
+
+fun main() {
+    f = Body()
+    a = svg.createSVG(f, 200, 100)
+    write(a, "result.svg")
+}

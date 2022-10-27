@@ -39,6 +39,10 @@ fun change() {
 }
 ```
 
+## Null
+
+Null is same as in kotlin or onter languages.
+
 ## Number
 
 An abstract class, has Int and Double as inheritants. `Number` can be encountered in type check:
@@ -49,36 +53,58 @@ An abstract class, has Int and Double as inheritants. `Number` can be encountere
 "3" is Number // false
 ```
 
-### Functions
+### Documentation
 
-`abs(): Number` - absolute value
+```kotlin
+class Number {
+fun abs(): Number {
+    // absolute value
+}
 
-`min(other:Number): Number` - minimum of `this` and `other`
+fun min(other:Number): Number {
+    // minimum of `this` and `other`
+}
 
-`max(other:Number): Number` - maximum of `this` and `other`
+fun max(other:Number): Number {
+    // maximum of `this` and `other`
+}
 
-`pow(deg: Number): Double` - `this` to power of `deg`
+fun pow(deg: Number): Double {
+    // `this` to power of `deg`
+}
 
-`round(digits: Number = 0): Double` - number rounded to `digits` number of digits
-after point. Rounds away from zero: `(-0.5).round() == -1`
+fun round(digits: Number = 0): Double {
+    // number rounded to `digits` number of digits
+    // after point. Rounds away from zero: `(-0.5).round() == -1`
+}
 
-`floor(digits: Number = 0): Int` - return biggest integer smaller or equal than target
+fun floor(digits: Number = 0): Int {
+    // return biggest integer smaller or equal than target
+}
 
-`ceil(digits: Number = 0): Int` - return smallest integer greater or equal than target
+fun ceil(digits: Number = 0): Int {
+    // return smallest integer greater or equal than target
+}
 
-`intDiv(divisor: Number): Int` - result of an integer division
+fun intDiv(divisor: Number): Int {
+    // result of an integer division
+}
 
-`sqrt(): Double` - square root
+fun sqrt(): Double {
+    // square root
+}
 
-Trigonometry: `sin(): Double`
-`cos(): Double`
-`asin(): Double`
-`acos(): Double`
+// Trigonometry
+    fun sin(): Double {}
+    fun cos(): Double {}
+    fun asin(): Double {}
+    fun acos(): Double {}
+    fun tan(): Double {}
+    fun atan(): Double {}
+    fun atan2(x: Number): Double {} // `this` is considered as `y` of atan2
+}
 
-### Null
-
-Null is number, and it equals to 0.
-{{<refer "regina/design-decisions/#Why-null-is-0?" "Why null is 0?" >}}
+```
 
 ### Boolean
 
@@ -88,10 +114,14 @@ Numeric values are interpreted as boolean values in conditions (e.g. `if(conditi
 
 ### Int
 
-#### Properties
+#### Documentation
 
-* `Int.MIN_VALUE` - returns -2147483648
-* `Int.MAX_VALUE` - returns 2147483647
+```kotlin
+class Int: Number {
+    Int.MIN_VALUE // returns -2147483648
+    Int.MAX_VALUE // returns 2147483647
+}
+```
 
 ### Double
 
@@ -105,92 +135,135 @@ similar to kotlin, however working with these constants might give unexpected re
 -1 / 0 // -Infinity
 ```
 
-#### Properties
+#### Documentation
 
-* `Double.MIN_VALUE` - returns 4.9E-324
-* `DOuble.MAX_VALUE` - returns 1.7976931348623157E308
+```kotlin
+class Double: Number {
+    Double.MAX_VALUE // returns 1.7976931348623157E308
+    Double.MIN_VALUE // returns 4.9E-324
+}
+```
 
 ## String
 
-### properties
+### Documentation
 
-`size` - get number of characters in string
-
-### functions
-
-These functions do not change initial string
-
-`has(found: String): Bool` - returns found's existence
-
-`index(found: String): Int` - first index of found else -1
-
-`substring(start: Int, end: Int = this.size): String` - string from start (inclusive) to end (
-non-inclusive)
-
-`replace(oldString: String, newString: String): String` - returns string with all occurrences
-of `oldString` changed to `newString`
-
-`reversed(): String` - reversed string
-
-`lowercase(): String` - initial string with lowercase letters
-
-`uppercase(): String` - initial string with uppercase letters
+```kotlin
+class  String {
+    size // get number of characters in string
+    
+    // These functions do not change the initial string
+    fun has(found: String): Bool {
+        // returns found's existence
+    }
+    
+    fun index(found: String): Int {
+        // first index of found else -1
+    }
+    
+    fun substring(start: Int, end: Int = this.size): String {
+        // string from start (inclusive) to end (non-inclusive)
+    }
+    
+    fun replace(oldString: String, newString: String): String {
+        // returns string with all occurrences
+        // of `oldString` changed to `newString`
+    }
+    
+    fun reversed(): String {
+        // reversed string
+    }
+    
+    fun lowercase(): String {
+        // initial string with lowercase letters
+    }
+    
+    fun uppercase(): String {
+        // initial string with uppercase letters
+    }
+}
+```
 
 ## List
 
-### properties
+### Documentation
 
-`size` - number of list elements
-
-### functions
-
-`add(element, index: Int = this.size)` - inserts element to list at `index`
-
-`remove(element): Int` - remove element, get index of removed element (or -1, if not found)
-
-`removeAt(index: Int): Any` -
-
-`has(element): Bool` - returns element's existence
-
-`index(found): Int` - first index of found else -1
-
-`joinToString(separator: String = ", ")` -
-
-`clear()`
-
-`sort(desc: Bool = false)` - sorts target list in place, returns null.
-
-`sorted(desc: Bool = false)` - does not sort target, returns sorted list.
-``
-
-// adds x to the end of list
-fun add(arr, i, x) // inserts x at index i
-fun remove(arr, a) // removes element x if found and returns 1 if removed successfully, 0 if not
-fun removeAt(arr, i) // removes element by index
-fun has(arr, x) // returns 1 if list contains x, else returns 0
+```kotlin
+class List {
+    size // number of list elements
+    fun add(element, index: Int = this.size)
+    {
+        //inserts element to list at `index`
+    }
+    
+    fun remove(element): Int
+    {
+        // remove element, get index of removed element (or -1, if not found)
+    }
+    
+    fun removeAt(index: Int): Any
+    {
+        // returns removed element from `index`
+    }
+    
+    fun has(element): Bool
+    {
+        // returns element's existence
+    }
+    
+    fun index(found): Int
+    {
+        // returns first index of `found` or -1 if not found
+    }
+    
+    fun joinToString(separator: String = ", "): String
+    {
+        // creates a string from list elements, separated by `separator`
+    }
+    
+    fun clear(): Null
+    {
+        // removes all elements from List
+    }
+    fun sort(desc: Bool = false): Null
+    {
+        // sorts target list in place
+    }
+    
+    fun sorted(desc: Bool = false): List
+    {
+        // does not sort target, returns sorted list.
+    }
+}
+```
 
 ## Dictionary
 
-### properties
+## Documentation
 
-`size` - number of entries in dictionary
+```kotlin
+class Dictionary {
+    size // number of entries in dictionary
+    keys // list of all keys
+    values // list of all values
+    entries // list of dictionaries for all entries. For example,
 
-`keys` - list of all keys
+    fun remove(key): Any {
+        // remove key and get associated value
+    }
 
-`values` - list of all values
+    fun has(key): Bool {
+        // check if key exists
+    }
+}
+```
 
-`entries` - list of dictionaries for all entries. For example,
+### Examples
 
 ```kotlin
 {1:2, "3":"4"}.entries 
 // == [{"key":1, "value":2}, {"key":"3", "value":"4"}]
 ```
-
-### functions
-
-`remove(key): Any` - remove key
-
-`has(key): Bool` - check if key exists
 
 ## Type
 
@@ -198,9 +271,9 @@ fun has(arr, x) // returns 1 if list contains x, else returns 0
 
 Properties that each instance has:
 
-`parent` - null or parent
+`parent` - null or parent of this instance
 
-`properties` -
+`properties` - dictionary of all properties
 
 ### Constructor
 

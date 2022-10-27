@@ -1,4 +1,13 @@
 {
+  "docs": {
+    "isLib": "true",
+    "content": {
+      "Number.rgn": "1",
+      "String.rgn": "1",
+      "List.rgn": "1",
+      "Dictionary.rgn": "1"
+    }
+  },
   "std": {
     "isLib": "true",
     "content": {
@@ -10,7 +19,7 @@
   "generators": {
     "isLib": "true",
     "content": {
-      "plant.rgn": "1",
+      "flower.rgn": "1",
       "animal.rgn": "1",
       "house.rgn": "1"
     }
