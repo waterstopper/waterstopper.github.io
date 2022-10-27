@@ -1,0 +1,4 @@
+class Type {
+    parent // null or parent of this instance
+    properties // dictionary of all properties
+}

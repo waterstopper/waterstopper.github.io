@@ -1,0 +1,33 @@
+class  String {
+    size // get number of characters in string
+
+    // These functions do not change the initial string
+    fun has(found: String): Bool {
+        // returns found's existence
+    }
+
+    fun index(found: String): Int {
+        // first index of found else -1
+    }
+
+    fun substring(start: Int, end: Int = this.size): String {
+        // string from start (inclusive) to end (non-inclusive)
+    }
+
+    fun replace(oldString: String, newString: String): String {
+        // returns string with all occurrences
+        // of `oldString` changed to `newString`
+    }
+
+    fun reversed(): String {
+        // reversed string
+    }
+
+    fun lowercase(): String {
+        // initial string with lowercase letters
+    }
+
+    fun uppercase(): String {
+        // initial string with uppercase letters
+    }
+}
