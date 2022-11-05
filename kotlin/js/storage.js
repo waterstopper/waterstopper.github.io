@@ -81,12 +81,12 @@ function setDefaults() {
     localStorage.setItem('rightSize', 33);
     localStorage.setItem('consoleSize', 48);
     localStorage.setItem('layout', '{}');
-    localStorage.setItem('main-file', "main.rgn");
+    localStorage.setItem('main-file', "");
     localStorage.setItem(
         'main.rgn',
         `
 fun main() {
-    log("Hello, World!")
+    print("Hello, World!")
     t = a();
     test(t == 1)
 }
@@ -106,6 +106,7 @@ function openSettings() {
     window.maxConsoleEntries = parseInt(localStorage.getItem('consoleEntries'));
     document.getElementById('font-size').value =
         localStorage.getItem('fontSize');
+    document.getElementById("main-file").value =  localStorage.getItem("main-file")
     updateFontSize();
 }
 
