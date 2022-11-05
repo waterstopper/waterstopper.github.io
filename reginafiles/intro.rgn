@@ -1,5 +1,5 @@
-import animal
-import flower
+import generators.animal as animal
+import generators.flower as flower
 
 fun main() {
     // two image generators created with Regina

@@ -81,6 +81,7 @@ function setDefaults() {
     localStorage.setItem('rightSize', 33);
     localStorage.setItem('consoleSize', 48);
     localStorage.setItem('layout', '{}');
+    localStorage.setItem('main-file', "main.rgn");
     localStorage.setItem(
         'main.rgn',
         `
