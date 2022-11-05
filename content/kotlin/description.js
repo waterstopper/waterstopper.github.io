@@ -23,16 +23,6 @@ var descriptions = [
         description:
             "SVG image produced by the program is displayed in this panel.",
     },
-    // {
-    //     id: [
-    //         "left-panel-button",
-    //         "hide-console",
-    //         "show-settings",
-    //         "show-debug",
-    //     ],
-    //     title: "view buttons",
-    //     description: "",
-    // },
     {
         class: ["button-list"],
         title: "- control buttons -",
@@ -44,7 +34,7 @@ var descriptions = [
         <span style='color:var(--red); margin-left: 2em'>Terminate</span>:
          terminate currently running program.<br>
         <span style='color:var(--middle-color); margin-left: 2em'>Save</span>: 
-        manually save current file (useful if autosave turned off).<br>`,
+        load result.svg.<br>`,
     },
     {
         class: ["tabs .scrollable"],
