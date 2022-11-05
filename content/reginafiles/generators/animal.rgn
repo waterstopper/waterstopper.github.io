@@ -1,7 +1,7 @@
 import std.math as math
-import svg as svg
-import geom as geom
-import utils
+import std.svg as svg
+import std.geometry2D as geom
+import std.utils as utils
 
 object Constants {
     palette = {\

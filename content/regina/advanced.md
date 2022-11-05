@@ -9,13 +9,13 @@ But are good to know anyway.
 fun main() {
     a = [1]
     t = {a: "value"}
-    log(t)
-    log(t[[1]])
+    print(t)
+    print(t[[1]])
     a.add(2)
-    log(t)
-    log(t.entries[0]["key"])
-    log(t[t.entries[0]["key"]])
-    log(t[[1, 2]])
+    print(t)
+    print(t.entries[0]["key"])
+    print(t[t.entries[0]["key"]])
+    print(t[[1, 2]])
 }
 ```
 

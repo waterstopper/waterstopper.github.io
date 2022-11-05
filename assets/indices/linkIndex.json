@@ -165,11 +165,6 @@
           "source": "/regina/global",
           "target": "/",
           "text": "similar to other imports"
-        },
-        {
-          "source": "/regina/global",
-          "target": "/",
-          "text": "IDE"
         }
       ],
       "/regina/regina": [
@@ -250,11 +245,6 @@
           "source": "/regina/global",
           "target": "/",
           "text": "similar to other imports"
-        },
-        {
-          "source": "/regina/global",
-          "target": "/",
-          "text": "IDE"
         },
         {
           "source": "/regina/regina",
@@ -679,11 +669,6 @@
       "source": "/regina/global",
       "target": "/",
       "text": "similar to other imports"
-    },
-    {
-      "source": "/regina/global",
-      "target": "/",
-      "text": "IDE"
     },
     {
       "source": "/regina/regina",

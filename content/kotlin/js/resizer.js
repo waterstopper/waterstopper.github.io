@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var resizer;
-    var leftSide;
-    var rightSide;
+    let resizer;
+    let leftSide;
+    let rightSide;
     // The current position of mouse
     let x = 0;
     let y = 0;
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         x = e.clientX;
         y = e.clientY;
 
-        if (resizer.className == "horizontal-resizer") {
+        if (resizer.className == 'horizontal-resizer') {
             leftWidth = leftSide.getBoundingClientRect().height;
             rightWidth = rightSide.getBoundingClientRect().height;
         } else {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // How far the mouse has been moved
         const dx = e.clientX - x;
         const dy = e.clientY - y;
-        if (resizer.className == "horizontal-resizer") {
+        if (resizer.className == 'horizontal-resizer') {
             const newLeftWidth = ((leftWidth + dy) * 100) / resizer.parentNode.getBoundingClientRect().height;
             const newRightWidth = ((rightWidth - dy) * 100) / resizer.parentNode.getBoundingClientRect().height;
             if (newRightWidth > 10 && newLeftWidth > 10) {
@@ -59,9 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
 
-
-        leftSide.style.display = "block";
-        rightSide.style.display = "block";
+        leftSide.style.display = 'block';
+        rightSide.style.display = 'block';
         leftSide.style.userSelect = 'none';
         leftSide.style.pointerEvents = 'none';
 
@@ -90,11 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Attach the handler
-    let resizers = document.getElementsByClassName('resizer');
+    const resizers = document.getElementsByClassName('resizer');
     for (let i = 0; i < resizers.length; i++) {
         resizers[i].addEventListener('mousedown', mouseDownHandler);
     }
-    let horizontalResizers = document.getElementsByClassName('horizontal-resizer')
+    const horizontalResizers = document.getElementsByClassName('horizontal-resizer');
     for (let i = 0; i < horizontalResizers.length; i++) {
         horizontalResizers[i].addEventListener('mousedown', mouseDownHandler);
     }

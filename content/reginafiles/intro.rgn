@@ -1,3 +1,8 @@
+import animal
+import flower
+
 fun main() {
-    print("Hello, World!")
+    // two image generators created with Regina
+    // animal.main()
+    flower.main()
 }

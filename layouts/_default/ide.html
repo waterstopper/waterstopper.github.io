@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Regina IDE</title>
     <script src="https://kit.fontawesome.com/fcd79d1b18.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../kotlin/styles.css">
+    <link rel="stylesheet" href="../../kotlin/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../../kotlin/monaco-editor/min/vs/loader.js"></script>
     <script type="module" src="../../kotlin/js/external/themes.js"></script>
@@ -20,6 +20,8 @@
                 <span id="unpicked-delete" style="display:none;color:var(--gray); font-size: small;"><i
                         class="fa-solid fa-circle-info" style="color:var(--gray)"></i> Click on element to select, then
                     try again</span>
+                    <span id="unopened-main-file" style="display:none;color:var(--yellow); font-size: small;"><i
+                        class="fa-solid fa-triangle-exclamation" style="color:var(--yellow)"></i> Starting file should be opened </span>
                 <span id="unsupported-format" style="display:none;color:var(--yellow); font-size: small;"><i
                         class="fa-solid fa-triangle-exclamation" style="color:var(--yellow)"></i> Only rgn files are
                     executable</span>
@@ -53,6 +55,13 @@
                                 <span class="slider round"></span>
                             </label>
                         </div>
+                        <div class="grid-item">Starting file&nbsp;<i class="fas fa-play"
+                            style="color:var(--green);font-size: small;"></i>
+                            <div class='description'>leave blank => currently opened is starting</div>
+                        </div>
+                        <div class="grid-item">
+                            <input id="main-file" type="text"> </input>
+                        </div>
                         <div class="grid-item">Theme
                             <div class='description'></div>
                         </div>
@@ -65,21 +74,21 @@
                         <div class="grid-item">
                             <input id="font-size" type="number" min="5" max="50"> </input>
                         </div>
-                        <div class="grid-item">[Not implemented] Console entries
+                        <div class="grid-item">Console entries
                             <div class='description'>qty before overflow</div>
                         </div>
                         <div class="grid-item">
                             <input id="console-entries" type="number" min="0" max="1000"> </input>
                         </div>
-                        <!-- <div class="grid-item">Autosave file changes on tab close/page reload
-                            <div class='description'>if there is no internet, local files will be used</div>
-                        </div>
-                        <div class="grid-item">
-                            <label class="switch">
-                                <input id="autosave" type="checkbox">
-                                <span class="slider round"></span>
-                            </label>
-                        </div> -->
+<!--                        <div class="grid-item">Autosave file changes on tab close/page reload-->
+<!--                            <div class='description'>if there is no internet, local files will be used</div>-->
+<!--                        </div>-->
+<!--                        <div class="grid-item">-->
+<!--                            <label class="switch">-->
+<!--                                <input id="autosave" type="checkbox">-->
+<!--                                <span class="slider round"></span>-->
+<!--                            </label>-->
+<!--                        </div>-->
                         <div class="grid-item">Reset all
                             <div class='description'>settings to default, delete files</div>
                         </div>
@@ -107,7 +116,7 @@
                         <button title="to breakpoint on caret position">
                             <i class="fa-solid fa-arrow-right"></i>
                             <i class="fa-solid fa-i-cursor"></i></button>
-                        <span style="border-left: var(--light-gray) solid 1px; padding-left: 10px;">0/0</span>
+                        <span style="border-left: var(--light-gray) solid 1px; padding-left: 10px;"></span>
                     </div>
                 </div>
             </div>
@@ -132,11 +141,10 @@
                         </button>
                     </div>
                     <div class="tabs scrollable">
-                        <div class="tab tab-opaque" hidden>
-                            <p class="tab-child tab-opaque">sdmain.pgdd</p>
+                        <div class="button-list-back" hidden>
                         </div>
                         <div class="tab" draggable="true" style="display:none;">
-                            <p class="tab-child">main.pg</p>
+                            <p class="tab-child">mainn.rgn</p>
                             <button class=" tab-child close">✕</button>
                         </div>
                     </div>
@@ -173,6 +181,15 @@
     <div id="description" style="display: none;">
         <p style="text-align: center; margin: 0px; font-size: large; color:var(--middle-color); font-weight: bold;">Tip
         </p>
+        <hr class="console-record-divider" noshade>
+        <p style="text-align: justify; padding-left: 15px; padding-right: 15px;">
+
+        </p>
+    </div>
+    <div id="error-description" style="display: none;">
+        <p style="text-align: center; margin: 0px; margin-left: 20%; font-size: large; color:var(--red);
+        font-weight: bold; display:inline-block; width: 60%;">- Error -
+        </p><button id="error-close" style="float: right;">✕</button>
         <hr class="console-record-divider" noshade>
         <p style="text-align: justify; padding-left: 15px; padding-right: 15px;">
 

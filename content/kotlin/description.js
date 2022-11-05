@@ -53,7 +53,7 @@ var descriptions = [
             "Closing a library tab will delete all changes, including breakpoints, undo/redo stack",
     },
     {
-        id: ["bottom-left-panel"],
+        id: ["bottom-left-panel", "settings-panel"],
         title: "- Debug -",
         description: `
         <span style="color:var(--gray)">One panel is dedicated for settings
@@ -76,3 +76,11 @@ var tips = [
     target="_blank">Leave feedback</a> (in settings)`,
     "Don't write to lib from code",
 ];
+
+var errors = {
+    "unpicked-delete":"Click on element to select, then try again",
+    "unopened-main-file":"Starting file should be opened ",
+    "unsupported-format":"Only rgn files are executable",
+    "delete-library-files":"Cannot delete library files",
+    "add-library-folders":"Cannot add to library folders"
+};

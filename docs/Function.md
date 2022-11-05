@@ -19,7 +19,7 @@ class Array {
 
 class String {
     fun export() // for instances only, creates svg with all the instances that have export attribute
-    fun log() // similar to console.log() in javascript
+    fun print() // similar to console.log() in javascript
     fun rnd() // returns random double in 0..1 (1 is exclusive)
 
     fun int() // returns int from this string

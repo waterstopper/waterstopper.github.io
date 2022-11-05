@@ -20,14 +20,14 @@ In class instance scope properties and functions are declared. These declaration
 **from a class instance and inside class functions**.
 
 ```kotlin
-/** this program logs:
+/** this program prints:
 changed
 in class
 in global
 **/
 fun main() {
     a = A(prop="changed")    
-    log(a.logger()) // function called from an instance
+    print(a.logger()) // function called from an instance
 }
 
 class A {
@@ -35,8 +35,8 @@ class A {
     prop = "prop"
     fun func() { return "in class" }
     fun logger(param = prop) {
-        log(param)
-        log(this.func())
+        print(param)
+        print(this.func())
         return func()
     }
 }
@@ -120,8 +120,8 @@ fun same() {return 1}
 class difSignature {}
 fun difSignature(param) {}
 fun main() {
-    log(same()) // 1
-    log(difSignature()) // class instance
+    print(same()) // 1
+    print(difSignature()) // class instance
 }
 ```
 
@@ -183,7 +183,7 @@ defines the same function, superclass function is shadowed. Following example mi
 ```kotlin
 fun main() {
    s = Subclass()
-   log(s.fn()) // "base"
+   print(s.fn()) // "base"
    log(s.shadow()) // "this is called"
 }
 
