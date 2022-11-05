@@ -30,7 +30,7 @@ function createTree() {
                 fileSystem['main.rgn'] = '1';
                 setFileContent(
                     'main.rgn',
-                    `fun main() {\\n\\tlog(\\"Hello, World!\\") \\n}`,
+                    `fun main() {\\n\\tprint(\\"Hello, World!\\") \\n}`,
                 );
                 localStorage.setItem('layout', JSON.stringify(fileSystem));
             }
