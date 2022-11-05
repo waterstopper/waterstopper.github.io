@@ -1,6 +1,6 @@
-import svg as svg
-import geom as geom
-import utils
+import std.svg as svg
+import std.geometry2D as geom
+import std.utils as utils
 
 fun scaleAndRotate(node) {
     svg.transform("rotate", rndInt(0, 359), node)

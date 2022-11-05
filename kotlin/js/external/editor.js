@@ -4,12 +4,10 @@ import * as themes from "./themes.js";
 async function getFile(path) {
     // lib file
     if (localStorage.getItem(path) == null) {
-        let res = (
-            await (
+         let res=(await (
                 await fetch("https://llesha.github.io/reginafiles/" + path)
             ).text()
         ).toString();
-        //console.log(res, typeof res)
         return res;
         // .then((response) => response.text())
         // .then((code) => {
@@ -46,10 +44,6 @@ require(["vs/editor/editor.main"], function () {
                 close: ")",
             },
             {
-                open: "'",
-                close: "'",
-            },
-            {
                 open: '"',
                 close: '"',
             },
@@ -70,11 +64,6 @@ require(["vs/editor/editor.main"], function () {
             {
                 open: "(",
                 close: ")",
-            },
-            {
-                open: "'",
-                close: "'",
-                notIn: ["string", "comment"],
             },
             {
                 open: '"',
@@ -101,6 +90,12 @@ require(["vs/editor/editor.main"], function () {
             "class",
             "fun",
             "while",
+            "foreach",
+            "as",
+            "import",
+            "null",
+            "true",
+            "false",
         ],
         operators: [
             "=",
@@ -115,6 +110,7 @@ require(["vs/editor/editor.main"], function () {
             "!=",
             "&&",
             "||",
+            "??",
             "+",
             "-",
             "*",
@@ -187,11 +183,6 @@ require(["vs/editor/editor.main"], function () {
                         next: "@string",
                     },
                 ],
-
-                // characters
-                [/'[^\\']'/, "string"],
-                [/(')(@escapes)(')/, ["string", "string.escape", "string"]],
-                [/'/, "string.invalid"],
             ],
 
             comment: [
@@ -309,6 +300,14 @@ require(["vs/editor/editor.main"], function () {
                             .InsertAsSnippet,
                 },
                 {
+                    label: "foreach",
+                    kind: monaco.languages.CompletionItemKind.Keyword,
+                    insertText: "foreach",
+                    insertTextRules:
+                        monaco.languages.CompletionItemInsertTextRule
+                            .InsertAsSnippet,
+                },
+                {
                     label: "if",
                     kind: monaco.languages.CompletionItemKind.Keyword,
                     insertText: "if",
@@ -360,7 +359,11 @@ require(["vs/editor/editor.main"], function () {
     window.editor = monaco.editor.create(document.getElementById("container"), {
         value:
             localStorage.getItem("main.rgn") == null
-                ? ["Hello, it is your first visit!", "Reload the page to proceed", ""].join("\n")
+                ? [
+                      "Hello, it is your first visit!",
+                      "Reload the page to proceed",
+                      "",
+                  ].join("\n")
                 : JSON.parse(localStorage.getItem("main.rgn")).code,
         language: "Regina",
         glyphMargin: true,
@@ -415,6 +418,7 @@ require(["vs/editor/editor.main"], function () {
     window.editor.setBreakpoints = function (list) {
         breakpoints = window.editor.deltaDecorations(breakpoints, list);
     };
+    window.editor.removeException = () => {};
 
     monaco.languages.registerCodeLensProvider("Regina", {
         provideCodeLenses: function (model, token) {
@@ -442,6 +446,59 @@ require(["vs/editor/editor.main"], function () {
         },
     });
 
+    window.editor.addAction({
+        id: "comment-selection-action-id",
+
+        // A label of the action that will be presented to the user.
+        label: "Comment Selection",
+
+        // An optional array of keybindings for the action.
+        keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.Slash],
+        precondition: null,
+        keybindingContext: null,
+        contextMenuGroupId: "navigation",
+        contextMenuOrder: 1.5,
+        run: function (ed) {
+            let isComment = true;
+            let arr = [];
+            let start = ed.getSelection().startLineNumber;
+            let end = ed.getSelection().endLineNumber;
+            for (let i = start; i <= end; i++) {
+                const match = ed
+                    .getModel()
+                    .getLineContent(i)
+                    .toString()
+                    .match(/^\s*\/\//g);
+                if (match == null) {
+                    isComment = false;
+                    arr.length = 0;
+                    break;
+                }
+                arr.push(match[0].toString().length);
+            }
+            if (isComment)
+                for (let i = start; i <= end; i++) {
+                    console.log(arr[i]);
+                    ed.executeEdits("my-source", [
+                        {
+                            text: "",
+                            range: new monaco.Range(
+                                i,
+                                arr[i - start] - 1,
+                                i,
+                                arr[i - start] + 1
+                            ),
+                        },
+                    ]);
+                }
+            else
+                for (let i = start; i <= end; i++)
+                    ed.executeEdits("my-source", [
+                        { text: "//", range: new monaco.Range(i, 1, i, 1) },
+                    ]);
+        },
+    });
+
     var openedFiles = {};
     window.editor.openFile = async function (path) {
         let code = await getFile(path);
@@ -455,16 +512,7 @@ require(["vs/editor/editor.main"], function () {
     window.editor.switchFile = function (path) {
         window.editor.setModel(openedFiles[path]);
     };
-    // window.editor.openFile("s")
-    // window.editor.closeFile("s")
-    // window.editor.openFile("s")
-    //window.m1 = monaco.editor.createModel()
-    //window.m2 = monaco.editor.createModel()
-
-    //console.log(window.editor)
-    //console.log(window.m1)
-    //window.editor.setModel(window.m1)
-    //state1 = window.editor.saveViewState()
+    // comment
 });
 
 document.documentElement.setAttribute("data-theme", "light");

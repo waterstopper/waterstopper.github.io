@@ -136,8 +136,15 @@ button:hover {
     display: flex;
     flex-flow: row;
     z-index: 2;
-    height: 1.3em;
+    height: 1.4em;
     background-color: var(--bg-color);
+    width: 6em;
+}
+
+.button-list-back {
+    width: 6em;
+    height:  1.4em;
+    display: inline;
 }
 
 .top-gutter,
@@ -290,6 +297,10 @@ button:hover {
 ul {
     list-style-type: none;
     margin: 0px;
+}
+
+ul.nested{
+    padding-inline-start: 20px;
 }
 
 /* Remove margins and padding from the parent ul */
@@ -495,7 +506,8 @@ li {
     font-size: smaller;
 }
 
-input[type="number"] {
+input[type="number"],
+input[type="text"] {
     width: 4em;
     border-radius: 0.3em;
     border: none;
@@ -503,7 +515,8 @@ input[type="number"] {
     padding-top: 1px;
 }
 
-input[type="number"]:hover {
+input[type="number"]:hover,
+input[type="text"]:hover {
     border: var(--light-gray) solid 1px;
     padding-left: 4px;
     padding-top: 0px;
@@ -586,7 +599,8 @@ a {
     background: rgba(0, 0, 0, 0);
 }
 
-#description {
+#description,
+#error-description {
     position: absolute;
     width: 20%;
     background-color: var(--bg-color);
@@ -597,11 +611,13 @@ a {
     z-index: 4;
 }
 
-html[data-theme="light"] #description {
+html[data-theme="light"] #description,
+html[data-theme="light"] #error-description {
     box-shadow: 0px 0px 10px 5px var(--light-gray);
 }
 
-html[data-theme="dark"] #description {
+html[data-theme="dark"] #description,
+html[data-theme="dark"] #error-description {
     box-shadow: 0px 0px 10px 5px black;
 }
 
