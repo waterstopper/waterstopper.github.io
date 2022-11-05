@@ -33,9 +33,21 @@ function stopReset() {
     document.getElementById('reset-all').innerText = 'do reset';
 }
 
+function saveResult() {
+    var svgData = document.getElementById("svg-result").getElementsByTagName("svg")[0].outerHTML;
+    var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
+    var svgUrl = URL.createObjectURL(svgBlob);
+    var downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = "result"+(new Date().getUTCMilliseconds())+".svg";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
 document.getElementById('reset-all').onmouseup = () => stopReset();
 document.getElementById('reset-all').onmouseleave = () => stopReset();
-document.getElementById('save-button').onclick = () => autosave();
+document.getElementById('save-button').onclick = () => saveResult();
 
 document.getElementById('theme-button').onclick = () => {
     if (document.documentElement.getAttribute('data-theme') == 'dark') {
