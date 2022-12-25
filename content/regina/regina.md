@@ -30,3 +30,9 @@ time:
   something about Regina.
 
 ## Examples
+
+`flowers.rgn`
+![flowers](flowers_example.png)
+`animals.rgn`
+![animals](animals_example.png)
+
