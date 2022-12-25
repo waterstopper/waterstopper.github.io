@@ -7,7 +7,7 @@ my playable projects. On [GitHub](https://github.com/llesha) I put source code.
 
 # Site content
 
-[ReGIna WIP](regina/regina) - documentation of WIP programming language
+[ReGIna](regina/regina) - documentation of programming language
 
 [Programming notes](programming/programming-notes)
 
