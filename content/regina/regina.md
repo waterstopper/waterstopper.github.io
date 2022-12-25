@@ -20,8 +20,7 @@ time:
 ## Advantages
 
 * **Can be embedded into web**. Regina is written in Kotlin and compiled into Javascript.
-* **Rapid generator development**. Look at [examples](#Examples) to see what can be done and how
-  much code is required.
+* **Rapid generator development**. Online IDE has an SVG result field to show what each program does.
 
 ## Drawbacks
 
