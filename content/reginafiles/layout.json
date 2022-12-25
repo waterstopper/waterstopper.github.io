@@ -15,7 +15,8 @@
     "content": {
       "math.rgn": "1",
       "geometry2D.rgn": "1",
-      "svg.rgn": "1"
+      "svg.rgn": "1",
+      "utils.rgn": "1"
     }
   },
   "generators": {
