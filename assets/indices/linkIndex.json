@@ -4,8 +4,13 @@
       "/": [
         {
           "source": "/",
+          "target": "/cv",
+          "text": "CV"
+        },
+        {
+          "source": "/",
           "target": "/regina/regina",
-          "text": "ReGIna WIP"
+          "text": "ReGIna"
         },
         {
           "source": "/",
@@ -170,7 +175,7 @@
       "/regina/regina": [
         {
           "source": "/regina/regina",
-          "target": "/notes/typization",
+          "target": "/regina/typization",
           "text": "dynamically typed"
         },
         {
@@ -197,11 +202,6 @@
           "source": "/regina/regina",
           "target": "/regina/dynamic-instantiation",
           "text": "dynamic instantiation"
-        },
-        {
-          "source": "/regina/regina",
-          "target": "/",
-          "text": "examples"
         }
       ],
       "/regina/syntax": [
@@ -245,11 +245,6 @@
           "source": "/regina/global",
           "target": "/",
           "text": "similar to other imports"
-        },
-        {
-          "source": "/regina/regina",
-          "target": "/",
-          "text": "examples"
         },
         {
           "source": "/regina/types",
@@ -304,18 +299,18 @@
           "text": "object"
         }
       ],
+      "/cv": [
+        {
+          "source": "/",
+          "target": "/cv",
+          "text": "CV"
+        }
+      ],
       "/notes": [
         {
           "source": "/",
           "target": "/notes",
           "text": "Other notes"
-        }
-      ],
-      "/notes/typization": [
-        {
-          "source": "/regina/regina",
-          "target": "/notes/typization",
-          "text": "dynamically typed"
         }
       ],
       "/programming/SQL": [
@@ -481,7 +476,7 @@
         {
           "source": "/",
           "target": "/regina/regina",
-          "text": "ReGIna WIP"
+          "text": "ReGIna"
         }
       ],
       "/regina/scopes": [
@@ -516,14 +511,26 @@
           "target": "/regina/types",
           "text": "variable types"
         }
+      ],
+      "/regina/typization": [
+        {
+          "source": "/regina/regina",
+          "target": "/regina/typization",
+          "text": "dynamically typed"
+        }
       ]
     }
   },
   "links": [
     {
       "source": "/",
+      "target": "/cv",
+      "text": "CV"
+    },
+    {
+      "source": "/",
       "target": "/regina/regina",
-      "text": "ReGIna WIP"
+      "text": "ReGIna"
     },
     {
       "source": "/",
@@ -672,7 +679,7 @@
     },
     {
       "source": "/regina/regina",
-      "target": "/notes/typization",
+      "target": "/regina/typization",
       "text": "dynamically typed"
     },
     {
@@ -699,11 +706,6 @@
       "source": "/regina/regina",
       "target": "/regina/dynamic-instantiation",
       "text": "dynamic instantiation"
-    },
-    {
-      "source": "/regina/regina",
-      "target": "/",
-      "text": "examples"
     },
     {
       "source": "/regina/syntax",

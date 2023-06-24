@@ -1,14 +1,20 @@
 {
   "/": {
-    "title": "WaterStop",
-    "content": "\r\nHello! My name is Alex, and I'm a software engineer. On [itch.io](https://waterstop.itch.io/) I put\r\nmy playable projects. On [GitHub](https://github.com/llesha) I put source code.\r\n\r\n# Site content\r\n\r\n[ReGIna WIP](regina/regina) - documentation of WIP programming language\r\n\r\n[Programming notes](programming/programming-notes)\r\n\r\n[Other notes](notes)\r\n",
-    "lastmodified": "2022-10-25T14:31:19.5549002+03:00",
+    "title": "llesha",
+    "content": "\r\nHello! My name is Alex, and I'm a software engineer. On [itch.io](https://llesha.itch.io/) I put\r\nmy playable projects. On [GitHub](https://github.com/llesha) I put source code.\r\n\r\nHere is my [CV](cv). \r\n\r\n# Site content\r\n\r\n[ReGIna](regina/regina) - documentation of programming language\r\n\r\n[Programming notes](programming/programming-notes)\r\n\r\n[Other notes](notes)\r\n",
+    "lastmodified": "2023-06-24T20:06:44.3779513+03:00",
     "tags": null
   },
   "/Assignment": {
     "title": "",
     "content": "# Assignment\r\nLeft side of the assignment before `=` is lvalue, right side is rvalue\r\n## Lvalue\r\nThere are 4 types of possible lvalues\r\n### Variable\r\n\r\n### Property\r\nSimilar to variables, however their scope is class or primitive.\r\n### Indexing\r\nChanging array's  element is possible with `arr[i] = ...`\r\n### Reference",
     "lastmodified": "2022-09-17T19:27:35.4176215+03:00",
+    "tags": null
+  },
+  "/cv/cv": {
+    "title": "cv",
+    "content": "",
+    "lastmodified": "2023-06-24T20:02:14.505552+03:00",
     "tags": null
   },
   "/kotlin/monaco-editor/CHANGELOG": {
@@ -157,8 +163,8 @@
   },
   "/regina/regina": {
     "title": "ReGIna",
-    "content": "\r\nis a [dynamically typed](notes/typization.md) language with [syntax](regina/syntax) similar to\r\nKotlin and Python.\r\n\r\n## Documentation\r\n\r\nIt is highly recommended to read in following order, don't click on links in articles for the first\r\ntime:\r\n\r\n1. [syntax](regina/syntax) - language expressions and what they do.\r\n2. [visibility scopes, access priorities](regina/scopes) - how a file is structured.\r\n3. [variable types](regina/types) - all types are listed, their properties, functions and features.\r\n4. [dynamic instantiation](regina/dynamic-instantiation) - core language idea.\r\n\r\n\r\n\r\n## Advantages\r\n\r\n* **Can be embedded into web**. Regina is written in Kotlin and compiled into Javascript.\r\n* **Rapid generator development**. Look at [examples](#Examples) to see what can be done and how\r\n  much code is required.\r\n\r\n## Drawbacks\r\n\r\n* **It's slow**. It's definitely slower than Python. Yet it's designed to be fast and concise in\r\n  creating generators.\r\n* **There is no community**. At least not yet. Mail me at kononal@gmail.com if you created\r\n  something about Regina.\r\n\r\n## Examples\r\n",
-    "lastmodified": "2022-09-19T02:44:39.7134034+03:00",
+    "content": "\r\nis a [dynamically typed](regina/typization) language with [syntax](regina/syntax) similar to\r\nKotlin and Python.\r\n\r\n## Documentation\r\n\r\nIt is highly recommended to read in following order, don't click on links in articles for the first\r\ntime:\r\n\r\n1. [syntax](regina/syntax) - language expressions and what they do.\r\n2. [visibility scopes, access priorities](regina/scopes) - how a file is structured.\r\n3. [variable types](regina/types) - all types are listed, their properties, functions and features.\r\n4. [dynamic instantiation](regina/dynamic-instantiation) - core language idea.\r\n\r\n\r\n\r\n## Advantages\r\n\r\n* **Can be embedded into web**. Regina is written in Kotlin and compiled into Javascript.\r\n* **Rapid generator development**. Online IDE has an SVG result field to show what each program does.\r\n\r\n## Drawbacks\r\n\r\n* **It's slow**. It's definitely slower than Python. Yet it's designed to be fast and concise in\r\n  creating generators.\r\n* **There is no community**. At least not yet. Mail me at kononal@gmail.com if you created\r\n  something about Regina.\r\n\r\n## Examples\r\n\r\n`flowers.rgn`\r\n\r\n![flowers](regina/flowers_example.png)\r\n\r\n`animals.rgn`\r\n\r\n![animals](regina/animals_example.png)\r\n\r\n",
+    "lastmodified": "2023-06-24T19:54:59.1812167+03:00",
     "tags": null
   },
   "/regina/scopes": {

@@ -2,7 +2,7 @@
 title: "ReGIna"
 ---
 
-is a [dynamically typed](notes/typization.md) language with [syntax](regina/syntax) similar to
+is a [dynamically typed](regina/typization) language with [syntax](regina/syntax) similar to
 Kotlin and Python.
 
 ## Documentation
@@ -32,7 +32,10 @@ time:
 ## Examples
 
 `flowers.rgn`
-![flowers](flowers_example.png)
+
+![flowers](regina/flowers_example.png)
+
 `animals.rgn`
-![animals](animals_example.png)
+
+![animals](regina/animals_example.png)
 

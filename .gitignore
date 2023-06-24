@@ -1,5 +1,6 @@
 /.idea/
 /content/.idea/
 /content/.obsidian/
-startserver.sh
+scripts/
+/node_modules
 regina_changes.txt
