@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-
 cv_path=../content/cv/main.tex
 cv_html_path=../layouts/_default/cv.html
 cv=$(<$cv_path)
 temp=../scripts/output.txt
 
-# create html from tex for cv
+# comment tex instructions that are not working in latex.js library
 echo $cv | \
   sed -e 's/\\usepackage{titlesec}/%\\usepackage{titlesec}/' \
   -e 's/\\pagenumbering{gobble}/%\\pagenumbering{gobble}/' \
@@ -16,7 +15,9 @@ echo $cv | \
   -e 's/\\makebox\[[a-zA-Z0-9]*\][{}a-z\\A-Z0-9\.]*/%hr%/g' \
    > $temp
 
+# create html from tex for cv
 npx latex.js $temp -p > $cv_html_path
+rm $temp
 
 # add horizontal line separators
 # change font size to 16px
