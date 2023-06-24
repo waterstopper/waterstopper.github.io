@@ -24,10 +24,11 @@ rm $temp
 # change date margin width
 # remove all floating point values for zoom to work
 echo $(<$cv_html_path) | sed \
-  -e 's/<\/h2>/<\/h2><hr>/g' \
-  -e 's/<html style="--size: [0-9\.]*px;/<html style="--size: 16px;/g' \
   -e 's/   //g' \
   -e 's/­//g' \
+  -e 's/<\/h2>/<\/h2><hr>/g' \
+  -e 's/<html style="--size: [0-9\.]*px;/<html style="--size: 16px;/g' \
+  -e 's/<title>untitled<\/title>/<title>Aleksey Kononov CV<\/title>/g' \
   -e 's/<span style="margin-right:170.079px">//' \
   -e 's/--marginparwidth: [0-9\.]*%;/--marginparwidth: 60%;/' \
   -e 's/\(--[A-Za-z]*: [0-9]*\)\.[0-9]*/\1/g' \
