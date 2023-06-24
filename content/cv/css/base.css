@@ -5,7 +5,7 @@
 /*******************/
 
 :root, :host {
-    --size: 10pt;
+    --size: 20pt;
     --line-height: 1.2;
 
     /* --linewidth makes no sense here; it is the width of the line in the current environment */
