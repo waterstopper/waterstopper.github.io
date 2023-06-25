@@ -276,7 +276,7 @@
 }
 .katex .hbox {
   display: inline-flex;
-  flex-direction: row;
+  /*flex-direction: row;*/
   width: 100%;
 }
 .katex .thinbox {
