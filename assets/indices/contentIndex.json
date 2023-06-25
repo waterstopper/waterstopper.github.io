@@ -2,7 +2,7 @@
   "/": {
     "title": "llesha",
     "content": "\r\nHello! My name is Alex, and I'm a software engineer. On [itch.io](https://llesha.itch.io/) I put\r\nmy playable projects. On [GitHub](https://github.com/llesha) I put source code.\r\n\r\nHere is my [CV](cv). \r\n\r\n# Site content\r\n\r\n[ReGIna](regina/regina) - documentation of programming language\r\n\r\n[Programming notes](programming/programming-notes)\r\n\r\n[Other notes](notes)\r\n",
-    "lastmodified": "2023-06-24T20:06:44.3779513+03:00",
+    "lastmodified": "2023-06-24T23:15:04.2008508+03:00",
     "tags": null
   },
   "/Assignment": {
@@ -104,7 +104,7 @@
   "/programming/programming-notes": {
     "title": "Programming notes",
     "content": "\r\nLinks to all articles:\r\n\r\n28 June: [Heap and Stack](programming/heap-and-stack)\r\n\r\n29 June: [How languages are run?](programming/transpilers-compilers-interpreters)\r\n\r\n30 June: [Abstract syntax tree](programming/ast)\r\n\r\n1 July: [C#: boxing, unboxing and equality operator](programming/boxing-and-equality-cs)\r\n\r\n2 July: [Introduction to grammars](programming/introduction-to-grammars)\r\n\r\n3 July:\r\n\r\n1. [Parsers](programming/parsers),\r\n2. added CST definition to [AST post](programming/ast) and moved\r\n   parser classification to parsers,\r\n3. added non-formal grammars section to [grammars post](programming/introduction-to-grammars),\r\n\r\n4 July: [Devlog 1. Bad globals](programming/devlog1)\r\n\r\n5 July: [Devlog 2. Link class. Removing state](programming/devlog2)\r\n\r\n6 July: [Shallow traits of a villain](programming/shallow-villain-traits). Update a page to view.\r\nSimilarly, update on return\r\n\r\n7 July: [Multithreading. Primitive tools, definitions](programming/multithreading1)\r\n\r\n8 July: [Multithreading. Problems](programming/multithreading2)\r\n\r\n9 July: [Quality of life](programming/quality-of-life)\r\n\r\n10 July: [Why game making is not for me](programming/why-gamemaking-is-not-for-me)\r\n\r\n---\r\n\r\n30 September: [SQL basics](programming/SQL.md)",
-    "lastmodified": "2022-09-30T18:59:26.8245449+03:00",
+    "lastmodified": "2023-06-25T11:00:44.6726247+03:00",
     "tags": null
   },
   "/programming/quality-of-life": {
