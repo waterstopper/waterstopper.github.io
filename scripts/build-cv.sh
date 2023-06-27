@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# declare constants
 cv_path=../content/cv/main.tex
 cv_html_path=../layouts/_default/cv.html
 cv=$(<$cv_path)
@@ -19,17 +20,13 @@ echo $cv | \
 npx latex.js $temp -p > $cv_html_path
 rm $temp
 
-# add horizontal line separators
-# change font size to 16px
-# change date margin width
-# remove all floating point values for zoom to work
 echo $(<$cv_html_path) | sed \
-  -e 's/   //g' \
+  -e 's/   //g' \ # remove generated characters
   -e 's/­//g' \
-  -e 's/<\/h2>/<\/h2><hr>/g' \
-  -e 's/<html style="--size: [0-9\.]*px;/<html style="--size: 16px;/g' \
-  -e 's/<title>untitled<\/title>/<title>Aleksey Kononov CV<\/title>/g' \
-  -e 's/<span style="margin-right:170.079px">//' \
-  -e 's/--marginparwidth: [0-9\.]*%;/--marginparwidth: 60%;/' \
-  -e 's/\(--[A-Za-z]*: [0-9]*\)\.[0-9]*/\1/g' \
+  -e 's/<\/h2>/<\/h2><hr>/g' \ # add horizontal line separators
+  -e 's/<html style="--size: [0-9\.]*px;/<html style="--size: 16px;/g' \ # change font size to 16px
+  -e 's/<title>untitled<\/title>/<title>Aleksey Kononov CV<\/title>/g' \ # add title
+  -e 's/<span style="margin-right:170.079px">//' \ # remove whitespace under name
+  -e 's/--marginparwidth: [0-9\.]*%;/--marginparwidth: 60%;/' \ # change date margin width
+  -e 's/\(--[A-Za-z]*: [0-9]*\)\.[0-9]*/\1/g' \ # remove all floating point values for zoom to work
   > $cv_html_path

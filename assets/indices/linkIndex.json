@@ -156,6 +156,11 @@
           "source": "/programming/programming-notes",
           "target": "/programming/SQL",
           "text": "SQL basics"
+        },
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/making-tex-to-html-cv-translator",
+          "text": "Making tex to html CV translator"
         }
       ],
       "/regina/design-decisions": [
@@ -392,6 +397,13 @@
           "source": "/programming/programming-notes",
           "target": "/programming/introduction-to-grammars",
           "text": "grammars post"
+        }
+      ],
+      "/programming/making-tex-to-html-cv-translator": [
+        {
+          "source": "/programming/programming-notes",
+          "target": "/programming/making-tex-to-html-cv-translator",
+          "text": "Making tex to html CV translator"
         }
       ],
       "/programming/multithreading1": [
@@ -666,6 +678,11 @@
       "source": "/programming/programming-notes",
       "target": "/programming/SQL",
       "text": "SQL basics"
+    },
+    {
+      "source": "/programming/programming-notes",
+      "target": "/programming/making-tex-to-html-cv-translator",
+      "text": "Making tex to html CV translator"
     },
     {
       "source": "/regina/design-decisions",
