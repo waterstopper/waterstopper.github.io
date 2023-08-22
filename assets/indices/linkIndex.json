@@ -4,11 +4,6 @@
       "/": [
         {
           "source": "/",
-          "target": "/cv",
-          "text": "CV"
-        },
-        {
-          "source": "/",
           "target": "/regina/regina",
           "text": "ReGIna"
         },
@@ -304,13 +299,6 @@
           "text": "object"
         }
       ],
-      "/cv": [
-        {
-          "source": "/",
-          "target": "/cv",
-          "text": "CV"
-        }
-      ],
       "/notes": [
         {
           "source": "/",
@@ -534,11 +522,6 @@
     }
   },
   "links": [
-    {
-      "source": "/",
-      "target": "/cv",
-      "text": "CV"
-    },
     {
       "source": "/",
       "target": "/regina/regina",
