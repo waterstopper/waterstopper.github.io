@@ -13,6 +13,7 @@ echo $cv | sed -e 's/\\usepackage{titlesec}/%\\usepackage{titlesec}/' \
   -e 's/\\titleformat/%\\titleformat/' \
   -e 's/\\setlength{\\voffset}{-20pt}/%\\setlength{\\voffset}{-20pt}/' \
   -e 's/\\makebox\[[a-zA-Z0-9]*\][{}a-z\\A-Z0-9\.]*/%hr%/g' \
+  -e 's/\\hypersetup{/%\\hypersetup{/g' \
    > $temp
 
 # create html from tex for cv
