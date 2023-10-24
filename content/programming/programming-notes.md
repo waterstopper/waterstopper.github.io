@@ -48,4 +48,4 @@ Similarly, update on return
 
 27 July: [Making tex to html CV translator](programming/making-tex-to-html-cv-translator)
 
-24 October [Codestyle][programming/codestyle]
+24 October [Codestyle](programming/codestyle)
