@@ -1,0 +1,44 @@
+languageCode = 'en-us'
+title = 'llesha'
+[params]
+    subtitle = 'Site abut my projects'
+    custom_css = ["css/colors.css", "css/styles.css"]
+    top_js = ["js/loader.js"]
+    bottom_js = ["js/interactive.js"]
+    custom_icon = ["svg/icon.svg"]
+[[redirects]]
+    from = '/**'
+    status = 404
+    to = '/404.html'
+[taxonomies]
+  tag = "tags"
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Projects"
+    pre = "edit"
+    url = "/projects/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    pre = "tag"
+    url = "/tags/"
+    weight = 3
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.parser.attribute]
+    block = true
+  [markup.highlight]
+    style = 'vs'
+    noClasses = false
+    guessSyntax = true
+  [markup.tableOfContents]
+    endLevel = 2
+    ordered = true
+    startLevel = 2
+
+

@@ -1,2 +1,2 @@
-{{$svg := .Get 0}}
-{{ $svg  | readFile | safeHTML }}
+{{ $image := resources.Get (.Get 0) }}
+{{ $image | readFile | safeHTML }}

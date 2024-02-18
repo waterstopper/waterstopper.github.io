@@ -1,3 +1,8 @@
+---
+title: Dynamic and static type systems
+date: 2022-06-06 
+---
+
 Dynamically typed languages check variable type during runtime, meaning it is more **error-prone**.On the contrary,
 statically typed languages check variable type during compilation.
 

@@ -1,5 +1,6 @@
 ---
 title: "Things that hopefully you will never encounter"
+date: 2022-11-05
 ---
 But are good to know anyway.
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Global</h1>
+      <p class="meta">
+        
+        <p>Global is a file that&rsquo;s imported by default.</p>
+<div class="highlight" title="Global.rgn"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">print</span>(x): Null {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// print `x` into console
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">except</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// throws exception with `x` as message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">input</span>(input): Any {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// not working in [IDE]()*. Receives console input and returns it.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">write</span>(content: String, path: String) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// write `content` to `path` file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">read</span>(path: String): String {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// read file from `path` and return the result
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">exists</span>(path: String): Bool {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// checks if file by `path` exists.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">delete</span>(path: String): Bool {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// delete file by `path`, return true if file existed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">test</span>(x: Bool) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// throw exception if x is false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">rnd</span>(isInt = <span style="color:#66d9ef">false</span>): Number {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// random Double value (or Int value, if `isInt == true`).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// Use <span>
+    <a class="internal-link" href="https://llesha.github.io/regina/std/math/#functions">
+        std.math.rndInt and std.math.rndDouble</a>&nbsp;
+</span>  instead.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">seed</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// not working in [IDE]()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// change random seed for a rnd() and all random functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">str</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// call toString() for `x`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">int</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// convert x to Int (x might be String or Double)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">double</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// convert x to Double (x might be String or Int)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">list</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// convert x to list
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">type</span>(x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// get type of x
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">copy</span>(x) {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">floatEquals</span>(first: Number,
+</span></span><span style="display:flex;"><span>                    second: Number,
+</span></span><span style="display:flex;"><span>                    epsilon: Number = <span style="color:#ae81ff">0.0000000000000000000000000001</span>,
+</span></span><span style="display:flex;"><span>                    absTh: Number = <span style="color:#ae81ff">0.0000001</span>): Bool {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">range</span>(start: Int, end: Int, step: Int = <span style="color:#ae81ff">1</span>) {}
+</span></span></code></pre></div><h2 id="functions">Functions</h2>
+<p>If you defined a function with the same signature, these functions are called with <code>Global.</code>
+prefix, <a href="">similar to other imports</a>.</p>
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="/tags/regina-docs/">Regina docs</a></li>
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

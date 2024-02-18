@@ -1,0 +1,26 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40rem;
+    /* margin: 0px; */
+    background-color: var(--bg-color);
+    color: var(--main-color)
+}
+
+h1 {
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 2vh;
+    font-size: 2vh;
+    /* width: 100%;  */
+    padding: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* Height of the footer */
+    /* background: var(--light-gray); */
+}

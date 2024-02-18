@@ -1,7 +1,6 @@
 ---
 title: "Global"
-tags:
-- regina-docs
+date: 2022-11-05 
 ---
 Global is a file that's imported by default.
 ```kotlin {title="Global.rgn"}

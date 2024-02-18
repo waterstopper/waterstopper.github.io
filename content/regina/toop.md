@@ -1,7 +1,7 @@
 ---
 title: "Table of operator precedence"
 tags:
-- Regina docs
+date: 2022-09-18
 ---
 
-{{< svg "static/operator_precedence.html" >}}
+{{< resources/operator_precedence >}}

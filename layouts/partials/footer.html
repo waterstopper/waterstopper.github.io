@@ -1,16 +1,6 @@
-
-
-<hr/>
-
-{{if $.Site.Data.config.enableFooter}}
-<div class="page-end" id="footer">
-    <div class="backlinks-container">
-        {{partial "backlinks.html" .}}
-    </div>
-    <div>
-        {{partial "graph.html" .}}
-    </div>
-</div>
-{{end}}
-
-{{partial "contact.html" .}}
+<footer>
+    Made by llesha © 2024
+</footer>
+{{ range .Site.Params.custom_js -}}
+    <script type="module" src="{{ . | absURL }}"></script>
+{{- end }}

@@ -1,9 +1,6 @@
 ---
 title: "Visibility scopes"
-tags:
-
-- regina-docs
-
+date: 2022-11-05 
 ---
 {{< table_of_contents >}}
 

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>llesha</title>
+    <link>/</link>
+    <description>Recent content on llesha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/kotlin/monaco-editor/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/kotlin/monaco-editor/changelog/</guid>
+      <description>Monaco Editor Changelog [0.33.0] Breaking Changes InlayHintKind.Other is removed. Thank you Contributions to monaco-editor:&#xA;@Dan1ve (Daniel Veihelmann): Make Vite sample code Firefox compatible PR #2991 @philipturner (Philip Turner): Add @noDerivative modifier to Swift PR #2957 [0.32.1] (04.02.2022) fixes an issue with service initialization. [0.32.0] (03.02.2022) Breaking Changes The binary format for IEncodedLineTokens has changed to support strikethrough text. IDiffEditor.getDomNode() has been renamed to IDiffEditor.getContainerDomNode(). InlayHint.text has been replaced by InlayHint.label and InlayHintsProvider.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/kotlin/monaco-editor/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/kotlin/monaco-editor/readme/</guid>
+      <description>Monaco Editor The Monaco Editor is the code editor which powers VS Code, with the features better described here.&#xA;Please note that this repository contains no source code for the code editor, it only contains the scripts to package everything together and ship the monaco-editor npm module.&#xA;Try it out Try the editor out on our website.&#xA;Installing $ npm install monaco-editor You will get:&#xA;inside esm: ESM version of the editor (compatible with e.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/regina/typization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/typization/</guid>
+      <description>Dynamically typed languages check variable type during runtime, meaning it is more error-prone.On the contrary, statically typed languages check variable type during compilation.&#xA;Often dynamically typed languages can reassign the same variable with a different type. Also, variable declaration and assignment are similar for dynamic languages.&#xA;# Python a = 2 a = &amp;#34;2&amp;#34; # not an error One of the clues of static typing is in variable declaration: usually variables have a type before a name in declaration:</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/regina/why/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/why/</guid>
+      <description>Why I created a programming language TLDR: I didn&amp;rsquo;t think about making a library for dynamic instantiation. I should&amp;rsquo;ve made a library - that is an optimal path.&#xA;Birth of &amp;lsquo;generator of generators&amp;rsquo; I liked creating visual generators. But I didn&amp;rsquo;t like spending 2 weeks to flesh out an idea and to implement unuseful tools like deployment to web or geometry functions.&#xA;Looking back, I realise that I wasted much time due to switching between tools: for plant generator I used C# and .</description>
+    </item>
+    <item>
+      <title>{{title}}</title>
+      <link>/templates/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/templates/post/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Abstract Syntax Tree</title>
+      <link>/programming/ast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/ast/</guid>
+      <description>Abstract Syntax Tree (AST) is key concept in program evaluation. It is a tree with tokens as its nodes. Tree is a better structure than sequence. Here is why:&#xA;Operator precedence. Hierarchy Operator precedence Consider a following expression : $5 + 7 \cdot 2 + 3$. It is obvious to us humans which arithmetic operator. we should calculate first. But it is not that simple for a machine. Hence, we introduce a tree structure:</description>
+    </item>
+    <item>
+      <title>Basic memory management</title>
+      <link>/programming/heap-and-stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/heap-and-stack/</guid>
+      <description>Last fall, I had an interview. They asked me about differences between heap and stack, how references and variables are stored. I was confident that I knew all this stuff. Apparently, I was wrong.&#xA;Commonalities Both stack and heap use RAM.&#xA;Stack Stack is a LIFO static1 storage that contains:&#xA;Local primitive variables References to non-primitive variables Method parameters Sequence of method calls (hence, each thread has its own stack. Also, this is the reason why infinite recursion will result in stack overflow error) When the method finishes its execution, a stack is emptied with one assembly command - moving the pointer to stack head.</description>
+    </item>
+    <item>
+      <title>C#: Boxing, unboxing and equality operator</title>
+      <link>/programming/boxing-and-equality-cs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/boxing-and-equality-cs/</guid>
+      <description>Boxing / unboxing Boxing/unboxing has to do with reference and value types. Value types store their values on stack (usually primitives). Reference types store value in heap and reference to that value on stack.&#xA;Boxing is process of converting value type to reference type, unboxing is the opposite. These procedures are computationally expensive, because:&#xA;to box a value, a new object should be created. to unbox a value, it should be cast to a particular type, which is time-consuming (albeit to a lesser extent than boxing).</description>
+    </item>
+    <item>
+      <title>C&#43;&#43; Memory model</title>
+      <link>/programming/cpp-pointers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/cpp-pointers/</guid>
+      <description>Memory is a two column table. First row contains addresses, second row contains values.&#xA;int x = 4; When variable is assigned, an empty memory row cell is chosen. Variable&amp;rsquo;s value is written to second column of the row.&#xA;Address Value Assigned variable (not part of a memory, just a showcase example) 0x1000 4 x 0x1004 0x1000 pX 0x1008 4 y Pointer int* pX = &amp;amp;x; Variable declaration with a * after type states that it is a pointer to that type.</description>
+    </item>
+    <item>
+      <title>Code style</title>
+      <link>/programming/codestyle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/codestyle/</guid>
+      <description>Some tips about code style, applicable to many languages but written in kotlin:&#xA;Naming: If there exists a class with a similar purpose in Java SDK, then try to follow their naming style. e.g. if you write a formatter of some kind, look up DecimalFormat or DateFormat. These classes have key methods parse and format. Try to name your formatter similarly and include the same methods. Additional tips in Java naming conventions</description>
+    </item>
+    <item>
+      <title>cv</title>
+      <link>/cv/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/cv/cv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Design decisions</title>
+      <link>/regina/design-decisions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/design-decisions/</guid>
+      <description>Why null is 0? now it is not First, let&amp;rsquo;s provide some context.&#xA;I do not find void type useful. Therefore, void == null.&#xA;Now, let&amp;rsquo;s state all cases when null appears:&#xA;function call with no return parent property1 ?. operator. Not many cases to consider, only last one is the meaningful one. It is important to throw exceptions for not found properties, because it might be a typo. Typos are hard to find.</description>
+    </item>
+    <item>
+      <title>Devlog 1. Bad globals</title>
+      <link>/programming/devlog1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/devlog1/</guid>
+      <description>What is a symbol table? Symbol table stores current program state. I separated it into three levels, turning SymbolTable into a kind of manager-facade:&#xA;FileTable. Contains classes, objects and functions in current file. variableTable. Contains functions and properties of current instance (if ClassA.someClassFunction() is resolved, instance of ClassA is a variableTable in current SymbolTable). Variable table is not a special class, it&amp;rsquo;s either a primitive or a class instance. ScopeTable. Contains all variables and arguments for current function.</description>
+    </item>
+    <item>
+      <title>Devlog 2. Link class. Removing state</title>
+      <link>/programming/devlog2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/devlog2/</guid>
+      <description>Link class is for evaluating links. A link is a statement in form of a.b.c, where all expressions after dots (in this case b and c) are either identifiers1, indexes2 or invocations3. Expression before the dot is anything, even the ternary operator. These expressions are link children.&#xA;Link evaluation Links are resolved iteratively, starting from the first expression. Every evaluated expression returns a property (a type or a primitive). But the first child might be a name of an imported file, therefore it is resolved differently from all the next children.</description>
+    </item>
+    <item>
+      <title>Dynamic instantiation</title>
+      <link>/regina/dynamic-instantiation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/dynamic-instantiation/</guid>
+      <description>TLDR Difference between other languages and ReGIna is dynamic instantiation. In short, properties in classes will be assigned only after their dependencies are assigned, allowing recursive properties of same class A inside class A.&#xA;Idea Classes can have references to other classes inside them as properties. These property-classes are evaluated dynamically. Take a look at this example:&#xA;class Node export rect { // export = false - can deny export iter = if (parent) parent.</description>
+    </item>
+    <item>
+      <title>Eye focus and main eye</title>
+      <link>/notes/eyes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/notes/eyes/</guid>
+      <description>On sketches that illustrate eye focus, it is shown that humans, when looking straight ahead, focus their vision at a point between their eyes. I came to the conclusion that it is not true, and we focus similarly to the picture on the right.&#xA;I have a small experimental proof for it. Look in the mirror. What point are you looking at most of the time? For me, it is the right eye.</description>
+    </item>
+    <item>
+      <title>Global</title>
+      <link>/regina/global/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/global/</guid>
+      <description>Global is a file that&amp;rsquo;s imported by default.&#xA;fun print(x): Null { // print `x` into console } fun except(x) { // throws exception with `x` as message } fun input(input): Any { // not working in [IDE]()*. Receives console input and returns it. } fun write(content: String, path: String) { // write `content` to `path` file } fun read(path: String): String { // read file from `path` and return the result } fun exists(path: String): Bool { // checks if file by `path` exists.</description>
+    </item>
+    <item>
+      <title>How languages are run?</title>
+      <link>/programming/transpilers-compilers-interpreters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/transpilers-compilers-interpreters/</guid>
+      <description>People in the programing languages field use fancy buzzwords like translator, transpiler, compiler, interpreter, JIT (just in time) compiler. Let&amp;rsquo;s figure out what they mean. But before let&amp;rsquo;s create some sort of programming language hierarchy:&#xA;High level programming language Assembly language (low-level language that is still programmable by humans) Machine code (runs on processor, no reason to write it, because it is undecipherable without helper tools and is processor-specific) Translator Translator is a general word for transpilers, compilers and interpreters.</description>
+    </item>
+    <item>
+      <title>IDE</title>
+      <link>/regina/ide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/ide/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Introduction to grammars</title>
+      <link>/programming/introduction-to-grammars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/introduction-to-grammars/</guid>
+      <description>Grammar defines a set of strings (words), which is called a language. Essentially grammar is a Dictionary &amp;lt;String, String&amp;gt;, where each dictionary entry is a grammar rule.&#xA;Other two important definitions are terminal and non-terminal symbols. Terminal is a string that cannot be resolved into something else, unlike non-terminal. Consequently, a result of grammar resolve should always be a sequence of terminals.&#xA;For terminals a lowercase letter is assigned, for non-terminal a capital one.</description>
+    </item>
+    <item>
+      <title>Making tex to html CV translator</title>
+      <link>/programming/making-tex-to-html-cv-translator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/making-tex-to-html-cv-translator/</guid>
+      <description>Motivation For about a year, I had CV made with LaTeX in Overleaf (online LaTeX editor). But I found it cumbersome to import new versions to Google Drive when CV was updated. Therefore, I decided to translate tex cv to html.&#xA;Solutions There are two ways to transform LaTeX to html: either transform resulting pdf file, or the .tex sources. I tried the first approach, and was unsatisfied with the results: all formatting was removed, the result was plain text with some bold titles.</description>
+    </item>
+    <item>
+      <title>Multithreading. Primitive tools, definitions</title>
+      <link>/programming/multithreading1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/multithreading1/</guid>
+      <description>First, let&amp;rsquo;s clarify some definitions (I won&amp;rsquo;t go too deep into that):&#xA;Process Process is a running program, that has its own address space in memory (most of it is heap). Multithreading is running multiple programs in OS simultaneously (like browser, messenger, IDE, task manager&amp;hellip;)&#xA;Thread Thread is an execution unit of a process, it uses process heap but has its own stack.&#xA;Parallelism or multithreading is multiple threads running at once.</description>
+    </item>
+    <item>
+      <title>Multithreading. Problems, Object methods</title>
+      <link>/programming/multithreading2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/multithreading2/</guid>
+      <description>Thread problems Thread problems have names. Here are the most popular ones.&#xA;Deadlock N locks locked forever, waiting for each other. For instance, two monitors are required to move further, and two threads have one monitor taken. They both will be waiting until another monitor is freed, which won&amp;rsquo;t happen. In Java there are no tools to identify deadlock.&#xA;Livelock Threads interact with each other not performing any useful work.</description>
+    </item>
+    <item>
+      <title>Parsers</title>
+      <link>/programming/parsers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/parsers/</guid>
+      <description>As with the first article, I wrote this one on a computer, because the topic is hard to tackle. I knew I would have to make a lot of edits and rearrangements. So technically I&amp;rsquo;m two days behind my schedule, but we&amp;rsquo;re just going to ignore that.&#xA;Parser traits These traits are not exactly definitive features for a parser. However, these definitions are often mentioned, so it&amp;rsquo;s good to know what they mean.</description>
+    </item>
+    <item>
+      <title>Programming notes</title>
+      <link>/programming/programming-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/programming-notes/</guid>
+      <description>Links to all articles:&#xA;2022 28 June: Heap and Stack&#xA;29 June: How languages are run?&#xA;30 June: Abstract syntax tree&#xA;1 July: C#: boxing, unboxing and equality operator&#xA;2 July: Introduction to grammars&#xA;3 July:&#xA;Parsers, added CST definition to AST post and moved parser classification to parsers, added non-formal grammars section to grammars post, 4 July: Devlog 1. Bad globals&#xA;5 July: Devlog 2. Link class. Removing state</description>
+    </item>
+    <item>
+      <title>Quality of life</title>
+      <link>/programming/quality-of-life/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/quality-of-life/</guid>
+      <description>Recently I started working on a new project, that also requires creating a custom programming language. I noticed a significant difference with changing my approach: now I use python and Lark for parsing EBNF.&#xA;Lark vs writing your own lexer and parser I regret not spending more time researching kotlin EBNF parsers. I tried ANTLR, but it had many incompatible versions, therefore I didn&amp;rsquo;t use it. Additionally, antlr generated java code that won&amp;rsquo;t work with javascript.</description>
+    </item>
+    <item>
+      <title>ReGIna</title>
+      <link>/regina/regina/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/regina/</guid>
+      <description>is a dynamically typed language with syntax similar to Kotlin and Python.&#xA;Documentation It is highly recommended to read in following order, don&amp;rsquo;t click on links in articles for the first time:&#xA;syntax - language expressions and what they do. visibility scopes, access priorities - how a file is structured. variable types - all types are listed, their properties, functions and features. dynamic instantiation - core language idea. Advantages Can be embedded into web.</description>
+    </item>
+    <item>
+      <title>Shallow villain traits</title>
+      <link>/programming/shallow-villain-traits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/shallow-villain-traits/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>/programming/sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/sql/</guid>
+      <description>created from this free course&#xA;Table of Contents Definitions Statements Create Select Insert into Alter table Update Delete from Order by Limit Case Group by Having Constraints Data types WHERE operators Aggregates Count Sum Max, min, avg Multiple tables Join Left join Cross join Union With Other keywords IN Functions DATE_ADD Definitions Table a.k.a relation&#xA;Column - set of data values of particular type&#xA;Row - a single record in a table</description>
+    </item>
+    <item>
+      <title>std/math.rgn</title>
+      <link>/regina/std/math/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/std/math/</guid>
+      <description>Functions rndInt</description>
+    </item>
+    <item>
+      <title>Syntax</title>
+      <link>/regina/syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/syntax/</guid>
+      <description>Table of Contents Top level declarations Class Object Function Imports Operators Boolean operators Arithmetic operators Ternary operator Property/variable assignment References Cycles while foreach 1. Accessing properties Accessing and assigning collection elements List Dictionary ReGIna&amp;rsquo;s syntax is an amalgamation of kotlin and python.&#xA;Top level declarations Essentially, file is a set of classes, objects, functions and imports. Executable and importable files have .rgn format.&#xA;Class Class declaration should satisfy following format:</description>
+    </item>
+    <item>
+      <title>Table of operator precedence</title>
+      <link>/regina/toop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/toop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Things that hopefully you will never encounter</title>
+      <link>/regina/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/advanced/</guid>
+      <description>But are good to know anyway.&#xA;Dictionary mutable key fun main() { a = [1] t = {a: &amp;#34;value&amp;#34;} print(t) print(t[[1]]) a.add(2) print(t) print(t.entries[0][&amp;#34;key&amp;#34;]) print(t[t.entries[0][&amp;#34;key&amp;#34;]]) print(t[[1, 2]]) } fun main() { val a = mutableListOf(&amp;#34;a&amp;#34;) val m = mutableMapOf(a to &amp;#34;b&amp;#34;) println(m[mutableListOf(&amp;#34;a&amp;#34;)]) // b a.add(&amp;#34;b&amp;#34;) println(m) // {[a, b]=b} println(m[mutableListOf(&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;)]) // null } # frozenset # tuple </description>
+    </item>
+    <item>
+      <title>Types</title>
+      <link>/regina/types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/types/</guid>
+      <description>Table of Contents Value types Reference types Null Number Documentation Boolean Int Double String Documentation List Documentation Dictionary Documentation Examples Type properties Constructor Inheritance Object There are three value types and three reference types.&#xA;Value types Int Double String Reference types List Dictionary Class instance Assigning another variable a variable of a reference type will pass it by reference. Same holds for passing function arguments&#xA;fun main() { arr = [] change(arr) // here arr == [1] other = arr other.</description>
+    </item>
+    <item>
+      <title>Visibility scopes</title>
+      <link>/regina/scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/scopes/</guid>
+      <description>Table of Contents Global scope Class instance scope Function scope Block scope Accessing declarations with same names Import priority Using functions with same signature All scopes, sorted from the most visible to the least:&#xA;Global scope Classes, objects and functions1 are declared in global scope. Imported file declarations are in global scope too. Global scope declarations are visible everywhere.&#xA;Class instance scope In class instance scope properties and functions are declared.</description>
+    </item>
+    <item>
+      <title>Why game making is not for me</title>
+      <link>/programming/why-gamemaking-is-not-for-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/programming/why-gamemaking-is-not-for-me/</guid>
+      <description>TLDR: it is frustrating, initial idea and result have a huge difference, because I associate my game ideas with emotions, that a player feels during the game. When playing a made game I don&amp;rsquo;t feel these emotions at all.&#xA;Game feel Game feel is the set of emotions that a person experiences during play session. Game feel is subjective for everyone. It is the only thing that defines game value1.</description>
+    </item>
+  </channel>
+</rss>

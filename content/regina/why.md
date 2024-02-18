@@ -1,9 +1,13 @@
-# Why I created a programming language
+---
+Title: Why I created a programming language
+date: 2019-01-13
+---
+
 
 TLDR: I didn't think about making a library for dynamic instantiation. I should've made a library -
 that is an optimal path.
 
-## Birth of 'generator or generators'
+## Birth of 'generator of generators'
 
 I liked creating visual generators. But I didn't like spending 2 weeks to flesh out an idea and to
 implement unuseful
@@ -43,7 +47,7 @@ Three types of containers:
 2. Recursive
 3. Container
 
-![Image](images/firstdesign.jpg)
+![Image](/images/firstdesign.jpg)
 
 ### Early stages of language development
 

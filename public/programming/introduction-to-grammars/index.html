@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Introduction to grammars</h1>
+      <p class="meta">
+        
+        <p>Grammar defines a set of strings (words), which is called a <strong>language</strong>.
+Essentially grammar is a <code>Dictionary &lt;String, String&gt;</code>, where each dictionary entry is a
+<strong>grammar rule</strong>.</p>
+<p>Other two important definitions are terminal and non-terminal symbols.
+Terminal is a string that cannot be resolved into something else,
+unlike non-terminal. Consequently, a result of grammar resolve should always be a sequence
+of terminals.</p>
+<p>For terminals a lowercase letter is assigned, for non-terminal a capital one. Also, there is a
+special starting non-terminal marked <code>S</code>
+(we assume that we start creating words starting with <code>S</code>).</p>
+<h3 id="creating-a-grammatically-correct-word">Creating a grammatically correct word</h3>
+<p>Starting with <code>S</code>, on each step we choose a non-terminal symbol and a rule with the same symbol on
+the left-hand side. Then such non-terminal is replaced with the right-hand side of the rule. Until
+there is a non-terminal, a process is continued.</p>
+<p>Consider a following example of a grammar:</p>
+<pre tabindex="0"><code>grammar gA
+S -&gt; a
+S -&gt; aS
+</code></pre><p>To create a word <code>aaa</code>:</p>
+<ol>
+<li>Have <code>S</code>, use <code>S -&gt; aS</code>, now have <code>aS</code></li>
+<li>Use <code>S -&gt; aS</code>, result is <code>aaS</code></li>
+<li>Use <code>S -&gt; a</code>, end with <code>aaa</code>. All non-terminals are removed.</li>
+</ol>
+<p>Generally this grammar describes a language of words, containing any number of <code>a</code>s:
+$L(gA) = \{a^n|n&gt;0\}$</p>
+<h3 id="the-chomsky-hierarchy">The Chomsky hierarchy</h3>
+<p>Grammar with a smaller type number contains all grammars with a bigger type number.</p>
+<h4 id="context-free-grammar-type-2">Context free grammar (type 2)</h4>
+<p>Grammars with a single non-terminal symbol on the left of each rule are called context free
+grammars (CFG). Because no context is required for replacing a non-terminal.</p>
+<h4 id="regular-grammar-type-3">Regular grammar (type 3)</h4>
+<p>Subset of content free grammars is regular grammars.
+It puts a restriction on the right-hand side of
+its rules, three types of expressions are allowed:</p>
+<ul>
+<li>empty string</li>
+<li>single terminal</li>
+<li>terminal followed by non-terminal.</li>
+</ul>
+<p>Example of a regular grammar:</p>
+<pre tabindex="0"><code>grammar gR
+S -&gt; aX
+S -&gt; EOW // (end of word)
+X -&gt; bS
+</code></pre><p>This grammar defines a language $L(gR) = \{(ab)^n|n\geqslant0\}$</p>
+<p>Context free grammar is a pushdown automata, regular grammar is a finite state machine.
+
+</p>
+<h4 id="context-sensitive-grammar-type-1">Context-sensitive grammar (type 1)</h4>
+<p>Context-sensitive grammars allow left-hand side to contain context, which must be similar in the
+right-hand side. Formally speaking, each rule of context-sensitive grammar is:
+$$c_0Ac_1 \rightarrow c_0bc_1$$ where:</p>
+<ul>
+<li>$c_0,\; c_1$ are sequences of terminals and non-terminals
+(sequence might be empty),</li>
+<li>$A$ is a non-terminal</li>
+<li>$b$ is a non-empty sequence of terminals and non-terminals.</li>
+</ul>
+<h4 id="unrestricted-grammar-type-0">Unrestricted grammar (type 0)</h4>
+<p>Unrestricted grammars are grammars without any restrictions to their rules.</p>
+<h3 id="bnf-ebnf">BNF, EBNF</h3>
+<p>There is a special Backus-Naur form and Extended Backus-Naur form (BNF, EBNF) to
+describe a context free grammar. This notation is used most commonly. Here is
+a <a href="https://docs.python.org/3/reference/grammar.html">python grammar defined with EBNF and PEG</a>.</p>
+<h1 id="non-formal-grammars">Non formal grammars</h1>
+<p>Before going any further, let&rsquo;s bring in some clarifications.</p>
+<h3 id="grammar-notation">Grammar notation</h3>
+<p>Previously we used capitals for non-terminals and lowercase for terminals. But in real grammars
+identifiers are used. We consider every identifier that appears on the left hand-side a
+non-terminal (we work with grammars having only a non-terminal on the left-hand side),
+other identifiers are terminals.</p>
+<p>Introduce new symbols:</p>
+<ul>
+<li><code>|</code> - choice operator (or). Grammar rule that contains <code>|</code> is actually multiple grammar rules:
+<code>S -&gt; a | b | ... | n</code> is</li>
+</ul>
+<pre tabindex="0"><code>S -&gt; a
+S -&gt; b
+...
+S -&gt; n
+</code></pre><p>If the rule is more complicated, containing nested choice operators, it is rewritten in a similar
+manner:</p>
+<pre tabindex="0"><code>S -&gt; (a | b) &#39;+&#39; d | c
+// rewritten to
+S -&gt; a &#39;+&#39; d 
+S -&gt; b &#39;+&#39; d
+S -&gt; c
+</code></pre><ul>
+<li><code>:</code> in EBNF colon replaces arrow to divide two sides of a rule. I&rsquo;ll stick to the arrow for
+the time, to keep the style consistent and justify the use of code blocks
+(I use FiraCode with ligatures in code blocks to make arrow a continuous symbol)</li>
+</ul>
+<p>All grammars discussed before are formal grammars. Formal grammars have terminals and non-terminals
+in their rules and no other operators of special symbols.</p>
+<h3 id="parsing-expression-grammars-or-pegs">Parsing expression grammars or PEGs</h3>
+<p>PEGs are very similar to CFGs, but they are not <strong>ambiguous</strong>,
+meaning that for any input only one AST can be generated. It is achieved by selecting the first
+match in a choice operator. For CFG<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> each variant in a choice operator is equal in terms of
+precedence (and because of that two ASTs may be generated from one input).</p>
+<h3 id="recursive-grammars">Recursive grammars</h3>
+<p>if there is a rule with a non-terminal on the left side, which can be derived again by applying
+some rules to the resulting expression.</p>
+<pre tabindex="0"><code>grammar rG
+A -&gt; aBC
+B -&gt; Db
+C -&gt; c
+D -&gt; Ad
+</code></pre><p>rG is recursive, because:</p>
+<ol>
+<li>starting with <code>A -&gt; aBC</code></li>
+<li>apply <code>B -&gt; Db</code> to <code>aBC</code>, get <code>aDbC</code></li>
+<li>apply <code>D -&gt; Ad</code> to <code>aDbC</code> get <code>aAddC</code>. Non-terminal <code>A</code> is derived again.
+Proved, that rG is recursive.</li>
+</ol>
+<p>Almost all non-trivial grammars are recursive.</p>
+<h4 id="left-recursion">Left recursion</h4>
+<p>Left recursive grammar is a grammar that contains a recursive rule, deriving form which will
+eventually create the same non-terminal as the first symbol.</p>
+<pre tabindex="0"><code>grammar lrG
+A -&gt; BC
+B -&gt; Db
+C -&gt; c
+D -&gt; Ad
+</code></pre><p>lrG is left recursive, because same sequence of rules as in rG will produce AddC. A is the first
+symbol, therefore lrG is left recursive.</p>
+<p>Some parsers are unable to parse left recursive grammars, descending into infinite recursion.
+For that reason, a grammar is rewritten, making it less humanly readable.
+Any sensible left-recursive grammar can be rewritten, I think.
+This grammar is not reasonable: <code>A -&gt; A</code>.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>When introducing CFG, I stated that it is a part of a Chomsky hierarchy, hence it is a formal
+grammar. Consequently, only terminals and non-terminals are allowed in the rules.
+But CFG can be mentioned outside the formal grammar set, keeping its distinctive characteristic of
+one
+non-terminal on the left-hand side. Therefore, CFG right-hand side can contain other special
+symbols. From now on, if not explicitly specified, I&rsquo;ll use CFG term implying that <strong>it is not a
+formal grammar</strong>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </p>
+      <ul class="tags">
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Syntax</h1>
+      <p class="meta">
+        
+        <div class="toc">
+    <aside class="mainTOC">
+        <details >
+            <summary>Table of Contents</summary>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#top-level-declarations">Top level declarations</a>
+      <ul>
+        <li><a href="#class">Class</a></li>
+        <li><a href="#object">Object</a></li>
+        <li><a href="#function">Function</a></li>
+        <li><a href="#imports">Imports</a></li>
+      </ul>
+    </li>
+    <li><a href="#operators">Operators</a>
+      <ul>
+        <li><a href="#boolean-operators">Boolean operators</a></li>
+        <li><a href="#arithmetic-operators">Arithmetic operators</a></li>
+        <li><a href="#ternary-operator">Ternary operator</a></li>
+        <li><a href="#propertyvariable-assignment">Property/variable assignment</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#cycles">Cycles</a>
+      <ul>
+        <li><a href="#while">while</a></li>
+        <li><a href="#foreach">foreach</a></li>
+        <li><a href="#1-accessing-properties">1. Accessing properties</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#accessing-and-assigning-collection-elements">Accessing and assigning collection elements</a>
+      <ul>
+        <li><a href="#list">List</a></li>
+        <li><a href="#dictionary">Dictionary</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </details>
+    </aside>
+</div>
+<p>ReGIna&rsquo;s syntax is an amalgamation of kotlin and python.</p>
+<h2 id="top-level-declarations">Top level declarations</h2>
+<p>Essentially, file is a set of classes, objects, functions and imports. Executable and importable
+files have <code>.rgn</code> format.</p>
+<h3 id="class">Class</h3>
+<p>Class declaration should satisfy following format:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassName</span> : SuperClassName {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>where <code>: SuperClassName</code> is optional.</p>
+<p>Class contains properties and functions.</p>
+<h3 id="object">Object</h3>
+<p>Similar syntax to type, although it cannot be inherited.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">ObjectName</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Object is a singleton that is lazily initialized (when a property is called, it is initialized and
+everything needed for its initialization).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Lazy</span> {
+</span></span><span style="display:flex;"><span>    a = b
+</span></span><span style="display:flex;"><span>    b = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    c = <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// here nothing in Lazy is initialized
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    log(<span style="color:#a6e22e">Lazy</span>.a)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// here Lazy.a and Lazy.b are initialized, c is not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="function">Function</h3>
+<p>Function has non-default parameters and default parameters. Default parameters go after other ones.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">functionName</span>(param0, param1, <span style="color:#f92672">..</span>., default_param0 = defaultValue, <span style="color:#f92672">..</span>.) {
+</span></span><span style="display:flex;"><span>    functionBody
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><span>
+    <a class="internal-link" href="https://llesha.github.io/regina/scopes/#using-functions-with-same-signature">
+        Accessing functions with same signature</a>&nbsp;
+</span>.</p>
+<h3 id="imports">Imports</h3>
+<blockquote>
+<p>[!warning] Warning</p>
+<p>Do not use following file names: Global.rgn, this.rgn</p>
+</blockquote>
+<p>Imports are declarations that allow to use objects, classes and functions from an imported file.</p>
+<h2 id="operators">Operators</h2>
+<p><em>Take a look at a <a href="/regina/toop">table of operator precedence</a></em></p>
+<p><code>+</code> non commutative addition with implicit type conversion. All use cases:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// List + Any &lt;=&gt; List.add(Any)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">[1, 2]</span> + <span style="color:#ae81ff">3</span> <span style="color:#75715e">// == [1,2,3]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// String + Any &lt;=&gt; String + Any.toString()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#34;Hello, &#34;</span> + <span style="color:#e6db74">&#34;Alex&#34;</span> <span style="color:#75715e">// == &#34;Hello, Alex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Int + Double or Double + Int &lt;=&gt; double(Int) + Double
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">1</span> + <span style="color:#ae81ff">3.2</span> = <span style="color:#ae81ff">4.2</span>
+</span></span></code></pre></div><p><code>if(...) .. else ..</code> - ternary operator is kotlin-like.</p>
+<h3 id="boolean-operators">Boolean operators</h3>
+<p>Boolean operators return 0 and 1 respectively
+(non-)equality: <code>==</code>, <code>!=</code></p>
+<p>Comparison: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
+<p>Logical operators: <code>&amp;&amp;</code>, <code>||</code>. As in other languages, if left operand is enough to resolve an
+operator, right operator is not evaluated</p>
+<p><code>!</code>: not prefix operator. Inverts expression.</p>
+<h4 id="boolean-values">Boolean values</h4>
+<p><code>true</code> is 1, <code>false</code> is 0. <span>
+    <a class="internal-link" href="https://llesha.github.io/regina/types/#boolean">
+        Boolean is Int.</a>&nbsp;
+</span></p>
+<p>Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// true and false are 1 and 0 respectfully. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// There is no boolean type, only keywords,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// that are changed to numbers during runtime 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">true</span> <span style="color:#75715e">// == 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">false</span> <span style="color:#75715e">// == 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>!<span style="color:#66d9ef">true</span> <span style="color:#75715e">// == 0
+</span></span></span></code></pre></div><blockquote>
+<p>[!note] Notes</p>
+<p>In the future, <code>&amp;</code> and <code>|</code> operators might be added.</p>
+</blockquote>
+<h3 id="arithmetic-operators">Arithmetic operators</h3>
+<h3 id="ternary-operator">Ternary operator</h3>
+<h3 id="propertyvariable-assignment">Property/variable assignment</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>variableName = <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>className.PropertyName = <span style="color:#f92672">..</span>.
+</span></span></code></pre></div><p>Variables and properties are dynamic, meaning they are type independent. <code>a</code> can be String and in
+the next line it can
+be Int or class instance.</p>
+<h2 id="references">References</h2>
+<p>References are expressions of form <code>a.b.c</code>. They serve 3 purposes:</p>
+<ol>
+<li>accessing class/object properties</li>
+<li>accessing primitive/class/object and functions</li>
+<li>specifying package declarations</li>
+<li>reducing expressions</li>
+</ol>
+<h2 id="cycles">Cycles</h2>
+<h3 id="while">while</h3>
+<p>while is a cycle which body executes until the condition is false.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>condition = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(condition) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="foreach">foreach</h3>
+<p>foreach has:</p>
+<ol>
+<li>an iterator name</li>
+<li>an iterable (List, String or range)</li>
+<li>body</li>
+</ol>
+<p>Foreach will run the body for all the elements of collection.</p>
+<h4 id="foreach-in-list">Foreach in list</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>arr = [<span style="color:#ae81ff">1</span>, [], <span style="color:#ae81ff">3</span>, [], <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span>foreach(i <span style="color:#66d9ef">in</span> arr) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(i <span style="color:#66d9ef">is</span> List)
+</span></span><span style="display:flex;"><span>        i.add(<span style="color:#e6db74">&#34;a&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> i = i + <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// arr == [1, [&#34;a&#34;], 3, [&#34;a&#34;], 5]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>foreach(i <span style="color:#66d9ef">in</span> arr) {
+</span></span><span style="display:flex;"><span>    arr.remove(i)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// arr == [[&#34;a&#34;], [&#34;a&#34;]]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// this happens because foreach internally 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// iterates over a collection by an index.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// t
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// it is very unadvisable to modify collection&#39;s size inside foreach.
+</span></span></span></code></pre></div><h4 id="foreach-in-string">Foreach in String</h4>
+<p>Similar to list, but all iterable elements are not changeable</p>
+<h4 id="foreach-in-range">Foreach in range</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// range is a unique function used only inside foreach
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// it has 3 arguments, where third is optional: step
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>li = []
+</span></span><span style="display:flex;"><span>foreach(i <span style="color:#66d9ef">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>    li.add(i)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// li == [0, 2, 4, 6, 8, 10]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// if step is not specified, it equals to 1 or -1,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// depending on start and end
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>foreach(i <span style="color:#66d9ef">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>    li.add(i + <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// li == [0, 2, 4, 6, 8, 10, 11, 12, 13]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>foreach(i <span style="color:#66d9ef">in</span> range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>)) {
+</span></span><span style="display:flex;"><span>    li.removeAt(i)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// li == [8, 10, 11, 12, 13]
+</span></span></span></code></pre></div><h3 id="1-accessing-properties">1. Accessing properties</h3>
+<h1 id="code-conventions">Code conventions</h1>
+<p>Camel case is used.</p>
+<p>Names of <a href="Syntax.md/###Class">class</a>, <a href="Syntax.md/###Object">object</a> start with capital.</p>
+<p>Variables, functions start with lowercase letter.</p>
+<h2 id="accessing-and-assigning-collection-elements">Accessing and assigning collection elements</h2>
+<h3 id="list">List</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>empty = [] <span style="color:#75715e">// create empty list
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>filled = [<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;2&#34;</span>, [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>], {<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">6</span>}] <span style="color:#75715e">// create list with elements
+</span></span></span></code></pre></div><h3 id="dictionary">Dictionary</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>dict = {<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">2</span>} <span style="color:#75715e">// dict key value pair is created with a colon
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dict[<span style="color:#ae81ff">1</span>] <span style="color:#75715e">// accessing value by dict key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dict[<span style="color:#e6db74">&#34;key&#34;</span>] = <span style="color:#e6db74">&#34;value&#34;</span> <span style="color:#75715e">// assigning value to key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dict[<span style="color:#e6db74">&#34;not found&#34;</span>]
+</span></span></code></pre></div>
+      </p>
+      <ul class="tags">
+          
+          <li><a href="/tags/regina-docs/">Regina docs</a></li>
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

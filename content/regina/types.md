@@ -1,9 +1,6 @@
 ---
 title: "Types"
-tags:
-
-- regina-docs
-
+date: 2022-10-27
 ---
 {{< table_of_contents >}}
 

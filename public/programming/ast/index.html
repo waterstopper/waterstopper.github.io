@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Abstract Syntax Tree</h1>
+      <p class="meta">
+        
+        <p>Abstract Syntax Tree (AST) is key concept in program evaluation. It is a tree with
+tokens as its nodes. Tree is a better structure than sequence. Here is why:</p>
+<ol>
+<li>Operator precedence.</li>
+<li>Hierarchy</li>
+</ol>
+<h3 id="operator-precedence">Operator precedence</h3>
+<p>Consider a following expression : $5 + 7 \cdot 2 + 3$. It is obvious to us humans which arithmetic
+operator. we should calculate first. But it is not that simple for a machine.
+Hence, we introduce a tree structure:</p>
+
+
+<p>Now we need to recursively evaluate each child before calculating the result of the overall
+expression.</p>
+<h3 id="hierarchy">Hierarchy</h3>
+<p>Let&rsquo;s look at the following python code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">some_method</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SomeClass</span>:
+</span></span><span style="display:flex;"><span>    field <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    other <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;other&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">class_method</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">other_one</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;not classMethod&#34;</span>
+</span></span></code></pre></div><p>Here is a sketch of AST representation:</p>
+<pre tabindex="0"><code>some_method:
+    type: function
+    children:
+        params: ...
+        body: ...
+SomeClass:
+    type: class
+    children:
+        field:
+            type: variable
+            children:
+                value: ...
+        other:
+            type: variable
+            children:
+                value: ...
+        class_method:
+            type: function
+            children:
+                params: ...
+                body: ...
+         other_one:
+            type: function
+            children:
+                params: ...
+                body: ...
+        
+</code></pre><p>Notice how all the functions of class are on the same level. We could even add <code>fields</code> and
+<code>functions</code> and <code>classes</code> nodes to separate statements of different kinds:</p>
+<pre tabindex="0"><code>functions:
+    some_method:
+        ...
+classes:
+    SomeClass:
+        type: class
+        children:
+            fields:
+                field:
+                    ...
+                other:
+                   ...
+            functions:
+                class_method:
+                    ...
+                 other_one:
+                    ...
+</code></pre><p>This hierarchical structure is predictable and manageable.</p>
+<h3 id="node-structure">Node structure</h3>
+<p>AST trees do not have a commonly accepted structure. It&rsquo;s content varies depending on
+usage. But I found some general structure of AST node. Nodes usually include.</p>
+<ul>
+<li>node type (declaration of class, method, variable, infix operator, block etc)</li>
+<li>node value: e.g. name of a particular identifier</li>
+<li>children: nodes that a re children of the current one</li>
+<li>meta information: position in the initial file, path to initial file&hellip;</li>
+</ul>
+<h1 id="creating-ast">Creating AST</h1>
+<p>A pipeline consists of two steps:</p>
+<p><code>Code (text) -&gt; Tokens -&gt; CST</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><code> -&gt; AST</code></p>
+<p>To create tokens from code, a tokenizer (aka Lexer) is used. Usually it&rsquo;s pretty straightforward:
+read until next whitespace, identify obtained token.</p>
+<p>To create AST from tokens, we need a parser. I won&rsquo;t go into much detail here, because parsers are
+complicated enough for a separate <a href="programming/parsers">post</a>.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Some parsers create an intermediate representation of AST called concrete syntax tree. The
+difference between AST and CST is that each AST node has a semantic purpose, while CST may contain
+detrimental tokens that are used to make parsing of a grammar work. Example of CST generated probably
+with a parser based on EBNF arithmetic <a href="programming/introduction-to-grammars">grammar</a>:
+<img src="programming/images/cst.png" alt="cst.png">
+<code>Expr</code>, <code>Term</code> and <code>Factor</code> nodes do not have a semantic purpose, therefore technically it is not
+an AST.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </p>
+      <ul class="tags">
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

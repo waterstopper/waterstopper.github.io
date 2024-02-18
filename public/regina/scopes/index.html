@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Visibility scopes</h1>
+      <p class="meta">
+        
+        <div class="toc">
+    <aside class="mainTOC">
+        <details >
+            <summary>Table of Contents</summary>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#global-scope">Global scope</a></li>
+    <li><a href="#class-instance-scope">Class instance scope</a></li>
+    <li><a href="#function-scope">Function scope</a></li>
+    <li><a href="#block-scope">Block scope</a></li>
+    <li><a href="#accessing-declarations-with-same-names">Accessing declarations with same names</a>
+      <ul>
+        <li><a href="#import-priority">Import priority</a></li>
+        <li><a href="#using-functions-with-same-signature">Using functions with same signature</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </details>
+    </aside>
+</div>
+<p>All scopes, sorted from the most visible to the least:</p>
+<h2 id="global-scope">Global scope</h2>
+<p>Classes, objects and functions<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> are declared in global scope. Imported file declarations are in
+global scope too. Global scope declarations are visible <strong>everywhere</strong>.</p>
+<h2 id="class-instance-scope">Class instance scope</h2>
+<p>In class instance scope properties and functions are declared. These declarations are visible
+<strong>from a class instance and inside class functions</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">/** this program prints:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">changed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">in class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">in global
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">**/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    a = A(prop=<span style="color:#e6db74">&#34;changed&#34;</span>)    
+</span></span><span style="display:flex;"><span>    print(a.logger()) <span style="color:#75715e">// function called from an instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// here prop, this.func and logger are visible
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    prop = <span style="color:#e6db74">&#34;prop&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">func</span>() { <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;in class&#34;</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">logger</span>(<span style="color:#66d9ef">param</span> = prop) {
+</span></span><span style="display:flex;"><span>        print(<span style="color:#66d9ef">param</span>)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#66d9ef">this</span>.func())
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> func()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">func</span>() { <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;in global&#34;</span>}
+</span></span></code></pre></div><h2 id="function-scope">Function scope</h2>
+<p>Functions can have variable assignments and blocks. Functions change its reference arguments. All
+global scope declarations: other global functions, class constructors, object variables are
+visible inside a function body.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Colors</span> {
+</span></span><span style="display:flex;"><span>    BLACK = <span style="color:#e6db74">&#34;000000&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">change</span>(argArr, argInstance) {
+</span></span><span style="display:flex;"><span>    arg.add(<span style="color:#ae81ff">2</span>) <span style="color:#75715e">// assuming arg is a list
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Colors</span>.BLACK = <span style="color:#e6db74">&#34;111111&#34;</span> <span style="color:#75715e">// Colors.BLACK is changed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    argInstance.<span style="color:#66d9ef">property</span> = <span style="color:#ae81ff">3</span> <span style="color:#75715e">// property will change outside of function scope
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    arr = []
+</span></span><span style="display:flex;"><span>    a = A()
+</span></span><span style="display:flex;"><span>    change(arr,a )
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// here arr == [2],
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// a.property == 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>Variables are visible from anywhere below the variable declaration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">scope</span>() { 
+</span></span><span style="display:flex;"><span>    i = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(i &lt; <span style="color:#ae81ff">5</span>) {
+</span></span><span style="display:flex;"><span>        a = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        i = i + <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#75715e">// here a is visible and equals 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p><em>This behaviour differs from most of the languages, consequently it might change in future.</em></p>
+<h2 id="block-scope">Block scope</h2>
+<p>Blocks change already defined values. Variables defined inside of blocks are visible outside to the
+end of the function scope.</p>
+<p>Block scope is nonexistent in some sense.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">someFunction</span>() {
+</span></span><span style="display:flex;"><span>    a = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// a == 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (condition) {
+</span></span><span style="display:flex;"><span>        a = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>        b = <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// a == 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// a == 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// b == 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="accessing-declarations-with-same-names">Accessing declarations with same names</h2>
+<p>Each file might contain only one function with a particular signature. Same holds for classes and
+objects. However, it is okay to have class and function with the same name
+(and no function params) - in this case class will be shadowed by that function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">same</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">same</span>() {<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">difSignature</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">difSignature</span>(<span style="color:#66d9ef">param</span>) {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    print(same()) <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    print(difSignature()) <span style="color:#75715e">// class instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="import-priority">Import priority</h3>
+<p>If imported file contains a declaration with the same name as existing,</p>
+<div class="highlight" title="std.geometry2D.rgn"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span> {
+</span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span></code></pre></div><p>Current file&rsquo;s declaration is prioritized.</p>
+<div class="highlight" title="main.rgn"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> std.geometry2D <span style="color:#66d9ef">as</span> geom
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    p = Point() <span style="color:#75715e">// main.Point instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pGeom = geom.Point() <span style="color:#75715e">// std.geometry2D.Point instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><blockquote>
+<p>[!warning]- Same in different imports</p>
+<p>If two imports contain two similarly named declarations (say, both of them
+have <code>object Constants</code>) and current file does not have such declaration,
+using that declaration without file prefix is prohibited. That&rsquo;s because it is ambiguous which
+declaration to use.</p>
+</blockquote>
+<h3 id="using-functions-with-same-signature">Using functions with same signature</h3>
+<p>Function signature consists of:</p>
+<ol>
+<li>function name</li>
+<li>number of parameters</li>
+</ol>
+<p>Priority:</p>
+<ol>
+<li>
+<p>Local function <strong>always</strong> has priority over imported one (second step is not applicable, if
+there is a local function that can be called).</p>
+</li>
+<li>
+<p>Top level function is prioritized over a class function<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+</li>
+<li>
+<p>Then, find a function with the least number of unspecified default parameters<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> (those which
+are
+not arguments in a call). For instance, if there are functions:</p>
+<ol>
+<li><code>fun fn(a1, a2) {...}</code>,</li>
+<li><code>fun fn(a1, a2, a3 = 1) {...}</code>,</li>
+</ol>
+<p>and the call is <code>fn(1,1)</code>, first function is called.</p>
+</li>
+</ol>
+<p>Keep in mind, that inherited functions are simply added to the current subclass. If current class
+defines the same function, superclass function is shadowed. Following example might clear things:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>   s = Subclass()
+</span></span><span style="display:flex;"><span>   print(s.fn()) <span style="color:#75715e">// &#34;base&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   log(s.shadow()) <span style="color:#75715e">// &#34;this is called&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Superclass</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">fn</span>() {<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;base&#34;</span>} 
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">shadow</span>() {<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;not called&#34;</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Subclass</span>: Superclass {
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">fn</span>(a = <span style="color:#ae81ff">1</span>) {<span style="color:#e6db74">&#34;not called, because fn without default parameters has more priority&#34;</span>}
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">shadow</span>() {<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;this is called&#34;</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Functions can be declared in classes too.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>This is due to the fact that class instance function can be called with <code>this.</code> prefix.
+Current class function does not have a prefix to be called with.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Currently if there are two functions in <strong>different</strong> imports that both can be called,
+program will throw an error saying that it cannot pick needed function.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="/tags/regina-docs/">Regina docs</a></li>
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

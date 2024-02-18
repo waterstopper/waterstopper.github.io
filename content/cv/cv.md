@@ -1,4 +1,0 @@
----
-title: "cv"
-layout: cv
----

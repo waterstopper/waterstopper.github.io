@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ .Lang }}">
-{{ partial "head.html" . }}
+{{ define "main" }}
 
-<body>
-{{partial "search.html" .}}
-<div class="singlePage">
-    <!-- Begin actual content -->
-    {{partial "header.html" .}}
-    <article>
-        {{partial "toc.html" .}}
-        {{partial "textprocessing.html" . }}
-        {{if $.Site.Data.config.enableRecentNotes}}
-          {{partial "recent.html" . }}
-        {{end}}
-    </article>
-    {{partial "footerIndex.html" .}}
+<div>
+    <h1>{{ .Site.Title }}</h1>
+    <p>{{ .Content }}</p>
 </div>
-</body>
-</html>
+<hr>
+<h2>Posts</h2>
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ partial "date-and-tags.html" . }}
+</p>
+{{ end }}
+
+{{ end }}

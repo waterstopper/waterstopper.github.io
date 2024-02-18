@@ -1,0 +1,46 @@
+class List {
+    size // number of list elements
+    fun add(element, index: Int = this.size)
+    {
+        //inserts element to list at `index`
+    }
+
+    fun remove(element): Int
+    {
+        // remove element, get index of removed element (or -1, if not found)
+    }
+
+    fun removeAt(index: Int): Any
+    {
+        // returns removed element from `index`
+    }
+
+    fun has(element): Bool
+    {
+        // returns element's existence
+    }
+
+    fun index(found): Int
+    {
+        // returns first index of `found` or -1 if not found
+    }
+
+    fun joinToString(separator: String = ", "): String
+    {
+        // creates a string from list elements, separated by `separator`
+    }
+
+    fun clear(): Null
+    {
+        // removes all elements from List
+    }
+    fun sort(desc: Bool = false): Null
+    {
+        // sorts target list in place
+    }
+
+    fun sorted(desc: Bool = false): List
+    {
+        // does not sort target, returns sorted list.
+    }
+}

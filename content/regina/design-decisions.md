@@ -1,5 +1,6 @@
 ---
 title: "Design decisions"
+date: 2022-10-27 
 ---
 
 ## ~~Why null is 0?~~ *now it is not*

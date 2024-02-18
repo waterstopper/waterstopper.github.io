@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on llesha</title>
+    <link>/notes/</link>
+    <description>Recent content in Notes on llesha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eye focus and main eye</title>
+      <link>/notes/eyes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/notes/eyes/</guid>
+      <description>On sketches that illustrate eye focus, it is shown that humans, when looking straight ahead, focus their vision at a point between their eyes. I came to the conclusion that it is not true, and we focus similarly to the picture on the right.&#xA;I have a small experimental proof for it. Look in the mirror. What point are you looking at most of the time? For me, it is the right eye.</description>
+    </item>
+  </channel>
+</rss>

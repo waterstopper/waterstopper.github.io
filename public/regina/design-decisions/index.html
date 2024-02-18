@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Design decisions</h1>
+      <p class="meta">
+        
+        <h2 id="why-null-is-0-now-it-is-not"><del>Why null is 0?</del> <em>now it is not</em></h2>
+<p>First, let&rsquo;s provide some context.</p>
+<p>I do not find void type useful. Therefore, void == null.</p>
+<p>Now, let&rsquo;s state all cases when null appears:</p>
+<ol>
+<li>function call with no return</li>
+<li>parent property<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li><code>?.</code> operator.</li>
+</ol>
+<p>Not many cases to consider, only last one is the meaningful one. It is important to throw
+exceptions for not found properties, because it might be a typo. Typos are hard to find. <code>?.</code>
+operator exists if user intentionally wants to ignore non-existing property. This is very useful to
+write concise code. Without <code>?.</code> we have to write something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// Say, want to check if svgArgs in a exist. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Then do some operations with them.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(a.properties.has(<span style="color:#e6db74">&#34;svgArgs&#34;</span>)) {<span style="color:#f92672">..</span>.} <span style="color:#75715e">// without ?.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(a<span style="color:#f92672">?.</span>svgArgs <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {<span style="color:#f92672">..</span>.} <span style="color:#75715e">// with ?.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Better example:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    iter = <span style="color:#66d9ef">if</span>(parent <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> parent.iter + <span style="color:#ae81ff">1</span> <span style="color:#75715e">// without ?.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    iter = parent<span style="color:#f92672">?.</span>iter + <span style="color:#ae81ff">1</span> <span style="color:#75715e">// with ?.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>First example has a problem: when using <code>?.</code> we can&rsquo;t really differentiate whether <code>a</code> has a
+property <code>svgArgs</code> which value is 0, or <code>a</code> does not have such property. However, I think it is an
+issue only in a language where null as a no-reference exists.</p>
+<p><strong>The answer to this question is:</strong></p>
+<ol>
+<li>I find 0 to be more useful than no-reference object, when null appears.</li>
+<li>and for now I don&rsquo;t see many disadvantages of such design decision</li>
+</ol>
+<h2 id="defining-functions-in-language">Defining functions in language</h2>
+<p>Embedded functions are functions that are translated from kotlin. All global functions and
+type functions are embedded.
+<a href="https://github.com/llesha/Regina/blob/ab48513b0a11ed21e710eec94660b7951137eafb/src/commonMain/kotlin/evaluation/FunctionFactory.kt#L49">Here is an implementation of global functions (GitHub).</a></p>
+<p>It seems natural for me to shorten embedded functions quantity as much as possible (and write them
+in created language<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>). I had three reasons to add many:</p>
+<ol>
+<li><strong>Historical reason.</strong> I was writing my own all-in-one parser-interpreter which was primitive (
+yet usable) and adding
+function parsing and evaluation was overwhelming.</li>
+<li><strong>Logical reason.</strong> I cannot embed all the functions in the world. <code>log</code>, <code>write</code> and <code>read</code>
+functions access lower-level APIs that are impossible to define in
+a language itself (at least not in mine).</li>
+<li><strong>Even more logical reason</strong>. If Regina&rsquo;s Array is just a MutableList from kotlin, why not use
+existing implementations?</li>
+</ol>
+<h2 id="symbol-table">Symbol Table</h2>
+<p>Symbol table is a common idea in language processing, it goes hand in hand
+with <a href="../docs/Scopes.md">scopes</a>.</p>
+<p>Symbol table is a solution to three concerns:</p>
+<ol>
+<li>Minding scopes,</li>
+<li>Handling imports,</li>
+<li>Recording variable names.</li>
+</ol>
+<p>It is organized as three tables:</p>
+<ol>
+<li><a href="https://github.com/llesha/Regina/blob/master/src/commonMain/kotlin/table/FileTable.kt">FileTable</a>
+<ul>
+<li>for storing all declarations in class (imports are references to other FileTables)</li>
+</ul>
+</li>
+<li>VariableTable - contains all declarations for type instance (properties and functions).
+VariableTable is a variable itself (class or a primitive).</li>
+<li><a href="https://github.com/llesha/Regina/blob/master/src/commonMain/kotlin/table/ScopeTable.kt">ScopeTable</a>
+<ul>
+<li>contains all assigned variables inside a function body.</li>
+</ul>
+</li>
+</ol>
+<p>SymbolTable is a <a href="https://en.wikipedia.org/wiki/God_object">God-manager</a>, but it is needed to
+handle all get requests (get function, get variable, etc).</p>
+<h2 id="variable-names">Variable names</h2>
+<p>Strings are keys for each map. Each string is a name for corresponding variable/type/function. It
+solves third problem
+and makes sharing reference-type values between variables straightforward, unlike storing name in
+a variable class<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (how to store multiple names? When to
+remove a name? etc.)
+.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Probably I will remove <code>parent</code> property for non-class instances. I don&rsquo;t remember why this
+feature exists. Nevertheless, it is too early to remove without giving it proper thought.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>At least to see how well language works.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </p>
+      <ul class="tags">
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

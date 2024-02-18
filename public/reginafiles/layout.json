@@ -1,0 +1,30 @@
+{
+  "docs": {
+    "isLib": "true",
+    "content": {
+      "Global.rgn": "1",
+      "Number.rgn": "1",
+      "String.rgn": "1",
+      "List.rgn": "1",
+      "Dictionary.rgn": "1",
+      "Type.rgn": "1"
+    }
+  },
+  "std": {
+    "isLib": "true",
+    "content": {
+      "math.rgn": "1",
+      "geometry2D.rgn": "1",
+      "svg.rgn": "1",
+      "utils.rgn": "1"
+    }
+  },
+  "generators": {
+    "isLib": "true",
+    "content": {
+      "flower.rgn": "1",
+      "animal.rgn": "1"
+    }
+  },
+  "intro.rgn": "1"
+}

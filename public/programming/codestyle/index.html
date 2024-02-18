@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Code style</h1>
+      <p class="meta">
+        
+        <p>Some tips about code style, applicable to many languages but written in kotlin:</p>
+<ol>
+<li>
+<p>Naming:
+If there exists a class with a similar purpose in Java SDK, then try to follow their naming style. e.g. if you write a formatter of some kind,
+look up <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/text/DecimalFormat.html">DecimalFormat</a>
+or <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/DateFormat.html">DateFormat</a>. These classes have key methods
+<code>parse</code> and <code>format</code>. Try to name your formatter similarly and include the same methods.
+Additional tips in <a href="https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html">Java naming conventions</a></p>
+<p>On the other hand, do not the name class if it resembles a common pattern that is not present in your code. For instance, a class
+should not be named <code>SomeBuilder</code> if it doesn&rsquo;t follow the <a href="https://en.wikipedia.org/wiki/Builder_pattern">Builder pattern</a> and sequentially doesn&rsquo;t contain <code>build</code> method in it.</p>
+</li>
+<li>
+<p>Naming methods:
+There are 4 things that make the description of the method:</p>
+<ol>
+<li>Name of the returned variable,</li>
+<li>Name of the caller variable (the one that calls the method)</li>
+<li>Names of method params</li>
+<li>The method name itself. <strong>It should not include any of the previous things</strong>.</li>
+</ol>
+</li>
+<li>
+<p>Refactoring conditional expressions:
+Conditional expressions should be on the same level of identation for better readibility:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kt" data-lang="kt"><span style="display:flex;"><span><span style="color:#75715e">// this; if-else on the same level
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">getCondition</span>(condition: Boolean) =
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(conditional)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// over this; not clear at the first sight where is the corresponding if
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">getCondition</span>(condition: Boolean) = <span style="color:#66d9ef">if</span>(conditional)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">false</span>
+</span></span></code></pre></div>
+      </p>
+      <ul class="tags">
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

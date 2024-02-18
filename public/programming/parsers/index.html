@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Parsers</h1>
+      <p class="meta">
+        
+        <p><em>As with the first article, I wrote this one on a computer, because the topic is hard to tackle. I
+knew I would have to make a lot of edits and rearrangements. So technically I&rsquo;m two days behind my
+schedule, but we&rsquo;re just going to ignore that.</em></p>
+<h1 id="parser-traits">Parser traits</h1>
+<p>These traits are not exactly definitive features for a parser. However, these definitions are often
+mentioned, so it&rsquo;s good to know what they mean.</p>
+<h3 id="recursive-descent">Recursive descent</h3>
+<p>Recursive descent parser is a program, where each <a href="programming/introduction-to-grammars">grammar</a> rule is implemented as a separate method.
+Sometimes all rules describing one terminal are combined into a single method.</p>
+
+
+<h3 id="back-tracking-and-non-back-tracking">Back-tracking and non back-tracking</h3>
+<p>Back-tracking parser looks some tokens behind to define a position of current token in a tree. Non
+back-tracking parsers do not use previous tokens.</p>
+<h1 id="most--common-parser-classification">Most  common parser classification</h1>
+<p>LL and LR are the most often mentioned parsers in this context. And their distinct features are
+being top-down and bottom-up respectfully.</p>
+<h3 id="top-down-parser">Top-down parser.</h3>
+<p>This parser creates a tree from root to leaves.</p>
+<h5 id="llk-parser">LL(k) parser</h5>
+<p>Left-to-right, leftmost derivation. Parses tokens from left to right, looking k
+tokens ahead. Uses context free grammar.</p>
+<p>Can be implemented either as a recursive descent or a pushdown automata.</p>
+<p><em>Note: a subset of languages that can be parsed with LL(k) parser is
+called LL(k) languages.</em></p>
+<h3 id="bottom-up-parser">Bottom-up parser.</h3>
+<p>Unlike top-down, creates tree starting from leaves and finishing at root.</p>
+<h5 id="lrk-parser">LR(k) parser</h5>
+<p>Left-to-right, rightmost derivation. Uses CFG. Starts with tokens of higher priority, eventually
+building its way from leaves to root (the higher the node, the less priority it has. Look
+at <a href="programming/ast">AST arithmetic example</a>).</p>
+<p>Implementation uses pushdown automata or deterministic finite automation. Works in linear time.</p>
+<h1 id="other-parsers">Other parsers</h1>
+<h3 id="operator-precedence-parser">Operator precedence parser</h3>
+<p>Is a parser for, you guessed it, operator precedence grammars. OP is a CFG with no empty right-hand
+side rules and no rules with adjacent non-terminals.</p>
+<h5 id="operator-precedence-implementation">Operator precedence implementation</h5>
+<p>Pratt parser is a top-down operator precedence parser. This parser is rarely mentioned. It is based
+on the idea of led, nud and std functions. Each token has (or has not) led, nud and std functions.
+These functions basically tell how this token is related to ones around it. All parsing is embedded
+into these functions, with some additional ones: expression and statement functions.</p>
+<ul>
+<li>Nud is null denotation, used for primary tokens like numbers and
+identifiers and prefix operators</li>
+<li>Led is left denotation, describe how a token relates to its left neighbor. Used for infix</li>
+<li>Std is statement denotation, is for statements: assignment, return keyword</li>
+</ul>
+<h4 id="peg-parser">PEG parser</h4>
+<p>Parser parsing expression grammar.</p>
+<h5 id="peg-parser-implementation">PEG parser implementation</h5>
+<p>Packrat parser implements recursive descent with infinite lookahead. Requires more memory than LL
+parser, but supports left recursion.</p>
+<p><em>I don&rsquo;t think this is an exhaustive list of parsers, and it&rsquo;s shallow. However, it&rsquo;s in sync with
+grammar post, one can be read after another</em></p>
+
+      </p>
+      <ul class="tags">
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

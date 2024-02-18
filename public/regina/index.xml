@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reginas on llesha</title>
+    <link>/regina/</link>
+    <description>Recent content in Reginas on llesha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/regina/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/regina/typization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/typization/</guid>
+      <description>Dynamically typed languages check variable type during runtime, meaning it is more error-prone.On the contrary, statically typed languages check variable type during compilation.&#xA;Often dynamically typed languages can reassign the same variable with a different type. Also, variable declaration and assignment are similar for dynamic languages.&#xA;# Python a = 2 a = &amp;#34;2&amp;#34; # not an error One of the clues of static typing is in variable declaration: usually variables have a type before a name in declaration:</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/regina/why/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/why/</guid>
+      <description>Why I created a programming language TLDR: I didn&amp;rsquo;t think about making a library for dynamic instantiation. I should&amp;rsquo;ve made a library - that is an optimal path.&#xA;Birth of &amp;lsquo;generator of generators&amp;rsquo; I liked creating visual generators. But I didn&amp;rsquo;t like spending 2 weeks to flesh out an idea and to implement unuseful tools like deployment to web or geometry functions.&#xA;Looking back, I realise that I wasted much time due to switching between tools: for plant generator I used C# and .</description>
+    </item>
+    <item>
+      <title>Design decisions</title>
+      <link>/regina/design-decisions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/design-decisions/</guid>
+      <description>Why null is 0? now it is not First, let&amp;rsquo;s provide some context.&#xA;I do not find void type useful. Therefore, void == null.&#xA;Now, let&amp;rsquo;s state all cases when null appears:&#xA;function call with no return parent property1 ?. operator. Not many cases to consider, only last one is the meaningful one. It is important to throw exceptions for not found properties, because it might be a typo. Typos are hard to find.</description>
+    </item>
+    <item>
+      <title>Dynamic instantiation</title>
+      <link>/regina/dynamic-instantiation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/dynamic-instantiation/</guid>
+      <description>TLDR Difference between other languages and ReGIna is dynamic instantiation. In short, properties in classes will be assigned only after their dependencies are assigned, allowing recursive properties of same class A inside class A.&#xA;Idea Classes can have references to other classes inside them as properties. These property-classes are evaluated dynamically. Take a look at this example:&#xA;class Node export rect { // export = false - can deny export iter = if (parent) parent.</description>
+    </item>
+    <item>
+      <title>Global</title>
+      <link>/regina/global/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/global/</guid>
+      <description>Global is a file that&amp;rsquo;s imported by default.&#xA;fun print(x): Null { // print `x` into console } fun except(x) { // throws exception with `x` as message } fun input(input): Any { // not working in [IDE]()*. Receives console input and returns it. } fun write(content: String, path: String) { // write `content` to `path` file } fun read(path: String): String { // read file from `path` and return the result } fun exists(path: String): Bool { // checks if file by `path` exists.</description>
+    </item>
+    <item>
+      <title>IDE</title>
+      <link>/regina/ide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/ide/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ReGIna</title>
+      <link>/regina/regina/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/regina/</guid>
+      <description>is a dynamically typed language with syntax similar to Kotlin and Python.&#xA;Documentation It is highly recommended to read in following order, don&amp;rsquo;t click on links in articles for the first time:&#xA;syntax - language expressions and what they do. visibility scopes, access priorities - how a file is structured. variable types - all types are listed, their properties, functions and features. dynamic instantiation - core language idea. Advantages Can be embedded into web.</description>
+    </item>
+    <item>
+      <title>std/math.rgn</title>
+      <link>/regina/std/math/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/std/math/</guid>
+      <description>Functions rndInt</description>
+    </item>
+    <item>
+      <title>Syntax</title>
+      <link>/regina/syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/syntax/</guid>
+      <description>Table of Contents Top level declarations Class Object Function Imports Operators Boolean operators Arithmetic operators Ternary operator Property/variable assignment References Cycles while foreach 1. Accessing properties Accessing and assigning collection elements List Dictionary ReGIna&amp;rsquo;s syntax is an amalgamation of kotlin and python.&#xA;Top level declarations Essentially, file is a set of classes, objects, functions and imports. Executable and importable files have .rgn format.&#xA;Class Class declaration should satisfy following format:</description>
+    </item>
+    <item>
+      <title>Table of operator precedence</title>
+      <link>/regina/toop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/toop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Things that hopefully you will never encounter</title>
+      <link>/regina/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/advanced/</guid>
+      <description>But are good to know anyway.&#xA;Dictionary mutable key fun main() { a = [1] t = {a: &amp;#34;value&amp;#34;} print(t) print(t[[1]]) a.add(2) print(t) print(t.entries[0][&amp;#34;key&amp;#34;]) print(t[t.entries[0][&amp;#34;key&amp;#34;]]) print(t[[1, 2]]) } fun main() { val a = mutableListOf(&amp;#34;a&amp;#34;) val m = mutableMapOf(a to &amp;#34;b&amp;#34;) println(m[mutableListOf(&amp;#34;a&amp;#34;)]) // b a.add(&amp;#34;b&amp;#34;) println(m) // {[a, b]=b} println(m[mutableListOf(&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;)]) // null } # frozenset # tuple </description>
+    </item>
+    <item>
+      <title>Types</title>
+      <link>/regina/types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/types/</guid>
+      <description>Table of Contents Value types Reference types Null Number Documentation Boolean Int Double String Documentation List Documentation Dictionary Documentation Examples Type properties Constructor Inheritance Object There are three value types and three reference types.&#xA;Value types Int Double String Reference types List Dictionary Class instance Assigning another variable a variable of a reference type will pass it by reference. Same holds for passing function arguments&#xA;fun main() { arr = [] change(arr) // here arr == [1] other = arr other.</description>
+    </item>
+    <item>
+      <title>Visibility scopes</title>
+      <link>/regina/scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/regina/scopes/</guid>
+      <description>Table of Contents Global scope Class instance scope Function scope Block scope Accessing declarations with same names Import priority Using functions with same signature All scopes, sorted from the most visible to the least:&#xA;Global scope Classes, objects and functions1 are declared in global scope. Imported file declarations are in global scope too. Global scope declarations are visible everywhere.&#xA;Class instance scope In class instance scope properties and functions are declared.</description>
+    </item>
+  </channel>
+</rss>

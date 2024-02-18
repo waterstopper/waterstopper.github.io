@@ -1,0 +1,3 @@
+{{ range .Site.Params.top_js -}}
+<script src="{{ . | absURL }}"></script>
+{{- end }}

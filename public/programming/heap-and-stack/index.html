@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="singlePage">
+    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
+<button id="change-theme-button">dark</button>
+    <article>
+      <h1>Basic memory management</h1>
+      <p class="meta">
+        
+        <p><em>Last fall, I had an interview.
+They asked me about differences between heap and stack, how
+references and variables are stored.
+I was confident that I knew all this stuff.
+Apparently, I was wrong.</em></p>
+<h1 id="commonalities">Commonalities</h1>
+<p>Both stack and heap use RAM.</p>
+<h1 id="stack">Stack</h1>
+<p>Stack is a LIFO static<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> storage that contains:</p>
+<ul>
+<li>Local primitive variables</li>
+<li>References to non-primitive variables</li>
+<li>Method parameters</li>
+<li>Sequence of method calls (hence, each thread has its own stack. Also, this is the reason why
+infinite recursion will result in stack overflow error)</li>
+</ul>
+<p>When the method finishes its execution, a stack is emptied with one assembly command - moving
+the pointer to stack head. Therefore, a stack returns to the state before that method&rsquo;s call.</p>
+<h3 id="primitive-variables">Primitive variables</h3>
+<p>Local primitive variables are stored in stack. Primitive fields of an object instance are stored in
+heap.</p>
+<h1 id="heap">Heap</h1>
+<p>Heap is a dynamic memory structure that stores non-primitive variables. References (pointers to
+variable address in the heap) to these variables are in the stack.</p>
+<p>Unlike stack, heap is commonly shared between threads. Consequently, one object shouldn&rsquo;t be
+modified simultaneously from different threads.</p>
+<p>Out of memory error is possible for the heap too.</p>
+<h3 id="garbage-collector-and-cc-features">Garbage collector and C/C++ features</h3>
+<p>Some languages (Java, C#) handle memory automatically. A component responsible for it is called
+garbage collector. Fallback of this approach is unexpected runtime slowdowns due to garbage
+collector managing memory.</p>
+<p>Other languages (C/C++) pass this responsibility on to programmer. In C++ every <code>new</code> keyword
+should
+be followed by <code>delete</code> to prevent memory leak. Additionally, it is possible to store object
+instance on stack in C++, if variable is declared without <code>new</code>. Such local variable will
+be popped from stack after method
+execution. <a href="programming/cpp-pointers">A little more about C++ memory model</a>.</p>
+<h3 id="heap-fragmentation">Heap fragmentation</h3>
+<p>Heap is a single block of memory. When some memory from heap is released, a chunk of unused memory
+is formed. After many iterations heap becomes a bunch of alternating fragments of used and unused
+memory.</p>
+<p>Essentially this is an inefficient memory utilization, because overall there might be $n$
+bytes of free memory, however not all bytes can be allocated. It is possible to allocate no more
+bytes than there are in the biggest consecutive chunk of free memory.</p>
+
+
+<p><em>After some time heap looks like a barcode (white is free memory, black is unused memory)</em></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>some languages allow stack reallocation&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </p>
+      <ul class="tags">
+          
+      </ul>
+    </article>
+    <footer>
+    Made by llesha © 2024
+</footer>
+<script type="module" src="js/loader.js"></script>
+
+</div>
+</body>
+</html>

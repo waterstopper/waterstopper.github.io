@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="140 100 200 100" xmlns="http://www.w3.org/2000/svg">
+    <ellipse style="stroke-opacity: 1;" fill="var(--secondary)" cx="178.777" cy="173.154" rx="34.206" ry="20.036"/>
+    <ellipse style="fill: var(--comment);" cx="178.539" cy="173.514" rx="22.761" ry="22.761"/>
+    <ellipse style="fill: var(--dark);" cx="167.087" cy="154.917" rx="6.473" ry="3.237"/>
+    <ellipse style="fill: var(--dark);" cx="189.591" cy="154.827" rx="6.473" ry="3.237"/>
+    <path style="stroke: var(--dark);" d="M 144.924 109.911 L 212.77 109.283"/>
+    <path style="stroke: var(--dark); stroke-dasharray: 2px;"
+          d="M 179.041 109.672 L 190.154 154.514" transform="matrix(-1, 0, 0, -1, 369.195007, 264.186005)"/>
+    <path style="stroke: var(--dark);; paint-order: stroke; stroke-dasharray: 2px;"
+          d="M 166.937 154.909 L 178.613 109.415"/>
+    <ellipse style="stroke-opacity: 1;" fill="var(--secondary)" cx="264.665" cy="172.428" rx="34.206" ry="20.036"/>
+    <ellipse style="fill: var(--comment);" cx="264.427" cy="172.788" rx="22.761" ry="22.761"/>
+    <ellipse style="fill: var(--dark);" cx="252.975" cy="154.191" rx="6.473" ry="3.237"/>
+    <ellipse style="fill: var(--dark);" cx="275.479" cy="154.101" rx="6.473" ry="3.237"/>
+    <path style="fill: var(--dark); stroke: var(--dark);" d="M 230.812 109.185 L 298.658 108.557"/>
+    <path style="fill: var(--dark); stroke: var(--dark); stroke-dasharray: 2px;"
+          d="M 253.193 109.119 L 276.042 153.788" transform="matrix(-1, 0, 0, -1, 529.234985, 262.906998)"/>
+    <path style="stroke: var(--dark); paint-order: stroke; stroke-dasharray: 2px;"
+          d="M 252.825 154.183 L 253.456 109.379"/>
+</svg>

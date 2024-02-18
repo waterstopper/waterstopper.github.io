@@ -1,9 +1,6 @@
 ---
 title: "Syntax"
-tags:
-
-- regina-docs
-
+date: 2022-11-11
 ---
 
 {{< table_of_contents >}}
