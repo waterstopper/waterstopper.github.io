@@ -6,6 +6,8 @@ date: 2022-08-01
 Regina is a [dynamically typed](typization) language with [syntax](syntax) similar to
 Kotlin and Python.
 
+[Online IDE](https://llesha.gtihub.io/regina-ide).
+
 ## Documentation
 
 It is highly recommended to read in following order, don't click on links in articles for the first

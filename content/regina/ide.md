@@ -1,4 +1,0 @@
----
-title: "IDE"
-layout: ide
----

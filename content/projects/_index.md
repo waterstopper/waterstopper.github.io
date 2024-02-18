@@ -12,7 +12,7 @@ It is inspired by Codeforces and sites alike, the initial idea is to create a si
 
 ## Regina Programming Language
 
-Interpreter code compiles into JVM and Javascript. Main feature of the language are declarative classes: class properties can be deﬁned by other, not yet initialized properties and instances. Practical value of the language is in creation of concise SVG image generators. Additionally, an online IDE and [documentation](https://llesha.github.io/regina/) was created.    
+Interpreter code compiles into JVM and Javascript. Main feature of the language are declarative classes: class properties can be deﬁned by other, not yet initialized properties and instances. Practical value of the language is in creation of concise SVG image generators. Additionally, an online [IDE](https://llesha.gtihub.io/regina-ide) and [documentation](https://llesha.github.io/regina/) was created.    
 
 {{< size_image "images/regina.png" "70%" "70%" >}}
 
