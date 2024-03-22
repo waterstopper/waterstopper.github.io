@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/svg+xml" href="//localhost:1313/svg/icon.svg">
+  <script src="//localhost:1313/js/loader.js"></script>
+  <meta name="generator" content="Hugo 0.123.1">
+  <link rel="stylesheet" href="//localhost:1313/css/colors.css"><link rel="stylesheet" href="//localhost:1313/css/styles.css">
+  
+  
+  <title>Multithreading. Primitive tools, definitions | llesha</title>
+  <script type="module" src="//localhost:1313/js/interactive.js"></script>
+</head>
+
+<body>
+  <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+    <div style="text-align: center; font-size: larger;">
+      
+      
+      <a class="nav-link" href="/">Home</a>
+      
+      
+      <a class="nav-link" href="/projects/">Projects</a>
+      
+      
+      <a class="nav-link" href="/tags/">Tags</a>
+      
+    </div>
+    <button id="change-theme-button">dark</button>
+    <div style="justify-content: center;">
+      <a href="https://github.com/llesha">GitHub</a>
+      <a href="https://stackoverflow.com/users/19933941/llesha">StackOverflow</a>
+      <a href="https://www.linkedin.com/in/llesha">LinkedIn</a>
+    </div>
+  </nav>
+</div>
+  <main id="main">
+    
+
+<h1>Multithreading. Primitive tools, definitions</h1>
+
+
+
+
+<i data-feather="calendar"></i> <time datetime="2022-07-07">7 July 2022</time>
+
+
+
+<br><br>
+<p>First, let&rsquo;s clarify some definitions (I won&rsquo;t go too deep into that):</p>
+<h3 id="process">Process</h3>
+<p><strong>Process</strong> is a running program, that has its own address space in memory (most of it is heap).
+<strong>Multithreading</strong> is running multiple programs in OS simultaneously (like browser, messenger, IDE,
+task
+manager&hellip;)</p>
+<h3 id="thread">Thread</h3>
+<p><strong>Thread</strong> is an execution unit of a process, it uses process heap but has its own stack.</p>
+<p><strong>Parallelism</strong> or <strong>multithreading</strong> is multiple threads running at once.</p>
+<p><strong>Concurrency</strong> means managing multiple threads of execution, not necessarily at the same time.
+Parallelism is a method of concurrency (I&rsquo;m not sure about that one, I took it from
+<a href="https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods#comment5379841_4844774">here</a>)
+.</p>
+<h3 id="asynchronous-and-synchronous">Asynchronous and synchronous</h3>
+<p>Synchronous blocks of code execute after each other, <strong>next one cannot be executed before previous
+is not finished</strong>. Imperative language statements are synchronous (code runs line by line).
+Asynchronous blocks of code, which are also called <strong>tasks</strong> might run simultaneously, their run
+independently<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> form each other.</p>
+<h3 id="basic-multithreading-tools-in-java">Basic multithreading tools in Java</h3>
+<p>Java has a <code>Thread</code> class and a <code>Runnable</code> interface. Both of them have a <code>run()</code> method, which
+body
+is executed asynchronously to the main thread<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, when <code>start()</code> is invoked. Example of starting
+Runnable and Thread asynchronously:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Runnable</span><span class="w"> </span><span class="n">ir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImplementedRunnable</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">ir</span><span class="p">);</span><span class="w"> </span><span class="c1">// to run a runnable, instantiate a wrapper-thread</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Thread</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DerivedThread</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">start</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="p">.</span><span class="na">start</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// result of this code might be &#34;thread runnable &#34; or &#34;runnable thread &#34;, it is not determined.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">DerivedThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;thread &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">ImplementedRunnable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;runnable &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="useful-thread-methods">Useful thread methods</h4>
+<p>Thread&rsquo;s execution might be interrupted with <code>Thread.interrupt()</code>.</p>
+<p><code>Thread.join()</code> will make a current thread wait until a joined thread instance finished its
+execution.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">joinExample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Thread</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DerivedThread</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">dt</span><span class="p">.</span><span class="na">start</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">dt</span><span class="p">.</span><span class="na">join</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;2&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">// calling joinExample() always prints &#34;thread 2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="synchronized-blockmethod">Synchronized block/method</h3>
+<p>Synchronized blocks can be run only by one thread at a time. This is done by creating a **
+monitor** (aka <strong>lock</strong>), which is some object that a running thread takes. Only a thread with a
+monitor A can access a synchronized block, that is synchronized on monitor A.</p>
+<p>Synchronized method is implicitly locked on the instance that its being invoked on. Static
+synchronized methods lock on the class itself.</p>
+<h3 id="atomic">Atomic</h3>
+<p>Atomic actions are performed momentarily and cannot be interrupted. They either complete or not run
+at all. Atomic operations:</p>
+<ul>
+<li>read/write references and primitive values, excluding <code>long</code> and <code>double</code></li>
+<li>read/write variables with <code>volatile</code> keyword.
+There are special classes, like <code>AtomicInteger</code> that make all its main operations (addition,
+multiplication&hellip;) atomic.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>well, if they use synchronous methods, then some of their runtime is dependent.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>when a program is started, a main thread is created. It is a user thread. Main difference
+between daemon and user threads is that a program won&rsquo;t finish until there is a running user
+thread. Daemon threads are service threads, for instance garbage collection is a daemon thread.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+  </main>
+</body>
+
+</html>

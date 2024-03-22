@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/svg+xml" href="//localhost:1313/svg/icon.svg">
+  <script src="//localhost:1313/js/loader.js"></script>
+  <meta name="generator" content="Hugo 0.123.1">
+  <link rel="stylesheet" href="//localhost:1313/css/colors.css"><link rel="stylesheet" href="//localhost:1313/css/styles.css">
+  
+  
+  <title>SQL | llesha</title>
+  <script type="module" src="//localhost:1313/js/interactive.js"></script>
+</head>
+
+<body>
+  <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+    <div style="text-align: center; font-size: larger;">
+      
+      
+      <a class="nav-link" href="/">Home</a>
+      
+      
+      <a class="nav-link" href="/projects/">Projects</a>
+      
+      
+      <a class="nav-link" href="/tags/">Tags</a>
+      
+    </div>
+    <button id="change-theme-button">dark</button>
+    <div style="justify-content: center;">
+      <a href="https://github.com/llesha">GitHub</a>
+      <a href="https://stackoverflow.com/users/19933941/llesha">StackOverflow</a>
+      <a href="https://www.linkedin.com/in/llesha">LinkedIn</a>
+    </div>
+  </nav>
+</div>
+  <main id="main">
+    
+
+<h1>SQL</h1>
+
+
+
+
+<i data-feather="calendar"></i> <time datetime="2022-09-30">30 September 2022</time>
+
+
+
+<br><br>
+<p><em>created from <a href="https://www.codecademy.com/courses/learn-sql">this free course</a></em></p>
+<div class="toc">
+    <aside class="mainTOC">
+        <details >
+            <summary>Table of Contents</summary>
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#definitions">Definitions</a></li>
+        <li><a href="#statements">Statements</a></li>
+        <li><a href="#constraints">Constraints</a></li>
+        <li><a href="#data-types">Data types</a></li>
+        <li><a href="#where-operators"><code>WHERE</code> operators</a></li>
+        <li><a href="#aggregates">Aggregates</a></li>
+        <li><a href="#multiple-tables">Multiple tables</a></li>
+        <li><a href="#other-keywords">Other keywords</a></li>
+        <li><a href="#functions">Functions</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </details>
+    </aside>
+</div>
+<h2 id="definitions">Definitions</h2>
+<p><strong>Table</strong> a.k.a relation</p>
+<p><strong>Column</strong> - set of data values of particular type</p>
+<p><strong>Row</strong> - a single record in a table</p>
+<p><strong>Statement</strong> - is a command for database</p>
+<p><strong>Query</strong> - command to retrieve information from database in a table form</p>
+<h2 id="statements">Statements</h2>
+<h3 id="create">Create</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">celebs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">   </span><span class="nb">INTEGER</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">age</span><span class="w">  </span><span class="nb">INTEGER</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="select">Select</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">celebs</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Select returns a new table called <strong>result set</strong>. It is a multiset, meaning there might be
+duplicates.</p>
+<p><code>AS</code> - keyword to change a name of the result set (or column): <code>SELECT name AS 'new name'</code>. Columns
+are not renamed in the original table, only in the resulting one.</p>
+<p><code>DISTINCT</code> - returns a <strong>set</strong> of unique values in column: <code>SELECT DISTINCT tools FROM inventory</code>.</p>
+<h3 id="insert-into">Insert into</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">celebs</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Celeb name&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="alter-table">Alter table</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">celebs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">twitter_handle</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">celebs</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="update">Update</h3>
+<p>Edits rows in a table by changing column values</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="n">celebs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">twitter_handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;@taylorswift13&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><a href="https://leetcode.com/problems/swap-salary/">leetcode swap example</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="n">Salary</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CASE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="k">WHEN</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;f&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;m&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;f&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">END</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="delete-from">Delete from</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">celebs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">twitter_handle</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span></span></span></code></pre></div><h3 id="order-by">Order by</h3>
+<p>add <code>DESC</code> at the end to receive reverse order or <code>ASC</code> to get the
+opposite. <!-- raw HTML omitted -->Order by always goes after WHERE (if WHERE present)<!-- raw HTML omitted -->
+.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">imdb_rating</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">movies</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">imdb_rating</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="limit">Limit</h3>
+<p>Specify maximum number of rows in the result set. <code>LIMIT</code> always goes at the very end of the query.
+Also, it is not supported in all SQL databases.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- get top 3 rated movies in descending order
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">movies</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">imdb_rating</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="case">Case</h3>
+<p>Similar to <code>switch</code> in languages to select column.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">CASE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">WHEN</span><span class="w"> </span><span class="n">imdb_rating</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Fantastic&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">WHEN</span><span class="w"> </span><span class="n">imdb_rating</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Poorly Received&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Avoid at All Costs&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s1">&#39;Review&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">movies</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="group-by">Group by</h3>
+<p>Arrange elements into groups by same values. The <code>GROUP BY</code> statement comes after any <code>WHERE</code>
+statements, but before <code>ORDER BY</code> or <code>LIMIT</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- get number of apps wth more than 20000 downloads
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- in each category
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">apps</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">downloads</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">category</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><code>ORDER BY</code> can use references to columns with index of column in select:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">price</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">AVG</span><span class="p">(</span><span class="n">downloads</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">apps</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- same as: GROUP BY category, price
+</span></span></span></code></pre></div><h3 id="having">Having</h3>
+<p>For filtering groups, not rows. All types of <code>WHERE</code> clauses are usable with <code>HAVING</code>. <code>HAVING</code>
+statement always comes after <code>GROUP BY</code>, but before <code>ORDER BY</code> and <code>LIMIT</code>.</p>
+<p>Use <code>WHERE</code> when:
+you want to limit results based on values of individual rows
+Use <code>HAVING</code> when:
+you want to limit results based on an aggregate property.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">downloads</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">apps</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">price</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="constraints">Constraints</h2>
+<p>Database reject data (<em>constraint violation</em>) if it&rsquo;s not applicable to set constraints:
+<code>PRIMARY_KEY</code> - a column marked with it uniquely identifies a row (a record). <strong>Only one column
+with <code>PRIMARY_KEY</code> is allowed.</strong>
+<code>UNIQUE</code> - similar to primary key, but there might be many <code>UNIQUE</code> columns.
+<code>NOT NULL</code> - must have a defined value.
+<code>DEFAULT</code> - takes additional argument that if not defined in an <code>insert</code>, will take its value.</p>
+<h2 id="data-types">Data types</h2>
+<p><code>INTEGER</code> - positive or negative
+<code>TEXT</code> - string
+<code>DATE</code> - YYYY-MM-DD
+<code>REAL</code> - decimal</p>
+<h2 id="where-operators"><code>WHERE</code> operators</h2>
+<p>Comparison: <code>=</code>, <code>!=</code> or <code>&lt;&gt;</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
+<p><code>LIKE</code> - to compare similar values <code>WHERE name LIKE 'bea_'</code> - if name contains <code>beat</code> and <code>Bear</code>,
+it will return both of them. <!-- raw HTML omitted -->Is not case sensitive<!-- raw HTML omitted -->.</p>
+<p><code>IS (NOT) NULL</code> - It is not possible to test for null with <code>=</code> and <code>!=</code>.</p>
+<p><code>BETWEEN ... AND ...</code> - similar to Kotlin&rsquo;s <code>in</code>. But has a strange
+behavior: <code>WHERE name BETWEEN 'A' AND 'J'</code> - selects all movies starting with &lsquo;A&rsquo;, &lsquo;B&rsquo;, &lsquo;C&rsquo;,&hellip; '
+F&rsquo;, but not &lsquo;J&rsquo;. However, Movie named &lsquo;J&rsquo; will be selected. For numbers range is inclusive on both
+sides.</p>
+<h4 id="wildcards">Wildcards</h4>
+<ol>
+<li><code>_</code> is a single wildcard character, can be substituted by any other individual character.</li>
+<li><code>%</code> - similar to <code>*</code> in regex. Matches zero or more missing letters.</li>
+</ol>
+<h2 id="aggregates">Aggregates</h2>
+<h3 id="count">Count</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- get quantity of free apps
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">apps</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="sum">Sum</h3>
+<p>Calculate sum of particular column values. For non-numeric returns 0.0</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">downloads</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">apps</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="max-min-avg">Max, min, avg</h3>
+<p>The highest, lowest and average value in column. For text uses lexicographical order. <code>AVG</code> for
+text returns 0.0</p>
+<h4 id="round">Round</h4>
+<p>For rounding value. Syntax: <code>ROUND(value)</code> or <code>ROUND(value, digits after dot)</code>.</p>
+<h2 id="multiple-tables">Multiple tables</h2>
+<p>Are combined with</p>
+<h3 id="join">Join</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">order_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">customers</span><span class="p">.</span><span class="n">customer_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="k">JOIN</span><span class="w"> </span><span class="n">customers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="k">ON</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customers</span><span class="p">.</span><span class="n">customer_id</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- customer.id will be merged
+</span></span></span></code></pre></div><p>Result includes only rows matched on condition. Every other row is dropped. This is called an **
+inner join**.</p>
+<h4 id="foreign-key">Foreign key</h4>
+<p>When a primary key of another table appears in a table, it is called a <strong>foreign key</strong>.</p>
+<h3 id="left-join">Left join</h3>
+<p>Keeps all rows from the left table.</p>
+<h3 id="cross-join">Cross join</h3>
+<p>Cross join has m*n rows, where n is number of rows in the first table, m in the second.</p>
+<h3 id="union">Union</h3>
+<p>Appends one column to another. Restriction: second table should have the same column data types in
+the same order as the first one.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">newspaper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">online</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Note:</strong> unlike join, we have to specify selected columns on union (I think it is for the
+flexibility).</p>
+<h3 id="with">With</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">WITH</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(...)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">NAME</span><span class="w">
+</span></span></span></code></pre></div><p><code>WITH</code> allows naming a query. Here <code>TABLE_NAME</code> is a query name and query is <code>...</code> in parentheses.</p>
+<h2 id="other-keywords">Other keywords</h2>
+<h4 id="ifnull">IFNULL</h4>
+<h4 id="offset">OFFSET</h4>
+<p>used with limit to shift taken values.</p>
+<h3 id="in">IN</h3>
+<p>Solution to <a href="https://leetcode.com/problems/duplicate-emails/">this leetcode problem</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">Person</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">from</span><span class="w"> </span><span class="n">Person</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">having</span><span class="w"> </span><span class="k">Count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Same as multiple <code>OR</code>&rsquo;s:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- an example with NOT IN
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">Customers</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">Country</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;France&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UK&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h2 id="functions">Functions</h2>
+<h3 id="date_add">DATE_ADD</h3>
+<p>syntax: <code>DATE_ADD(date, INTERVAL value unit)</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- add 1 day to current date
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DATE_ADD</span><span class="p">(</span><span class="n">CURDATE</span><span class="p">(),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- remove 2 months from constant date
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DATE_ADD</span><span class="p">(</span><span class="s2">&#34;2022-30-09&#34;</span><span class="p">,</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="k">MONTH</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div>
+
+
+  </main>
+</body>
+
+</html>

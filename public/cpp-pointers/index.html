@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/svg+xml" href="//localhost:1313/svg/icon.svg">
+  <script src="//localhost:1313/js/loader.js"></script>
+  <meta name="generator" content="Hugo 0.123.1">
+  <link rel="stylesheet" href="//localhost:1313/css/colors.css"><link rel="stylesheet" href="//localhost:1313/css/styles.css">
+  
+  
+  <title>C&#43;&#43; Memory model | llesha</title>
+  <script type="module" src="//localhost:1313/js/interactive.js"></script>
+</head>
+
+<body>
+  <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+    <div style="text-align: center; font-size: larger;">
+      
+      
+      <a class="nav-link" href="/">Home</a>
+      
+      
+      <a class="nav-link" href="/projects/">Projects</a>
+      
+      
+      <a class="nav-link" href="/tags/">Tags</a>
+      
+    </div>
+    <button id="change-theme-button">dark</button>
+    <div style="justify-content: center;">
+      <a href="https://github.com/llesha">GitHub</a>
+      <a href="https://stackoverflow.com/users/19933941/llesha">StackOverflow</a>
+      <a href="https://www.linkedin.com/in/llesha">LinkedIn</a>
+    </div>
+  </nav>
+</div>
+  <main id="main">
+    
+
+<h1>C&#43;&#43; Memory model</h1>
+
+
+
+
+<i data-feather="calendar"></i> <time datetime="2022-09-30">30 September 2022</time>
+
+
+
+<br><br>
+<p>Memory is a two column table. First row contains <strong>addresses</strong>, second row contains <strong>values</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span></code></pre></div><p>When variable is assigned, an empty memory row cell is chosen. Variable&rsquo;s value is written to
+second column of the row.</p>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th>Value</th>
+<th>Assigned variable (not part of a memory, just a showcase example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x1000</td>
+<td>4</td>
+<td>x</td>
+</tr>
+<tr>
+<td>0x1004</td>
+<td>0x1000</td>
+<td>pX</td>
+</tr>
+<tr>
+<td>0x1008</td>
+<td>4</td>
+<td>y</td>
+</tr>
+</tbody>
+</table>
+<h1 id="pointer">Pointer</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">*</span> <span class="n">pX</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+</span></span></code></pre></div><p>Variable declaration with a <code>*</code> after type states that it is a pointer to that type. In this
+case, <strong>pX is an integer pointer</strong>. Instead of storing value, pointer variable store memory address
+in their value column (second column of a memory row).</p>
+<p><code>&amp;</code> is for extracting address from a variable. <code>&amp;x</code> means <strong>address of variable named x</strong></p>
+<h1 id="dereference">Dereference</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">*</span><span class="n">pX</span><span class="p">;</span>
+</span></span></code></pre></div><p>Variable with a preceding asterisk (<code>*</code>) referred to as a <strong>dereference</strong>. When used before a
+pointer variable, this expression will return a value in a row, to which such variable points to.</p>
+
+
+
+  </main>
+</body>
+
+</html>

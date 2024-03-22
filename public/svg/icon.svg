@@ -1,0 +1,14 @@
+<svg transform="rotate(0 0 0)" width='100%' height='100%' xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 10 10">
+    <path title='rect'
+        d="M 0,0 v10 h10 v-10 Z" style="fill:#ffffff"></path>
+    <path transform="rotate(180 5 5)" title='hex-concave'
+        d="M0,0 v5 h1 L3,1.5 h4  L9,5 h1 v-5 Z" style="fill:#69122d"></path>
+    <path transform="rotate(270 5 5)" title='hex'
+        d="M5,1.5 h2  L9,5 L7,8.5 h-2 Z" style="fill:#04010a"></path>
+    <path transform="rotate(180 5 5)" title='bitten-circle'
+        d="M3,5 a2,2 0 1,1 2,2 v-2" style="fill:#e5b527"></path>
+    <path transform="rotate(90 5 5)" title='two-rects'
+        d="M0,2 v6 h2 v-6 Z M8,2 v6 h2 v-6 Z"
+        style="fill:#69122d"></path>
+</svg>

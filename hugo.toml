@@ -39,6 +39,6 @@ title = 'llesha'
   [markup.tableOfContents]
     endLevel = 2
     ordered = true
-    startLevel = 2
+    startLevel = 1
 
 

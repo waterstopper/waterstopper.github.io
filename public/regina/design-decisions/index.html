@@ -1,15 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/svg+xml" href="//localhost:1313/svg/icon.svg">
+  <script src="//localhost:1313/js/loader.js"></script>
+  <meta name="generator" content="Hugo 0.123.1">
+  <link rel="stylesheet" href="//localhost:1313/css/colors.css"><link rel="stylesheet" href="//localhost:1313/css/styles.css">
+  
+  
+  <title>Design decisions | llesha</title>
+  <script type="module" src="//localhost:1313/js/interactive.js"></script>
+</head>
 
 <body>
-<div class="singlePage">
-    <link rel="stylesheet" href="css/colors.css"><link rel="stylesheet" href="css/styles.css">
-<button id="change-theme-button">dark</button>
-    <article>
-      <h1>Design decisions</h1>
-      <p class="meta">
-        
-        <h2 id="why-null-is-0-now-it-is-not"><del>Why null is 0?</del> <em>now it is not</em></h2>
+  <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+    <div style="text-align: center; font-size: larger;">
+      
+      
+      <a class="nav-link" href="/">Home</a>
+      
+      
+      <a class="nav-link" href="/projects/">Projects</a>
+      
+      
+      <a class="nav-link" href="/tags/">Tags</a>
+      
+    </div>
+    <button id="change-theme-button">dark</button>
+    <div style="justify-content: center;">
+      <a href="https://github.com/llesha">GitHub</a>
+      <a href="https://stackoverflow.com/users/19933941/llesha">StackOverflow</a>
+      <a href="https://www.linkedin.com/in/llesha">LinkedIn</a>
+    </div>
+  </nav>
+</div>
+  <main id="main">
+    
+
+<h1>Design decisions</h1>
+
+
+
+
+<i data-feather="calendar"></i> <time datetime="2022-10-27">27 October 2022</time>
+
+
+
+<br><br>
+<h2 id="why-null-is-0-now-it-is-not"><del>Why null is 0?</del> <em>now it is not</em></h2>
 <p>First, let&rsquo;s provide some context.</p>
 <p>I do not find void type useful. Therefore, void == null.</p>
 <p>Now, let&rsquo;s state all cases when null appears:</p>
@@ -22,16 +62,16 @@
 exceptions for not found properties, because it might be a typo. Typos are hard to find. <code>?.</code>
 operator exists if user intentionally wants to ignore non-existing property. This is very useful to
 write concise code. Without <code>?.</code> we have to write something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// Say, want to check if svgArgs in a exist. 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Then do some operations with them.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(a.properties.has(<span style="color:#e6db74">&#34;svgArgs&#34;</span>)) {<span style="color:#f92672">..</span>.} <span style="color:#75715e">// without ?.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span>(a<span style="color:#f92672">?.</span>svgArgs <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {<span style="color:#f92672">..</span>.} <span style="color:#75715e">// with ?.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">..</span>.
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Better example:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
-</span></span><span style="display:flex;"><span>    iter = <span style="color:#66d9ef">if</span>(parent <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> parent.iter + <span style="color:#ae81ff">1</span> <span style="color:#75715e">// without ?.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    iter = parent<span style="color:#f92672">?.</span>iter + <span style="color:#ae81ff">1</span> <span style="color:#75715e">// with ?.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl"><span class="c1">// Say, want to check if svgArgs in a exist. 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Then do some operations with them.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&#34;svgArgs&#34;</span><span class="p">))</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span> <span class="c1">// without ?.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">?.</span><span class="n">svgArgs</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span> <span class="c1">// with ?.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Better example:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iter</span> <span class="p">=</span> <span class="k">if</span><span class="p">(</span><span class="n">parent</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="m">1</span> <span class="k">else</span> <span class="n">parent</span><span class="p">.</span><span class="n">iter</span> <span class="p">+</span> <span class="m">1</span> <span class="c1">// without ?.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">iter</span> <span class="p">=</span> <span class="n">parent</span><span class="o">?.</span><span class="n">iter</span> <span class="p">+</span> <span class="m">1</span> <span class="c1">// with ?.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div><p>First example has a problem: when using <code>?.</code> we can&rsquo;t really differentiate whether <code>a</code> has a
 property <code>svgArgs</code> which value is 0, or <code>a</code> does not have such property. However, I think it is an
 issue only in a language where null as a no-reference exists.</p>
@@ -102,16 +142,9 @@ feature exists. Nevertheless, it is too early to remove without giving it proper
 </ol>
 </div>
 
-      </p>
-      <ul class="tags">
-          
-      </ul>
-    </article>
-    <footer>
-    Made by llesha © 2024
-</footer>
-<script type="module" src="js/loader.js"></script>
 
-</div>
+
+  </main>
 </body>
+
 </html>
