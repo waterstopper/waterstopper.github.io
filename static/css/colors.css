@@ -5,6 +5,8 @@ html[data-theme="light"] {
     --main-color: #04010a;
     --similar-color: #04010b;
     --similar-bg-color: #fffafb;
+    --accent-color: #bf3011;
+
     --red: #bf3011;
     /* --cherry: #fd5ff0; */
     --cherry: #69122d;
@@ -32,7 +34,9 @@ html[data-theme="dark"] {
     --main-color: #cfcfc2;
     --similar-color: #cfcfc3;
     --similar-bg-color: #04010b;
-    --red: #bf3011;
+    --accent-color: #e76a4d;
+
+    --red: #e76a4d;
     --cherry: #fd5ff0;
     --orange: #df8022;
     --yellow: #e5b527;
@@ -51,7 +55,11 @@ html[data-theme="dark"] {
 }
 
 a {
-    color: var(--main-color);
+    color: var(--middle-color);
+}
+
+a:hover {
+    color: var(--accent-color);
 }
 
 code {
