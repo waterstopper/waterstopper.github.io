@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <link rel="icon" type="image/svg+xml" href="resources/avatar.svg">
+    <!-- <script type="module" src="js/loader.js"></script> -->
+    <script type="text/javascript">
+        function preLoadFunc() {
+            let theme = localStorage.getItem("theme") ?? "dark"
+            document.documentElement.setAttribute("data-theme", theme);
+
+            if (window.screen.height > window.screen.width) {
+                let main = document.getElementById("main")
+                main.style.display = "block"
+                main.style.marginLeft = "auto"
+                main.style.marginRight = "auto"
+            }
+
+            function setTheme(theme) {
+                document.documentElement.setAttribute("data-theme", theme);
+                localStorage.setItem("theme", theme)
+            }
+
+            let img = document.getElementById("place-image")
+            img.onclick = () => {
+                changeTheme()
+            }
+
+            if (document.documentElement.getAttribute("data-theme") == "light") {
+                img.setAttribute("src", "resources/main/place.png")
+            }
+
+            function changeTheme() {
+                if (document.documentElement.getAttribute("data-theme") == "light") {
+                    setTheme("dark")
+                    img.setAttribute("src", "resources/main/placeDark.png")
+                } else {
+                    setTheme("light")
+                    img.setAttribute("src", "resources/main/place.png")
+                }
+            }
+        }
+        window.onload = preLoadFunc;
+    </script>
+</head>
+
+<body style="background-color: var(--bg-color);">
+    <h1 style="text-align: center;">Waterstopper</h1>
+    <div id="main">
+        <div class="column">
+            <div>I work as a Java backend developer.<br>My projects, grouped by interests:
+                <br>
+                <br>
+                <b>Parsing</b>
+                <ul>
+                    <li><a class="hoverable dash" href="/regina-ide">Regina programming language</a> with web-IDE</li>
+                    <li><a class="hoverable dash" href="/CrateGram">CrateGram</a> - PEG parser playground and tasks</li>
+                </ul>
+                <br>
+                <b>Procedural generators</b>
+                <ul>
+                    <li><a class="hoverable dash" href="https://github.com/waterstopper/MapGen-KorGE">Map generator</a>
+                        for <span class="hoverable dash">HoMM</span>-like game </li>
+                    <li><a class="hoverable dash" href="https://waters-top.itch.io/2d-house-generator">House
+                            generator</a> for 2D platformers</li>
+                </ul>
+                <br>
+                <b>Small games</b>
+                <ul>
+                    <li><a class="hoverable dash" href="https://waters-top.itch.io/arithmos">Combining roman
+                            numerals</a> (I, X, V) with arithmetic
+                        operators (-, +, &gt;)</li>
+                    <li><a class="hoverable dash" href="https://waters-top.itch.io/sliding-platformer">Combining sliding
+                            puzzle</a> and platformer</li>
+                    <li><a class="hoverable dash" href="https://waters-top.itch.io/snail">Reversing roles</a> in a
+                        classic Snake game</li>
+                </ul>
+                <br>
+                My first programming job was to optimize <span class="hoverable dash">soft parser</span> for air
+                tickets. My
+                first personal
+                project was a <a class="hoverable dash" href="https://pleaseworkplant.azurewebsites.net/">plant
+                    generator</a>. Also, I like pixel art.
+            </div>
+        </div>
+        <div class="column">
+            <img id="place-image" src="resources/main/placeDark.png" style="width:100%"></img>
+        </div>
+        <div id="preview" style="width: 300px; display: none; left: 2.5%;">
+            <img style="width: 300px; border-radius: 1em;"></img>
+            <div style="margin: 1em;">
+                <b></b>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <p style="text-align: center; font-size: large;"><a href="/writings">Writings</a> | <a href="/drawings">Drawings</a>
+    </p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+    <script type="module" src="js/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html date="2022-11-11" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Syntax</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Syntax</h1>
+<p>{{&lt; table_of_contents &gt;}}</p>
+<p>ReGIna’s syntax is an amalgamation of kotlin and python.</p>
+<h2 id="top-level-declarations">Top level declarations</h2>
+<p>Essentially, file is a set of classes, objects, functions and
+imports. Executable and importable files have <code>.rgn</code>
+format.</p>
+<h3 id="class">Class</h3>
+<p>Class declaration should satisfy following format:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ClassName <span class="op">:</span> <span class="dt">SuperClassName</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>where <code>: SuperClassName</code> is optional.</p>
+<p>Class contains properties and functions.</p>
+<h3 id="object">Object</h3>
+<p>Similar syntax to type, although it cannot be inherited.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">object</span> ObjectName <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Object is a singleton that is lazily initialized (when a property is
+called, it is initialized and everything needed for its
+initialization).</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">object</span> Lazy <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> b</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">main</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// here nothing in Lazy is initialized</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    log<span class="op">(</span>Lazy<span class="op">.</span>a<span class="op">)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// here Lazy.a and Lazy.b are initialized, c is not</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="function">Function</h3>
+<p>Function has non-default parameters and default parameters. Default
+parameters go after other ones.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">functionName</span><span class="op">(</span><span class="va">param0</span><span class="op">,</span> <span class="va">param1</span><span class="op">,</span> ...<span class="op">,</span> <span class="va">default_param0</span> <span class="op">=</span> defaultValue<span class="op">,</span> ...<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    functionBody</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>{{&lt; refer “regina/scopes/#using-functions-with-same-signature”
+“Accessing functions with same signature” &gt;}}.</p>
+<h3 id="imports">Imports</h3>
+<blockquote>
+<p>[!warning] Warning</p>
+<p>Do not use following file names: Global.rgn, this.rgn</p>
+</blockquote>
+<p>Imports are declarations that allow to use objects, classes and
+functions from an imported file.</p>
+<h2 id="operators">Operators</h2>
+<p><em>Take a look at a <a href="/regina/toop">table of operator
+precedence</a></em></p>
+<p><code>+</code> non commutative addition with implicit type
+conversion. All use cases:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// List + Any &lt;=&gt; List.add(Any)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">]</span> <span class="op">+</span> <span class="dv">3</span> <span class="co">// == [1,2,3]</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// String + Any &lt;=&gt; String + Any.toString()</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> <span class="st">&quot;Alex&quot;</span> <span class="co">// == &quot;Hello, Alex&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Int + Double or Double + Int &lt;=&gt; double(Int) + Double</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="fl">3.2</span> <span class="op">=</span> <span class="fl">4.2</span></span></code></pre></div>
+<p><code>if(...) .. else ..</code> - ternary operator is
+kotlin-like.</p>
+<h3 id="boolean-operators">Boolean operators</h3>
+<p>Boolean operators return 0 and 1 respectively (non-)equality:
+<code>==</code>, <code>!=</code></p>
+<p>Comparison: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>,
+<code>&lt;=</code></p>
+<p>Logical operators: <code>&amp;&amp;</code>, <code>||</code>. As in
+other languages, if left operand is enough to resolve an operator, right
+operator is not evaluated</p>
+<p><code>!</code>: not prefix operator. Inverts expression.</p>
+<h4 id="boolean-values">Boolean values</h4>
+<p><code>true</code> is 1, <code>false</code> is 0. {{&lt; refer
+“regina/types/#boolean” “Boolean is Int.” &gt;}}</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// true and false are 1 and 0 respectfully. </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// There is no boolean type, only keywords,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// that are changed to numbers during runtime </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span> <span class="co">// == 1</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">false</span> <span class="co">// == 0</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">!</span><span class="kw">true</span> <span class="co">// == 0</span></span></code></pre></div>
+<blockquote>
+<p>[!note] Notes</p>
+<p>In the future, <code>&amp;</code> and <code>|</code> operators might
+be added.</p>
+</blockquote>
+<h3 id="arithmetic-operators">Arithmetic operators</h3>
+<h3 id="ternary-operator">Ternary operator</h3>
+<h3 id="propertyvariable-assignment">Property/variable assignment</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>variableName <span class="op">=</span> <span class="op">...</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>className<span class="op">.</span>PropertyName <span class="op">=</span> <span class="op">...</span></span></code></pre></div>
+<p>Variables and properties are dynamic, meaning they are type
+independent. <code>a</code> can be String and in the next line it can be
+Int or class instance.</p>
+<h2 id="references">References</h2>
+<p>References are expressions of form <code>a.b.c</code>. They serve 3
+purposes:</p>
+<ol type="1">
+<li>accessing class/object properties</li>
+<li>accessing primitive/class/object and functions</li>
+<li>specifying package declarations</li>
+<li>reducing expressions</li>
+</ol>
+<h2 id="cycles">Cycles</h2>
+<h3 id="while">while</h3>
+<p>while is a cycle which body executes until the condition is
+false.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>condition <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span><span class="op">(</span>condition<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="foreach">foreach</h3>
+<p>foreach has:</p>
+<ol type="1">
+<li>an iterator name</li>
+<li>an iterable (List, String or range)</li>
+<li>body</li>
+</ol>
+<p>Foreach will run the body for all the elements of collection.</p>
+<h4 id="foreach-in-list">Foreach in list</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="op">[],</span> <span class="dv">3</span><span class="op">,</span> <span class="op">[],</span> <span class="dv">5</span><span class="op">]</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>foreach<span class="op">(</span>i <span class="kw">in</span> arr<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>i <span class="kw">is</span> List<span class="op">)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        i<span class="op">.</span>add<span class="op">(</span><span class="st">&quot;a&quot;</span><span class="op">)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">// arr == [1, [&quot;a&quot;], 3, [&quot;a&quot;], 5]</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>foreach<span class="op">(</span>i <span class="kw">in</span> arr<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    arr<span class="op">.</span>remove<span class="op">(</span>i<span class="op">)</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">// arr == [[&quot;a&quot;], [&quot;a&quot;]]</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">// this happens because foreach internally </span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">// iterates over a collection by an index.</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">// t</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">// it is very unadvisable to modify collection&#39;s size inside foreach.</span></span></code></pre></div>
+<h4 id="foreach-in-string">Foreach in String</h4>
+<p>Similar to list, but all iterable elements are not changeable</p>
+<h4 id="foreach-in-range">Foreach in range</h4>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// range is a unique function used only inside foreach</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">// it has 3 arguments, where third is optional: step</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>li <span class="op">=</span> <span class="op">[]</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>foreach<span class="op">(</span>i <span class="kw">in</span> range<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    li<span class="op">.</span>add<span class="op">(</span>i<span class="op">)</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">// li == [0, 2, 4, 6, 8, 10]</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">// if step is not specified, it equals to 1 or -1,</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">// depending on start and end</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>foreach<span class="op">(</span>i <span class="kw">in</span> range<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">))</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    li<span class="op">.</span>add<span class="op">(</span>i <span class="op">+</span> <span class="dv">10</span><span class="op">)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">// li == [0, 2, 4, 6, 8, 10, 11, 12, 13]</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>foreach<span class="op">(</span>i <span class="kw">in</span> range<span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">0</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    li<span class="op">.</span>removeAt<span class="op">(</span>i<span class="op">)</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">// li == [8, 10, 11, 12, 13]</span></span></code></pre></div>
+<h3 id="accessing-properties">1. Accessing properties</h3>
+<h1 id="code-conventions">Code conventions</h1>
+<ul>
+<li><p>Camel case is used.</p></li>
+<li><p>Names of <a href="/writings/regina/syntax###Class">class</a>, <a
+href="/writings/regina/syntax###Object">object</a> start with a
+capital.</p></li>
+<li><p>Variables, functions start with a lowercase letter.</p></li>
+</ul>
+<h2 id="accessing-and-assigning-collection-elements">Accessing and
+assigning collection elements</h2>
+<h3 id="list">List</h3>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>empty <span class="op">=</span> <span class="op">[]</span> <span class="co">// create empty list</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>filled <span class="op">=</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="st">&quot;2&quot;</span><span class="op">,</span> <span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">],</span> <span class="op">{</span><span class="dv">5</span><span class="op">:</span><span class="dv">6</span><span class="op">}]</span> <span class="co">// create list with elements</span></span></code></pre></div>
+<h3 id="dictionary">Dictionary</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dict <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span><span class="op">}</span> <span class="co">// dict key value pair is created with a colon</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dict<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="co">// accessing value by dict key</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>dict<span class="op">[</span><span class="st">&quot;key&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;value&quot;</span> <span class="co">// assigning value to key</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>dict<span class="op">[</span><span class="st">&quot;not found&quot;</span><span class="op">]</span></span></code></pre></div>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

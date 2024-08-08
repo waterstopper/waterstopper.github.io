@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html date="2022-07-05" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Devlog2</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Devlog2</h1>
+<p>Link class is for evaluating links. A link is a statement in form of
+<code>a.b.c</code>, where all expressions after dots (in this case
+<code>b</code> and <code>c</code>) are either identifiers<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>,
+indexes<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> or invocations<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.
+Expression before the dot is anything, even the ternary operator. These
+expressions are link children.</p>
+<h3 id="link-evaluation">Link evaluation</h3>
+<p>Links are resolved iteratively, starting from the first expression.
+Every evaluated expression returns a property (a type or a primitive).
+But the first child might be a name of an imported file, therefore it is
+resolved differently from all the next children.</p>
+<p>During dynamic creation of a class it is important to know what parts
+of the link are assigned. For example:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Start <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> mid<span class="op">.</span>end<span class="op">.</span>endProperty <span class="co">// a is not assigned until mid, end and endProperty are</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    mid <span class="op">=</span> Middle<span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    mid<span class="op">.</span>end<span class="op">.</span>addedEndProperty <span class="op">=</span> <span class="st">&quot;anotherEndValue&quot;</span> <span class="co">/** it is applicable for</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">        left hand-side of assignment too. mid and end need to be assigned first</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">        **/</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Middle <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    end <span class="op">=</span> End<span class="op">()</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> End <span class="op">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    endProperty <span class="op">=</span> <span class="st">&quot;endValue&quot;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="adding-state-encountering-problems">Adding state, encountering
+problems</h3>
+<p>For convenience, I added these properties to the link instance:</p>
+<ul>
+<li><code>index</code>: index of currently resolved child</li>
+<li><code>currentVariable</code>: value of currently resolved child</li>
+<li><code>currentParent</code>: previously resolved child</li>
+<li><code>table</code>: symbolTable with <code>currentVariable</code> as
+<code>variableTable</code></li>
+<li><code>initialTable</code>: symbolTable before link evaluation, used
+to resolve function arguments. It is useful in the following code:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> B<span class="op">()</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">aFunction</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span>bFun<span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="co">/** here table will change variableTable to B instance, therefore a and b</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">            properties will not be found for bFun call. That&#39;s why invocation arguments are resolved</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">            using initialTable</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">            **/</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> B <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">bFun</span><span class="op">(</span><span class="va">arg1</span><span class="op">,</span><span class="va">arg2</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>These variables are cleared after the end of the evaluation. However,
+I didn’t think about recursive functions:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="cf">if</span><span class="op">(</span>iter <span class="op">&lt;</span> <span class="dv">5</span><span class="op">)</span> A<span class="op">()</span> <span class="cf">else</span> <span class="kw">Nothing</span><span class="op">()</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    iter <span class="op">=</span> <span class="cf">if</span><span class="op">(</span>parent <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="dv">0</span> <span class="cf">else</span> parent<span class="op">.</span>iter <span class="co">/** parent is a special property.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">        It returns an instance from which this instance is created or 0 **/</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">str</span><span class="op">()</span> <span class="op">{</span><span class="kw">return</span> <span class="st">&quot;iter, &quot;</span> <span class="op">+</span> a<span class="op">.</span>str<span class="op">()}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Nothing<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">str</span><span class="op">()</span> <span class="op">{</span> <span class="kw">return</span> <span class="st">&quot;end&quot;</span> <span class="op">}</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In that case, when calling <code>str()</code>, variable values
+weren’t cleared. I might’ve come up with some hack, but again, I knew
+that was bad solution. Link represents a token, it is not a place to
+store evaluation values. So I moved state to function arguments. Link is
+still a poorly written class that has bugs. I work on fixing them and
+refactoring Link.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Identifier is a word, starting with a letter. All other
+symbols are letters, underscores or numbers<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Index is a token for getting a value from string, array
+or dictionary. It is an identifier with square brackets. Square brackets
+contain index (or a key, if identifier is a name of a dictionary).
+<code>arrayName[2]</code>, <code>dictionaryName["key"]</code><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Invocation is a function call or a class constructor.
+<code>call(a+b, someArgument=value)</code> ,
+<code>ClassA(propertyName=value)</code><a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

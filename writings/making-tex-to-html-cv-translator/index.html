@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html date="2023-07-27" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Making tex to html cv translator</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Making tex to html cv translator</h1>
+<h1 id="motivation">Motivation</h1>
+<p>For about a year, I had CV made with <a
+href="https://www.latex-project.org/">LaTeX</a> in Overleaf (online
+LaTeX editor). But I found it cumbersome to import new versions to
+Google Drive when CV was updated. Therefore, I decided to translate tex
+cv to html.</p>
+<h1 id="solutions">Solutions</h1>
+<p>There are two ways to transform LaTeX to html: either transform
+resulting pdf file, or the <code>.tex</code> sources. I tried the first
+approach, and was unsatisfied with the results: all formatting was
+removed, the result was plain text with some bold titles. Because of it
+I chose the second option with translating LaTeX to html. <a
+href="https://latex.js.org/">Latex.js</a> is a library made specifically
+for this purpose.</p>
+<p>Unfortunately, the capabilities of Latex.js are limiting, so I had to
+recreate my CV with the minimal LaTeX supported by Latex.js<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>. I hope, it looks similar. <a
+href="https://www.overleaf.com/read/xdgqgnyvrwkt">This is my old CV</a>,
+and <a href="https://www.overleaf.com/read/ksdqgmdvdfcx">this is the new
+one</a>.</p>
+<p>Here is a script for translation:</p>
+<pre class="shell"><code>#!/usr/bin/env bash
+
+# declare constants
+cv_path=../content/cv/main.tex
+cv_html_path=../layouts/_default/cv.html
+cv=$(&lt;$cv_path)
+temp=../scripts/output.txt
+
+# comment tex instructions that are not working in Latex.js library
+echo $cv | \
+  sed -e &#39;s/\\usepackage{titlesec}/%\\usepackage{titlesec}/&#39; \
+  -e &#39;s/\\pagenumbering{gobble}/%\\pagenumbering{gobble}/&#39; \
+  -e &#39;s/\\titlespacing/%\\titlespacing/&#39; \
+  -e &#39;s/\\titleformat/%\\titleformat/&#39; \
+  -e &#39;s/\\setlength{\\voffset}{-20pt}/%\\setlength{\\voffset}{-20pt}/&#39; \
+  -e &#39;s/\\makebox\[[a-zA-Z0-9]*\][{}a-z\\A-Z0-9\.]*/%hr%/g&#39; \
+   &gt; $temp
+
+# create html from tex for cv
+npx latex.js $temp -p &gt; $cv_html_path
+rm $temp
+
+echo $(&lt;$cv_html_path) | sed \
+  -e &#39;s/   //g&#39; \ # remove generatedw whitepace characters
+  -e &#39;s/­//g&#39; \ # here invisible char is removed
+  -e &#39;s/&lt;\/h2&gt;/&lt;\/h2&gt;&lt;hr&gt;/g&#39; \ # add horizontal line separators
+  -e &#39;s/&lt;html style=&quot;--size: [0-9\.]*px;/&lt;html style=&quot;--size: 16px;/g&#39; \ # change font size to 16px
+  -e &#39;s/&lt;title&gt;untitled&lt;\/title&gt;/&lt;title&gt;Aleksey Kononov CV&lt;\/title&gt;/g&#39; \ # add title
+  -e &#39;s/&lt;span style=&quot;margin-right:170.079px&quot;&gt;//&#39; \ # remove whitespace under name
+  -e &#39;s/--marginparwidth: [0-9\.]*%;/--marginparwidth: 60%;/&#39; \ # change date margin width
+  -e &#39;s/\(--[A-Za-z]*: [0-9]*\)\.[0-9]*/\1/g&#39; \ # remove all floating point values for zoom to work
+  &gt; $cv_html_path</code></pre>
+<p>I used a lot of string replacements by utilizing <a
+href="https://www.gnu.org/software/sed/manual/sed.html">sed</a> command.
+The most frequent use of it consists of command with three
+elements:<code>'s/&lt;STRING&gt;/&lt;REPLACEMENT&gt;/&lt;FLAG&gt;/'</code>,
+where <code>&lt;FLAG&gt;</code> is <code>g</code> to change all the
+occurrences or empty to change only the first one. To make multiple
+replacements, chain them with argument <code>-e</code>.</p>
+<h1 id="results">Results</h1>
+<p>After that, I wanted to check if I really improved my time. Here are
+the steps needed to get link to cv with tex-html translator or by Google
+Drive sharing:</p>
+<p><embed
+src="/resources/writings/google_drive_vs_site_for_cv.html" /></p>
+<p>Well, it doesn’t seem that new solution is any better that the old
+one. But often I forgot to delete previous CV from Downloads, therefore
+needed to do some additional steps. Additionally, now I have a short and
+readable <del><a href="https://llesha.github.io/cv">CV
+link</a></del>!</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>On this step I could completely dump the idea and
+recreate my CV purely using html. I’m sure that there are great tools
+for exporting html to pdf. But I thought that having a CV in a .tex
+format is more respectable or something.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

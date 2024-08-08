@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html date="2022-11-24" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Codestyle</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Codestyle</h1>
+<p>Some tips about code style, applicable to many languages but written
+in kotlin:</p>
+<ol type="1">
+<li><p>Naming: If there exists a class with a similar purpose in Java
+SDK, then try to follow their naming style. e.g. if you write a
+formatter of some kind, look up <a
+href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/text/DecimalFormat.html">DecimalFormat</a>
+or <a
+href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/DateFormat.html">DateFormat</a>.
+These classes have key methods <code>parse</code> and
+<code>format</code>. Try to name your formatter similarly and include
+the same methods. Additional tips in <a
+href="https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html">Java
+naming conventions</a></p>
+<p>On the other hand, do not the name class if it resembles a common
+pattern that is not present in your code. For instance, a class should
+not be named <code>SomeBuilder</code> if it doesn’t follow the <a
+href="https://en.wikipedia.org/wiki/Builder_pattern">Builder pattern</a>
+and sequentially doesn’t contain <code>build</code> method in
+it.</p></li>
+<li><p>Naming methods: There are 4 things that make the description of
+the method:</p>
+<ol type="1">
+<li><del>Name of the returned variable</del> (I don’t agree with that
+one, because it’s not visible in the callee),</li>
+<li>Name of the caller variable (the one that calls the method)</li>
+<li>Names of method params</li>
+<li>The method name itself. <strong>It should not include any of the
+previous things</strong>.</li>
+</ol></li>
+<li><p>Refactoring conditional expressions: Conditional expressions
+should be on the same level of identation for better
+readibility:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kt"><code class="sourceCode kotlin"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// this; if-else on the same level</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">getCondition</span><span class="op">(</span><span class="va">condition</span><span class="op">:</span> <span class="dt">Boolean</span><span class="op">)</span> <span class="op">=</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>conditional<span class="op">)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">true</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">// over this; not clear at the first sight where is the corresponding if</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">getCondition</span><span class="op">(</span><span class="va">condition</span><span class="op">:</span> <span class="dt">Boolean</span><span class="op">)</span> <span class="op">=</span> <span class="cf">if</span><span class="op">(</span>conditional<span class="op">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">true</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">false</span></span></code></pre></div>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html date="2022-06-29" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Transpilers compilers interpreters</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Transpilers compilers interpreters</h1>
+<p>People in the programing languages field use fancy buzzwords like
+<strong>translator, transpiler, compiler, interpreter</strong>,
+<strong>JIT</strong> (just in time) compiler. Let’s figure out what they
+mean. But before let’s create some sort of programming language
+hierarchy:</p>
+<ol type="1">
+<li>High level programming language</li>
+<li>Assembly language (low-level language that is still programmable by
+humans)</li>
+<li>Machine code (runs on processor, no reason to write it, because it
+is undecipherable without helper tools and is processor-specific)</li>
+</ol>
+<h3 id="translator">Translator</h3>
+<p><strong>Translator</strong> is a general word for transpilers,
+compilers and interpreters. It’s a tool converting one code to another
+one (low-level or high level).</p>
+<h3 id="compiler">Compiler</h3>
+<p><strong>Compilers</strong> create machine code before runtime, which
+they save into binary files. Each processor<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+requires a special compiler. Plus, compiler depends on a platform. Say,
+there is a compiler for C++ targeted for the Linux OS and a particular
+processor.</p>
+<p>Benefits of compilers are:</p>
+<ol type="1">
+<li>Run once to create executable files. Afterwards, run execs each time
+a program is started.</li>
+<li>Compilation is a form of program analysis, which will detect errors
+(called compilation errors) before running a program, with, for
+instance, heavy calculations (thus, speeding the refactoring
+process).</li>
+</ol>
+<p>But there is a considerable drawback for a compiled language. Every
+little change in the program requires recompilation of the whole
+module.</p>
+<p>Languages that are compiled: C, C++, Haskell, Rust, Go</p>
+<h3 id="interpreter">Interpreter</h3>
+<p><strong>Interpreters</strong>, on the other hand, can stumble upon
+such error that compiler could remove, because they translate a program
+line by line, during runtime. Due to this translation thing going, a
+transpiler is initially slower than an already compiled code. But there
+is a catch, when running a program line by line, there is more
+information that can be extracted, because interpreter will see variable
+values that are impossible to analyse statically, before a program is
+run<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>. That is where JIT compiler comes
+into play. It finds runtime optimizations and identifies parts of code
+which are faster to compile and execute rather than execute line by line
+(a default way of interpreter).</p>
+<p>Briefly, interpreters:</p>
+<ol type="1">
+<li>Translate code during runtime, line by line (that is why most of the
+debuggers are interpreters).</li>
+<li>Do not create executable files.</li>
+</ol>
+<p>Interpreted languages: Python, Perl, Ruby</p>
+<h3 id="transpiler">Transpiler</h3>
+<p>It is a tool that converts source code of one language to source code
+of the other language. Usually referred to as translators between two
+high level languages. Transpiler is called source to source compiler
+sometimes.</p>
+<h3 id="assembler">Assembler</h3>
+<p>Also, there is a less frequently used term.
+<strong>Assemblers</strong>. Essentially, they are compilers for
+assembly language. Assemblers convert assembly code into machine code
+before runtime. I think it is a part of a compiler (compilation is a
+two-step process: translate language into assembly language, then
+translate assembly into machine language).</p>
+<h3 id="is-java-compiled-or-interpreted">Is Java compiled or
+interpreted?</h3>
+<p>Java’s source code is compiled into a binary byte code. This code
+runs on JVM (technically not a processor), that usually is a blazingly
+fast interpreter (and often with a JIT compiler), that maps byte-code
+commands to processor commands. Java can be considered both compiled and
+interpreted language, similarly to Kotlin and Scala (JVM languages).
+Oftentimes though, Java is thought to be compiled.</p>
+<p>But I think it is possible to write an interpreter for any compiled
+language and a compiler for any interpreted language. Therefore,
+language classification in terms of compiled/interpreted languages is
+suggestive, not mandatory.</p>
+<h3 id="linker">Linker</h3>
+<p>Linker is a program that links compiled files. It resolves
+imports.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I’m not sure that compiler cannot target multiple
+processors at once. ISA (Instruction set architecture) of processor is
+an important thing. Different processors with similar ISAs might be
+targeted by one compiler.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>And this cannot be fixed by compiling a program twice:
+first to run it and find optimizations during runtime, and second to
+create optimized binary executables. This is because optimizations do
+depend on the input arguments, which may vary vastly.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

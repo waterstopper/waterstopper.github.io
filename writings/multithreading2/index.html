@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html date="2022-07-08" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Multithreading2</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Multithreading2</h1>
+<h3 id="thread-problems">Thread problems</h3>
+<p>Thread problems have names. Here are the most popular ones.</p>
+<h4 id="deadlock">Deadlock</h4>
+<p>N locks locked forever, waiting for each other. For instance, two
+monitors are required to move further, and two threads have one monitor
+taken. They both will be waiting until another monitor is freed, which
+won’t happen. In Java there are no tools to identify deadlock.</p>
+<h4 id="livelock">Livelock</h4>
+<p>Threads interact with each other not performing any useful work.</p>
+<h4 id="starvation">Starvation</h4>
+<p>Thread waits for monitor access for too long, while other threads
+access that monitor multiple times.</p>
+<h3 id="useful-synchronization-object-methods">Useful synchronization
+Object methods</h3>
+<p>All following methods require a thread to have a monitor. Hence,
+these methods can be used only in <code>synchronized</code>
+block/method.</p>
+<p><strong>wait()</strong>. When reaching this command, thread frees a
+monitor and is put into a waiting list, pausing its execution. Usually
+<code>wait()</code> is surrounded in a <code>while</code> cycle.</p>
+<p><strong>notify()</strong>. Frees one random thread waiting for a
+particular monitor and gives them a monitor.</p>
+<p><strong>notifyAll()</strong>. Empties a waiting list of threads
+waiting. A random thread gets a monitor, while all other threads go back
+to waiting list. The only difference that I found out with
+<code>notify()</code> is that with <code>notify()</code> JVM selects a
+thread, with <code>notifyAll()</code> the system thread scheduler does
+it. Probably system thread scheduler guarantees that all waiting threads
+will, in some time, acquire lock, while JVM does not (it might
+accidentally pick a subset of waiting threads all the time, putting
+other threads to starvation).</p>
+<h4 id="spurious-wakeups">Spurious wakeups</h4>
+<p>Sometimes waiting threads can get out of a waiting list. This happens
+due to specific thread implementations in different OS. Also thread can
+be woken from an <code>interrupt()</code> call. That is one reason why
+<code>wait()</code> should be surrounded in a <code>while</code> block -
+to put spontaneously woken thread back into waiting.</p>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

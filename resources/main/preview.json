@@ -1,0 +1,48 @@
+{
+    "Regina programming language": {
+        "title": "Regina language",
+        
+        "description": "Language for creating procedural generators. Web-IDE has features such as code highlighting, pseudo-debugging, running code with visual and console output.\n\nThis is one of my biggest projects. But I think that language can be improved significantly. Currently I'm learning Haskell and Prolog to broaden my programming language knowledge and later improve Regina."
+    },
+    "CrateGram": {
+        "title": "CrateGram",
+        
+        "description": "Tasks for PEG-parsers are inspired by 'Caterpillar logic' game on Google Play."
+    },
+    "Map generator": {
+        "title": "MapGen-KorGE",
+        "img": "resources/main/pph.png",
+        "description": "Map generator for Pocket Palm Heroes. Made with KorGE game engine."
+    },
+    "HoMM": {
+        "description": "Series of video games, Heroes of Might and Magic"
+    },
+    "House generator": {
+        "title": "2D House Generator",
+        "img": "resources/main/house.png",
+        "description": "Generate suburb or high houses with different parameters (floors count, rooms count, etc). A library for Godot."
+    },
+    "Combining roman numerals": {
+        "title": "ARITHMOS",
+        "img": "resources/main/arithmos.png",
+        "description": "Rotate cubes to turn numbers into operators. Create correct expression."
+    },
+    "Combining sliding puzzle": {
+        "title": "Sliding puzzle platformer",
+        "img": "resources/main/itch.png",
+        "description": "Lead the white ghost to the flag. Evade spikes and red ghosts"
+    },
+    "Reversing roles": {
+        "title": "Snail",
+        "img": "resources/main/snail.png",
+        "description": "Play as an apple. Feed the snail 50 times to win."
+    },
+    "soft parser": {
+        "description": "(Unrelated to Oracle and SQL).\n\nI mean a parser that can extract useful information from different unexpected formats, e.g. different emails with air flight info."
+    },
+    "plant generator": {
+        "title": "Plant generator",
+        "img": "resources/main/plant.png",
+        "description": "Create flowers, grains and berry bushes with this generator written on C#.\n\nMade in 2020, this project inspired me to create other generators."
+    }
+}

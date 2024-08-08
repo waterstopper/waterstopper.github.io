@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html date="2022-07-01" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Boxing and equality cs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Boxing and equality cs</h1>
+<h1 id="boxing-unboxing">Boxing / unboxing</h1>
+<p>Boxing/unboxing has to do with reference and value types. Value types
+store their values on stack (usually primitives). Reference types store
+value in heap and reference to that value on stack.</p>
+<p>Boxing is process of converting value type to reference type,
+unboxing is the opposite. These procedures are computationally
+expensive, because:</p>
+<ul>
+<li>to box a value, a new object should be created.</li>
+<li>to unbox a value, it should be cast to a particular type, which is
+time-consuming (albeit to a lesser extent than boxing). To avoid boxing,
+one should use generics.</li>
+</ul>
+<h1 id="equality">Equality</h1>
+<p>There are two types of equality: reference and value. Reference
+equality is applicable only to reference types. It checks that two
+objects point to the same value in heap. Value equality checks that two
+variables contain the same value.</p>
+<p><em>Note: <code>==</code> operator will call
+<code>ReferenceEquals</code> for reference types and is not applicable
+for two variables of different type.</em></p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c#"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> a <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">object</span> pA <span class="op">=</span> a<span class="op">;</span> <span class="co">// implicit boxing</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">object</span> explicitPA <span class="op">=</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span>a<span class="op">;</span> <span class="co">// explicit boxing</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> b <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span>pA<span class="op">;</span> <span class="co">// explicit unboxing - cast an object to type (the only possible way)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> implicitUnboxing <span class="op">=</span> pA<span class="op">;</span> <span class="co">// Error: Cannot implicitly convert type &#39;object&#39; to &#39;int&#39;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="fu">ReferenceEquals</span><span class="op">(</span>a<span class="op">,</span> pA<span class="op">));</span> <span class="co">// False</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="fu">Equals</span><span class="op">(</span>a<span class="op">,</span> pA<span class="op">));</span> <span class="co">// True</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="fu">ReferenceEquals</span><span class="op">((</span><span class="dt">object</span><span class="op">)</span>a<span class="op">,</span> pA<span class="op">));</span> <span class="co">// False</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>a <span class="op">==</span> b<span class="op">);</span> <span class="co">// True, calls Equals()</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">((</span><span class="dt">object</span><span class="op">)</span>a <span class="op">==</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span>b<span class="op">);</span> <span class="co">// False, calls ReferenceEquals()</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>a <span class="op">==</span> pA<span class="op">);</span> <span class="co">// Error: Operator &#39;==&#39; cannot be applied to operands if type &#39;int&#39; and &#39;object&#39;</span></span></code></pre></div>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

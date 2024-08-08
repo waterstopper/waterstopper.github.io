@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html date="2022-06-28" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Heap and stack</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Heap and stack</h1>
+<p><em>Last fall, I had an interview. They asked me about differences
+between heap and stack, how references and variables are stored. I was
+confident that I knew all this stuff. Apparently, I was wrong.</em></p>
+<h1 id="commonalities">Commonalities</h1>
+<p>Both stack and heap use RAM.</p>
+<h1 id="stack">Stack</h1>
+<p>Stack is a LIFO static<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> storage that contains:</p>
+<ul>
+<li>Local primitive variables</li>
+<li>References to non-primitive variables</li>
+<li>Method parameters</li>
+<li>Sequence of method calls (hence, each thread has its own stack.
+Also, this is the reason why infinite recursion will result in stack
+overflow error)</li>
+</ul>
+<p>When the method finishes its execution, a stack is emptied with one
+assembly command - moving the pointer to stack head. Therefore, a stack
+returns to the state before that method’s call.</p>
+<h3 id="primitive-variables">Primitive variables</h3>
+<p>Local primitive variables are stored in stack. Primitive fields of an
+object instance are stored in heap.</p>
+<h1 id="heap">Heap</h1>
+<p>Heap is a dynamic memory structure that stores non-primitive
+variables. References (pointers to variable address in the heap) to
+these variables are in the stack.</p>
+<p>Unlike stack, heap is commonly shared between threads. Consequently,
+one object shouldn’t be modified simultaneously from different
+threads.</p>
+<p>Out of memory error is possible for the heap too.</p>
+<h3 id="garbage-collector-and-cc-features">Garbage collector and C/C++
+features</h3>
+<p>Some languages (Java, C#) handle memory automatically. A component
+responsible for it is called garbage collector. Fallback of this
+approach is unexpected runtime slowdowns due to garbage collector
+managing memory.</p>
+<p>Other languages (C/C++) pass this responsibility on to programmer. In
+C++ every <code>new</code> keyword should be followed by
+<code>delete</code> to prevent memory leak. Additionally, it is possible
+to store object instance on stack in C++, if variable is declared
+without <code>new</code>. Such local variable will be popped from stack
+after method execution. <a href="programming/cpp-pointers">A little more
+about C++ memory model</a>.</p>
+<h3 id="heap-fragmentation">Heap fragmentation</h3>
+<p>Heap is a single block of memory. When some memory from heap is
+released, a chunk of unused memory is formed. After many iterations heap
+becomes a bunch of alternating fragments of used and unused memory.</p>
+<p>Essentially this is an inefficient memory utilization, because
+overall there might be <span class="math inline"><em>n</em></span> bytes
+of free memory, however not all bytes can be allocated. It is possible
+to allocate no more bytes than there are in the biggest consecutive
+chunk of free memory.</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.199 50.241">
+<path d="M33.262 39.876h18.521v46.302H33.262z" style="fill:var(--main-color);fill-opacity:1;stroke:#000;stroke-width:2.616;stroke-linecap:round;stroke-opacity:0" transform="translate(-12.3 -38.002)"/><path d="M68.708 40.454h28.138v45.714H68.708z" style="fill:var(--main-color);fill-opacity:1;stroke:#000;stroke-width:3.20392;stroke-linecap:round;stroke-opacity:0" transform="translate(-12.3 -38.002)"/><path d="M127.509 39.951h7.633v45.714h-7.633z" style="fill:var(--main-color);fill-opacity:1;stroke:#000;stroke-width:1.66872;stroke-linecap:round;stroke-opacity:0" transform="translate(-12.3 -38.002)"/><path d="M136.79 40.371h9.225v45.552h-9.225z" style="fill:var(--main-color);fill-opacity:1;stroke:#000;stroke-width:1.83125;stroke-linecap:round;stroke-opacity:0" transform="translate(-12.3 -38.002)"/><path d="M108.78 40.475h12.521v45.256H108.78z" style="fill:var(--main-color);fill-opacity:1;stroke:var(--middle-color);stroke-width:2.12649;stroke-linecap:round;stroke-opacity:0" transform="translate(-12.3 -38.002)"/><path fill="none" d="M13.607 39.31H151.19v47.625H13.607z" style="fill:#253092;fill-opacity:0;stroke:var(--gray);stroke-width:2.616;stroke-linecap:round;stroke-opacity:1" transform="translate(-12.3 -38.002)"/>
+</svg>
+<p><em>After some time heap looks like a barcode (white is free memory,
+black is unused memory)</em></p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>some languages allow stack reallocation<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

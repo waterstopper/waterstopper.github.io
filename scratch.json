@@ -1,0 +1,114 @@
+{
+    "..": {
+        "writings": {
+            "parsers": {
+                "div": "<div><a href=/writings/parsers/index.html>Parsers</a><span style="float: right;">2022-07-03</span></div>"
+            },
+            "devlog2": {
+                "div": "<div><a href=/writings/devlog2/index.html>Devlog2</a><span style="float: right;">2022-07-05</span></div>"
+            },
+            "why-gamemaking-is-not-for-me": {
+                "div": "<div><a href=/writings/why-gamemaking-is-not-for-me/index.html>Why gamemaking is not for me</a><span style="float: right;">2022-07-10</span></div>"
+            },
+            "cpp-pointers": {
+                "div": "<div><a href=/writings/cpp-pointers/index.html>Cpp pointers</a><span style="float: right;"></span></div>"
+            },
+            "projects": {
+                "projects": {
+                    "div": "<div><a href=/writings/projects/projects/index.html>Projects</a><span style="float: right;"></span></div>"
+                },
+                "peoj": {
+                    "div": "<div><a href=/writings/projects/peoj/index.html>Peoj</a><span style="float: right;"></span></div>"
+                }
+            },
+            "multithreading2": {
+                "div": "<div><a href=/writings/multithreading2/index.html>Multithreading2</a><span style="float: right;">2022-07-08</span></div>"
+            },
+            "shallow-villain-traits": {
+                "div": "<div><a href=/writings/shallow-villain-traits/index.html>Shallow villain traits</a><span style="float: right;">2022-07-06</span></div>"
+            },
+            "transpilers-compilers-interpreters": {
+                "div": "<div><a href=/writings/transpilers-compilers-interpreters/index.html>Transpilers compilers interpreters</a><span style="float: right;">2022-06-29</span></div>"
+            },
+            "regina": {
+                "advanced": {
+                    "div": "<div><a href=/writings/regina/advanced/index.html>Advanced</a><span style="float: right;">2022-11-05</span></div>"
+                },
+                "types": {
+                    "div": "<div><a href=/writings/regina/types/index.html>Types</a><span style="float: right;">2022-10-27</span></div>"
+                },
+                "why": {
+                    "div": "<div><a href=/writings/regina/why/index.html>Why</a><span style="float: right;">2019-01-13</span></div>"
+                },
+                "design-decisions": {
+                    "div": "<div><a href=/writings/regina/design-decisions/index.html>Design decisions</a><span style="float: right;">2022-10-27</span></div>"
+                },
+                "std": {
+                    "math": {
+                        "div": "<div><a href=/writings/regina/std/math/index.html>Math</a><span style="float: right;"></span></div>"
+                    }
+                },
+                "typization": {
+                    "div": "<div><a href=/writings/regina/typization/index.html>Typization</a><span style="float: right;">2022-06-06</span></div>"
+                },
+                "dynamic-instantiation": {
+                    "div": "<div><a href=/writings/regina/dynamic-instantiation/index.html>Dynamic instantiation</a><span style="float: right;">2022-09-20</span></div>"
+                },
+                "syntax": {
+                    "div": "<div><a href=/writings/regina/syntax/index.html>Syntax</a><span style="float: right;">2022-11-11</span></div>"
+                },
+                "scopes": {
+                    "div": "<div><a href=/writings/regina/scopes/index.html>Scopes</a><span style="float: right;">2022-11-05</span></div>"
+                },
+                "global": {
+                    "div": "<div><a href=/writings/regina/global/index.html>Global</a><span style="float: right;">2022-11-05</span></div>"
+                },
+                "toop": {
+                    "div": "<div><a href=/writings/regina/toop/index.html>Toop</a><span style="float: right;">2022-09-18</span></div>"
+                },
+                "div": "<div><a href=/writings/regina/index.html>Regina</a><span style="float: right;">2022-08-01</span></div>"
+            },
+            "notes": {
+                "eyes": {
+                    "div": "<div><a href=/writings/notes/eyes/index.html>Eyes</a><span style="float: right;"></span></div>"
+                }
+            },
+            "codestyle": {
+                "div": "<div><a href=/writings/codestyle/index.html>Codestyle</a><span style="float: right;">2022-11-24</span></div>"
+            },
+            "devlog1": {
+                "div": "<div><a href=/writings/devlog1/index.html>Devlog1</a><span style="float: right;">2022-07-04</span></div>"
+            },
+            "ast": {
+                "div": "<div><a href=/writings/ast/index.html>Ast</a><span style="float: right;">2022-06-30</span></div>"
+            },
+            "portfolio": {
+                "div": "<div><a href=/writings/portfolio/index.html>Portfolio</a><span style="float: right;">2024-06-04</span></div>"
+            },
+            "heap-and-stack": {
+                "div": "<div><a href=/writings/heap-and-stack/index.html>Heap and stack</a><span style="float: right;">2022-06-28</span></div>"
+            },
+            "introduction-to-grammars": {
+                "div": "<div><a href=/writings/introduction-to-grammars/index.html>Introduction to grammars</a><span style="float: right;">2022-07-02</span></div>"
+            },
+            "simple-parser": {
+                "simple-parser": {
+                    "div": "<div><a href=/writings/simple-parser/simple-parser/index.html>Simple parser</a><span style="float: right;">2024-02-25</span></div>"
+                }
+            },
+            "multithreading1": {
+                "div": "<div><a href=/writings/multithreading1/index.html>Multithreading1</a><span style="float: right;">2022-07-07</span></div>"
+            },
+            "boxing-and-equality-cs": {
+                "div": "<div><a href=/writings/boxing-and-equality-cs/index.html>Boxing and equality cs</a><span style="float: right;">2022-07-01</span></div>"
+            },
+            "making-tex-to-html-cv-translator": {
+                "div": "<div><a href=/writings/making-tex-to-html-cv-translator/index.html>Making tex to html cv translator</a><span style="float: right;">2023-07-27</span></div>"
+            },
+            "SQL": {
+                "div": "<div><a href=/writings/SQL/index.html>Sql</a><span style="float: right;">2022-09-30</span></div>"
+            },
+            "div": "<div><a href=/writings/index.html>Writings</a><span style="float: right;"></span></div>"
+        }
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html date="2022-09-30
+---
+" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Cpp pointers</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Cpp pointers</h1>
+<p>Memory is a two column table. First row contains
+<strong>addresses</strong>, second row contains
+<strong>values</strong>.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span></code></pre></div>
+<p>When variable is assigned, an empty memory row cell is chosen.
+Variable’s value is written to second column of the row.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Address</th>
+<th>Value</th>
+<th>Assigned variable (not part of a memory, just a showcase
+example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x1000</td>
+<td>4</td>
+<td>x</td>
+</tr>
+<tr>
+<td>0x1004</td>
+<td>0x1000</td>
+<td>pX</td>
+</tr>
+<tr>
+<td>0x1008</td>
+<td>4</td>
+<td>y</td>
+</tr>
+</tbody>
+</table>
+<h1 id="pointer">Pointer</h1>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> pX <span class="op">=</span> <span class="op">&amp;</span>x<span class="op">;</span></span></code></pre></div>
+<p>Variable declaration with a <code>*</code> after type states that it
+is a pointer to that type. In this case, <strong>pX is an integer
+pointer</strong>. Instead of storing value, pointer variable store
+memory address in their value column (second column of a memory
+row).</p>
+<p><code>&amp;</code> is for extracting address from a variable.
+<code>&amp;x</code> means <strong>address of variable named
+x</strong></p>
+<h1 id="dereference">Dereference</h1>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode c++"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> y <span class="op">=</span> <span class="op">*</span>pX<span class="op">;</span></span></code></pre></div>
+<p>Variable with a preceding asterisk (<code>*</code>) referred to as a
+<strong>dereference</strong>. When used before a pointer variable, this
+expression will return a value in a row, to which such variable points
+to.</p>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>

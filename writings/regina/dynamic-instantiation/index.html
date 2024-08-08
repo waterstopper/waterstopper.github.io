@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html date="2022-09-20" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | Dynamic instantiation</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">Dynamic instantiation</h1>
+<h2 id="tldr">TLDR</h2>
+<p>Difference between other languages and ReGIna is dynamic
+instantiation. In short, properties in classes will be assigned only
+after their dependencies are assigned, allowing recursive properties of
+same class <code>A</code> inside class <code>A</code>.</p>
+<h2 id="idea">Idea</h2>
+<p>Classes can have references to other classes inside them as
+properties. These property-classes are evaluated dynamically. Take a
+look at this example:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Node export rect <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// export = false - can deny export</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    iter <span class="op">=</span> <span class="cf">if</span> <span class="op">(</span>parent<span class="op">)</span> parent<span class="op">.</span>iter <span class="op">+</span> <span class="dv">1</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    childNode <span class="op">=</span> <span class="cf">if</span> <span class="op">(</span>iter <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="kw">Nothing</span><span class="op">()</span> <span class="cf">else</span> Node<span class="op">()</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    position <span class="op">=</span> <span class="cf">if</span> <span class="op">(</span>childNode <span class="kw">is</span> Node<span class="op">)</span> \</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    Position<span class="op">(</span>childNode<span class="op">.</span>position<span class="op">.</span>x <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> childNode<span class="op">.</span>position<span class="op">.</span>y<span class="op">)</span> \</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> Position<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">main</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    Node<span class="op">()</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This will create following svg:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode svg"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">svg</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">rect</span><span class="ot"> x=</span><span class="st">&quot;4&quot;</span><span class="ot"> y=</span><span class="st">&quot;0&quot;</span>/&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">rect</span><span class="ot"> x=</span><span class="st">&quot;3&quot;</span><span class="ot"> y=</span><span class="st">&quot;0&quot;</span>/&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">rect</span><span class="ot"> x=</span><span class="st">&quot;2&quot;</span><span class="ot"> y=</span><span class="st">&quot;0&quot;</span>/&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">rect</span><span class="ot"> x=</span><span class="st">&quot;1&quot;</span><span class="ot"> y=</span><span class="st">&quot;0&quot;</span>/&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">rect</span><span class="ot"> x=</span><span class="st">&quot;0&quot;</span><span class="ot"> y=</span><span class="st">&quot;0&quot;</span>/&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">svg</span>&gt;</span></code></pre></div>
+<p>First algorithm creates empty Node() (we’ll call it <em>Node0</em>)
+from main(). Then, starting from top to bottom:</p>
+<ol type="1">
+<li>algorithm assigns <strong>iter</strong> of <em>Node0</em> to 0
+because parent returns 0 as an equivalent of null.</li>
+<li>After that, <strong>childNode</strong> is assigned a new Node
+(<em>Node1</em>).</li>
+<li><strong>position</strong> cannot be assigned because
+<strong>childNode.position</strong> is not yet assigned. Algorithm goes
+to childNode.position, that is <em>Node1</em>.position and tries to
+assign it. However, childNode is required, so we go to <em>
+Node1</em>.childNode, which needs iter.</li>
+</ol>
+<p><em>It’s not important to consider while assigning values, but it
+shows why there cannot be any cyclic dependencies for
+properties</em>.</p>
+<h2 id="how-not-to-write-code-with-dynamic-instantiation">How not to
+write code with dynamic instantiation</h2>
+<h3 id="bad-class-function">Bad class function</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FunctionOveruse <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    prop <span class="op">=</span> make<span class="op">()</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">make</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        FunctionOveruse<span class="op">()</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> prop</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Both lines in <code>make()</code> will execute forever.</p>
+<p>To make functions as expressive as possible, it is important to allow
+class instantiating inside them. If</p>
+<p>We either make internal class functions (which is purely
+decompositional thing) or make instantiating inside functions possible
+(and <code>fun main()</code> as an entry point)</p>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>
