@@ -4,22 +4,22 @@
         <marker style="overflow:visible" id="f" refX="0" refY="0" orient="auto">
             <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
                   d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
-                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+                  style="fill:var(--main-color);fill-opacity:1;fill-rule:evenodd;stroke:var(--main-color);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
         </marker>
         <marker style="overflow:visible" id="h" refX="0" refY="0" orient="auto">
             <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
                   d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
-                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+                  style="fill:var(--main-color);fill-opacity:1;fill-rule:evenodd;stroke:var(--main-color);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
         </marker>
         <marker style="overflow:visible" id="g" refX="0" refY="0" orient="auto">
             <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
                   d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
-                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+                  style="fill:var(--main-color);fill-opacity:1;fill-rule:evenodd;stroke:var(--main-color);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
         </marker>
         <marker style="overflow:visible" id="e" refX="0" refY="0" orient="auto">
             <path transform="matrix(-1.1 0 0 -1.1 -1.1 0)"
                   d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
-                  style="fill:var(--dark);fill-opacity:1;fill-rule:evenodd;stroke:var(--dark);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
+                  style="fill:var(--main-color);fill-opacity:1;fill-rule:evenodd;stroke:var(--main-color);stroke-width:.625;stroke-linejoin:round;stroke-opacity:1"/>
         </marker>
         <path id="a" d="M66.817 43.565h91.941v45.703H66.817z"/>
         <path id="b" d="M66.817 43.565h91.941v45.703H66.817z"/>
@@ -27,30 +27,30 @@
         <path id="d" d="M66.817 43.565h91.941v45.703H66.817z"/>
     </defs>
     <text xml:space="preserve"
-          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#a);fill:var(--dark);fill-opacity:1;stroke:none"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#a);fill:var(--main-color);fill-opacity:1;stroke:none"
           transform="translate(15 -44.086)"><tspan x="79.919" y="52.643"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">Come up with a </tspan></tspan>
         <tspan x="82.198" y="65.873"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">new great game </tspan></tspan>
         <tspan x="60.901" y="79.102"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">idea</tspan></tspan></text>
     <text xml:space="preserve"
-          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#b);fill:var(--dark);fill-opacity:1;stroke:none"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#b);fill:var(--main-color);fill-opacity:1;stroke:none"
           transform="translate(39.677 18.894)"><tspan x="73.604" y="52.643"><tspan style="shape-inside:url(#b)">Create a game</tspan></tspan></text>
     <text xml:space="preserve"
-          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#c);fill:var(--dark);fill-opacity:1;stroke:none"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#c);fill:var(--main-color);fill-opacity:1;stroke:none"
           transform="translate(25 55.936)"><tspan x="73.229" y="52.643"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">It is not fun to </tspan></tspan>
         <tspan x="55.62" y="65.873"><tspan style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;text-anchor:middle">play</tspan></tspan></text>
     <text xml:space="preserve"
-          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#d);fill:var(--dark);fill-opacity:1;stroke:none"
+          style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print';text-align:center;white-space:pre;shape-inside:url(#d);fill:var(--main-color);fill-opacity:1;stroke:none"
           transform="translate(-83.544 20.028)"><tspan x="82.639" y="52.643"><tspan style="shape-inside:url(#d)">Frustration</tspan></tspan></text>
-    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#e)"
+    <path style="fill:none;stroke:var(--main-color);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#e)"
           d="M159.128 29.86c11.592.504 23.183 1.008 29.356 8.505 6.174 7.497 6.93 21.985 7.686 36.474"
           transform="translate(-12.831 -18.383)"/>
-    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#f)"
+    <path style="fill:none;stroke:var(--main-color);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#f)"
           d="M194.28 103.943c-3.024 12.096-6.048 24.191-13.796 29.735-7.749 5.543-20.222 4.535-32.695 3.527"
           transform="translate(-12.831 -18.383)"/>
-    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#g)"
+    <path style="fill:none;stroke:var(--main-color);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#g)"
           d="M60.476 134.182c-10.33.252-20.662.504-26.71-5.418-6.048-5.922-7.812-18.017-9.576-30.112"
           transform="translate(-12.831 -18.383)"/>
-    <path style="fill:none;stroke:var(--dark);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#h)"
+    <path style="fill:none;stroke:var(--main-color);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#h)"
           d="M23.435 74.84c-1.008-14.49-2.016-28.979 3.276-36.538 5.291-7.56 16.883-8.19 28.474-8.82"
           transform="translate(-12.831 -18.383)"/>
 </svg>

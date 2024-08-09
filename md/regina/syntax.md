@@ -77,7 +77,7 @@ Imports are declarations that allow to use objects, classes and functions from a
 
 ## Operators
 
-*Take a look at a [table of operator precedence](/regina/toop)*
+*Take a look at a [table of operator precedence](/writings/regina/operator-precedence)*
 
 `+` non commutative addition with implicit type conversion. All use cases:
 

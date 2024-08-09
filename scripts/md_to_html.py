@@ -1,5 +1,6 @@
 import fnmatch
 import re
+import shutil
 from typing import Dict, List
 import os
 from pathlib import Path
@@ -39,7 +40,7 @@ let theme = localStorage.getItem("theme") ?? "dark";
     return Template(top_part).substitute(date=date, title_tab=title, title_page=title, head=head) + body + bottom_part
 
 def create_dirs_from_md(dir_from, dir_to):
-    for root, a, filenames in os.walk(dir_from):
+    for root, _, filenames in os.walk(dir_from):
         for filename in fnmatch.filter(filenames, '*.md'):
             filepath = filepath_in_dir_to(dir_from, dir_to, root, filename)
             if filename != "index.md":
@@ -141,12 +142,27 @@ def rewrite_html_with_wrap(file, date):
     with open(file, "r", encoding="utf-8") as f:
         html_body = f.read()
     with open(file, "w", encoding="utf-8") as f:
-        f.write(wrap_body(filepath_to_title(file), date, html_body, ""))
+        f.write(wrap_body(filepath_to_title(file), date, embed_svg_or_html(html_body), ""))
+
+def get_embed(match):
+    embed_path = ".." + match.group(2)
+    with open(embed_path) as f:
+        return f.read()
+
+# html doesn't work
+def embed_svg_or_html(html_body):
+    img_regex = re.compile(r'<(img|embed) src="([^"]*\.(svg|html))"[^>]*>')
+    return re.sub(img_regex, get_embed, html_body)
 
 def main(args: List[str]):
+    shutil.rmtree("../writings")
+
     create_dirs_from_md("../md", "../writings")
 
     with open("../writings/index.html", "w", encoding="utf-8") as f:
         f.write(create_writings_list("../writings"))
 
 main([])
+
+# todo: if file starts with '_', then its name shouldn't be added as header.
+# if file starts with '__', then it shouldn't be added to writings list
