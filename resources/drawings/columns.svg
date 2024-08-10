@@ -1,0 +1,15 @@
+<svg width="200" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <rect x="0" y="0" width="10" height="10" fill="#fff"></rect>
+    <path title="two-rects" d="M0,2 v6 h2 v-6 Z M8,2 v6 h2 v-6 Z" style="fill:#000"
+        transform="rotate(90 5 5)"></path>
+    <path title="rect-hole"
+        d="M0,2 v6 h10 v-6 Z M5,5 m -2,0
+            a2,2 0 1,0 4,0
+            a2,2 0 1,0 -4,0"
+        fill-rule="evenodd" style="fill:#000" transform="rotate(0 5 5)"></path>
+    <path title="tri-hole"
+        d="M0,0 v5
+            a1,1 0 0,0 10,0
+            v-5 Z M 5,8 L 8.5,2 L 1.5,2 Z"
+        fill-rule="evenodd" style="fill:#000" transform="rotate(180 5 5)"></path>
+</svg>

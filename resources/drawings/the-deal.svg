@@ -1,0 +1,12 @@
+<svg width="200" transform="rotate(0 0 0)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+    <rect x="0" y="0" width="10" height="10" fill="#fff"></rect>
+    <path title='rect'
+        d="M 0,5 v5 h10 v-5 Z" style="fill:#820d7c"></path>
+    <path title='tri-hole'
+        d="M0,0 v5
+            a1,1 0 0,0 10,0
+            v-5 Z M 5,8 L 8.5,2 L 1.5,2 Z"
+        fill-rule="evenodd" style="fill:#26d07e" />
+    <path transform="rotate(180 5 5)" title='bowl'
+        d="M0,5 a1,1 0 0,0 10,0 v-1 h-10 Z" style="fill:#820d7c"></path>
+</svg>

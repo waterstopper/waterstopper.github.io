@@ -1,0 +1,17 @@
+<svg width="200" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="0" y="0" width="10" height="10" fill="#fff"></rect>
+    <path title="frame" d="M0,0 h5 L0,5 Z M5,0 h5 v5 Z M10,5 v5 h-5 Z" style="fill:#000"
+        transform="rotate(90 5 5)"></path>
+    <path title="corner-rect" d="M0,0 h5 v5 h-5 Z" style="fill:#000" transform="rotate(270 5 5)"></path>
+    <path title="bitten-circle" d="M3,5 a2,2 0 1,1 2,2 v-2" style="fill:#000"
+        transform="rotate(0 5 5)">
+    </path>
+    <path title="hex" d="M5,1.5 h2  L9,5 L7,8.5 h-2 Z" style="fill:#000"
+        transform="rotate(180 5 5)"></path>
+    <path title="hole"
+        d="M2,5 a3,3 0 1,1 6,0
+                    M5,5 m 2,0 
+                    a2,2 0 1,0 -4,0"
+        style="fill:#000" transform="rotate(180 5 5)"></path>
+</svg>

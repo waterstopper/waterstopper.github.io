@@ -1,0 +1,19 @@
+<svg width="200" transform="rotate(0 0 0)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+    <rect x="0" y="0" width="10" height="10" fill="#fff"></rect>
+    <path title='rect'
+        d="M 0,0 v10 h10 v-10 Z" style="fill:#ffffff"></path>
+    <path title='rect-hole'
+        d="M0,2 v6 h10 v-6 Z M5,5 m -2,0
+        a2,2 0 1,0 4,0
+        a2,2 0 1,0 -4,0"
+        fill-rule="evenodd" style="fill:#04010a" />
+    <path title='bitten-circle'
+        d="M3,5 a2,2 0 1,1 2,2 v-2" style="fill:#04010a"></path>
+    <path transform="rotate(270 5 5)" title='hex-concave'
+        d="M0,0 v5 h1 L3,1.5 h4  L9,5 h1 v-5 Z" style="fill:#04010a"></path>
+    <path transform="rotate(90 5 5)" title='frame'
+        d="M0,0 h5 L0,5 Z M5,0 h5 v5 Z M10,5 v5 h-5 Z"
+        style="fill:#04010a"></path>
+    <path transform="rotate(270 5 5)" title='big-tri'
+        d="M 0,10 H10 V0 Z" style="fill:#04010a"></path>
+</svg>

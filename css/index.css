@@ -1,3 +1,8 @@
+html {
+    font-family: 'Courier', monospace;
+    font-size: larger;
+}
+
 #main {
     margin-left: 23%;
     width: 60%;

@@ -1,0 +1,34 @@
+* {
+  scrollbar-color: var(--middle-color) var(--gray);
+  scrollbar-width: thin;
+}
+
+.svg-title {
+  position: relative;
+  background-color: var(--gray);
+  color: var(--gray);
+  
+}
+
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  width: 350px;
+  text-align: center;
+  margin: 5px;
+}
+
+
+.svg-title:hover {
+  background-color: transparent;
+  color: var(--gray);
+}
