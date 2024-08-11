@@ -8,7 +8,7 @@ fun except(x) {
 }
 
 fun input(input): Any {
-    // not working in [IDE](https://llesha.github.io/regina-ide)*. Receives console input and returns it.
+    // not working in [IDE](https://waterstopper.github.io/regina-ide)*. Receives console input and returns it.
 }
 
 fun write(content: String, path: String) {

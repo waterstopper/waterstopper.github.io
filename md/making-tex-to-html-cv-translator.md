@@ -105,7 +105,7 @@ to cv with tex-html translator or by Google Drive sharing:
 
 Well, it doesn't seem that new solution is any better that the old one. But often I forgot to
 delete previous CV from Downloads, therefore needed to do some additional steps.
-Additionally, now I have a short and readable ~~[CV link](https://llesha.github.io/cv)~~!
+Additionally, now I have a short and readable ~~[CV link](https://waterstopper.github.io/cv)~~!
 
 [^1]: On this step I could completely dump the idea and recreate my CV purely using html. I'm sure
 that there are great tools for exporting html to pdf. But I thought that having a CV in a .tex
