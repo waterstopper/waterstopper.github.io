@@ -14,5 +14,5 @@ theme_button.onclick = () => {
     _set_theme();
 }
 
-let theme = localStorage.getItem("theme") ?? "dark"
+let theme = localStorage.getItem("theme") ?? "light"
 theme_button.innerText = theme

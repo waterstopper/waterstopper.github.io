@@ -20,7 +20,7 @@ def wrap_body(title: str, date: str, body: str, head: str) -> str:
     <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
     <script type="text/javascript">
         function preLoadFunc() {
-let theme = localStorage.getItem("theme") ?? "dark";
+let theme = localStorage.getItem("theme") ?? "light";
             document.documentElement.setAttribute("data-theme", theme);
         }
         window.onload = preLoadFunc;
