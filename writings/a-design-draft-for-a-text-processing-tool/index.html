@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html date="2024-09-15" data-theme="dark">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WATERSTOPPER | A design draft for a text processing tool</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/writing.css">
+
+    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <script type="text/javascript">
+        function preLoadFunc() {
+let theme = localStorage.getItem("theme") ?? "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        }
+        window.onload = preLoadFunc;
+    </script>
+    
+</head>
+
+<body>
+    <h1 style="text-align: center;">A design draft for a text processing tool</h1>
+<h1 id="problem-scope">Problem scope</h1>
+<p>The idea is to create a tool (a “programming” language) for people
+who have to do <strong>repetitive</strong> text processing tasks
+<strong>often</strong>. The program will automate any text processing a
+user did manually. If a task is not repetitive and is done in a
+reasonable amount of time, then there is no need to automate it.</p>
+<p>Inputs and outputs are mostly xlsx and docx files.</p>
+<p>Program will be an almost natural-like language. Also I want to
+create GUI where user can select parts of text and process text with
+those selections (e.g. select name from one table, then spread the
+selection for the whole column, find these names in the other files and
+increment some corresponding column value in the file). This GUI won’t
+be described in detail here, only the language. All actions in GUI
+should have a counterpart in the language.</p>
+<h1 id="use-cases">Use cases</h1>
+<h2 id="weekly-excel-documents-processing">Weekly excel documents
+processing</h2>
+<p>We have a table “clients” with columns <code>name</code> (string),
+<code>visit</code> (integer). Each week we get a table “week N” with
+columns <code>name</code> (string) and <code>organization</code>
+(string).</p>
+<p>For each client where <code>organization</code> in “week N” isn’t
+equal to <code>our_organization</code>, we need to increase visit in
+“clients” by 1.</p>
+<p>Here is an SQL-solution:</p>
+<pre class="postgresql"><code>UPDATE clients c
+SET c.visit = c.visit + 1 -- not sure it will work
+FROM (
+    SELECT name
+    FROM weekN
+    WHERE organization &lt;&gt; &quot;our_organization&quot;
+    ) AS weekly
+WHERE c.name = weekly.name</code></pre>
+<p>Focus is specifically on tasks that involve 2 or more excel tables,
+that cannot be solved with Excel.</p>
+<h2 id="parsing-newspapers-movie-schedules">Parsing newspapers’ movie
+schedules</h2>
+<p>Having a text with many entries like
+<code>"&lt;movieName1&gt;, &lt;movieName2&gt;": &lt;theaterName1&gt;, &lt;theaterName&gt;...</code>
+for each date, create a table with three columns <code>theater</code>,
+<code>movie</code>, <code>day count</code>, where <code>day count</code>
+equals maximum consecutive days that that movie was shown in a
+particular theater.</p>
+<p>My girlfriend had that task, she had to process 2.5 months of such
+data. So <a href="https://waterstopper.github.io/NewspaperParser/">I
+wrote a program</a> that does most of the work (input text for each day,
+get a table with results).</p>
+<h1 id="restrictions-and-insights">Restrictions and insights</h1>
+<ol type="1">
+<li><strong>It should be a website</strong>. Some companies prohibit
+third-party software installation, but a browser is installed
+everywhere.</li>
+<li><strong>It shouldn’t look like a programming language</strong>. I
+did some research<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> for inspiration and didn’t find good
+analogues.</li>
+<li><strong>It should be interpreted</strong> for almost zero-startup
+times. Additionally it should have a kind of “debugging” environment
+where user can look into intermediate results of execution.</li>
+<li>Apparently <strong>it’s ok to have explicit and terse syntax for
+same things</strong>, according to <a
+href="https://www.thefeedbackloop.xyz/stroustrups-rule-and-layering-over-time/">Stroustrup’s
+Rule</a>. There might be features like <code>expand</code> and
+<code>shorten</code> to refactor such statmements into their long and
+short counterparts.</li>
+</ol>
+<h1 id="raw-draft-of-how-i-want-it-to-look">Raw draft of how I want it
+to look:</h1>
+<p>I want to have as few variables as possible, because I think it is a
+low-level construct that isn’t necessary. Most of the time, a solution
+to a text-processing problem can be described without explicit
+variables.</p>
+<h2 id="task-1">Task 1</h2>
+<p>Task is described in <a
+href="#weekly-excel-documents-processing">weekly documents
+processing</a></p>
+<pre><code>For each row in &quot;weekN&quot; filter row&#39;s &quot;organization&quot; &lt;&gt; &quot;our_organization&quot;:
+    If row&#39;s &quot;name&quot; exists in &quot;output&quot;: visit add 1. </code></pre>
+<h2 id="task-2">Task 2</h2>
+<p><a
+href="https://leetcode.com/problems/string-compression/description/">Compress
+strings</a>: <code>avvvdkwwwqm -&gt; av3dkw3qm</code></p>
+<pre><code>replace sequences (seq) of equal symbols with: seq[0] + seq size; here seq is a variable for a sequence</code></pre>
+<h2 id="task3">Task3</h2>
+<p><a href="https://leetcode.com/problems/palindrome-number/">Check if
+number is palindrome</a> (121 -&gt; true, 123 -&gt; false)</p>
+<pre><code>it reverse equal it</code></pre>
+<h1 id="why-ai-is-not-a-good-solution">Why AI is not a good
+solution</h1>
+<p>AI can solve the text processing problem in one of two ways:</p>
+<ol type="1">
+<li>Write code that solves text processing. Not a good solution, because
+such code is hard to edit if you don’t know how to program.</li>
+<li>Do some <em>blackboxy black magic</em> and output desired result.
+This is not a good solution.</li>
+</ol>
+<p>Currently I mark AI-solutions as unreliable, but that can change
+quickly.</p>
+<h1 id="seeking-help">Seeking help</h1>
+<p>If you can contribute in any way (<a
+href="mailto:kononal@gmail.com">kononal@gmail.com</a>):</p>
+<ol type="1">
+<li>Provide any recurring text processing use-cases.</li>
+<li>Provide examples of languages/libraries that tackle the problem
+well.</li>
+<li>Link any useful resources. What I found: https://proglangdesign.net/
+for relevant resources and a list of some languages; <a
+href="https://rosettacode.org/wiki/Rosetta_Code">Rosetta code</a> for
+solutions of tasks in different languages.</li>
+</ol>
+<p>I’ll be very grateful.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Recently I skimmed through a <a
+href="https://proglangdesign.net/">list of programming languages</a> and
+was frustrated with how most of them look identical and do identical
+things (I was checking entries that might be close to what I’m trying to
+create, not all of them). I was hoping to draw inspiration from these
+languages. but the only interesting idea I found is in-code comments
+from <a href="https://github.com/cognate-lang/cognate">Cognate</a>. Also
+I found <a href="https://www2.cs.arizona.edu/icon/index.htm">Icon
+language</a> from Paul Graham’s <a
+href="https://paulgraham.com/power.html">post</a>. I like the generators
+and condition expressions that return non-bool in Icon.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+    <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
+    <div style="text-align: center;">꧁༻ ༺꧂</div>
+</body>
+</html>
