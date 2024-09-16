@@ -8,7 +8,7 @@ from string import Template
 
 def wrap_body(title: str, date: str, body: str, head: str) -> str:
     top_part = """<!DOCTYPE html>
-<html date="$date" data-theme="dark">
+<html date="$date" data-theme="light">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
