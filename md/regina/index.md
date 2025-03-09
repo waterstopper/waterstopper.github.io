@@ -6,7 +6,7 @@ date: 2022-08-01
 Regina is a [dynamically typed](typization) language with [syntax](syntax) similar to
 Kotlin and Python.
 
-[Online IDE](https://waterstopper.github.io/regina-ide).
+[Online IDE](https://water.stopper.top/regina-ide).
 
 ## Documentation
 

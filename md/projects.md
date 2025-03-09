@@ -2,13 +2,13 @@
 title: Projects
 ---
 
-## [Regina Programming Language](https://waterstopper.github.io/regina-ide)
+## [Regina Programming Language](https://water.stopper.top/regina-ide)
 
-Interpreter code compiles into JVM and Javascript. Main feature of the language are declarative classes: class properties can be deﬁned by other, not yet initialized properties and instances. Practical value of the language is in creation of concise SVG image generators. Additionally, the [documentation](https://waterstopper.github.io/regina/) was created.    
+Interpreter code compiles into JVM and Javascript. Main feature of the language are declarative classes: class properties can be deﬁned by other, not yet initialized properties and instances. Practical value of the language is in creation of concise SVG image generators. Additionally, the [documentation](https://water.stopper.top/regina/) was created.    
 
 ![](/images/regina.png)
 
-## [CrateGram](https://waterstopper.github.io/CrateGram)
+## [CrateGram](https://water.stopper.top/CrateGram)
 
 Crategram is a tool for improving grammar writing skills. It is done with tasks where user has to construct a PEG grammar.
 

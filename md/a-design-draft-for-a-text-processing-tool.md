@@ -36,7 +36,7 @@ Focus is specifically on tasks that involve 2 or more excel tables, that cannot 
 ## Parsing newspapers' movie schedules
 Having a text with many entries like `"<movieName1>, <movieName2>": <theaterName1>, <theaterName>...` for each date, create a table with three columns `theater`, `movie`, `day count`, where `day count` equals maximum consecutive days that that movie was shown in a particular theater.
 
-My girlfriend had that task, she had to process 2.5 months of such data. So [I wrote a program](https://waterstopper.github.io/NewspaperParser/) that does most of the work (input text for each day, get a table with results).
+My girlfriend had that task, she had to process 2.5 months of such data. So [I wrote a program](https://water.stopper.top/NewspaperParser/) that does most of the work (input text for each day, get a table with results).
 
 # Restrictions and insights
 1. **It should be a website**. Some companies prohibit third-party software installation, but a browser is installed everywhere.
