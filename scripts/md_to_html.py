@@ -37,6 +37,7 @@ let theme = localStorage.getItem("theme") ?? "light";
     bottom_part = """
     <p style="text-align: center; font-size: large;"><a href="/">Main</a> | <a href="/writings">Writings</a> | <a href="/drawings">Drawings</a></p>
     <div style="text-align: center;">꧁༻ ༺꧂</div>
+    <script type="module" src="/js/mobile.js"></script>
 </body>
 </html>"""
     return Template(top_part).substitute(date=date, title_tab=title, title_page=title, head=head) + body + bottom_part
