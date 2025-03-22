@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style="background-color: var(--bg-color);">
+
+<head>
+    <meta charset="utf-8">
+    <title> SVG timeline </title>
+
+    <meta name="author" content="">
+    <meta name="description" content="html template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/writings.css">
+    <style>
+        #preview {
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            border: 1px solid var(--main-color);
+        }
+
+        select,
+        input,
+        html {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+<header id="main-title">
+    <h1>SVG-timeline</h1>
+</header>
+
+<div id="preview">
+    <svg id="timeline" viewBox="0 0 200 20"></svg>
+</div>
+
+<h1>General Settings</h1>
+<div>
+    <span>Start value</span><input type="text" id="start-value"/>
+</div>
+<div>
+    <span>End value</span><input type="text" id="end-value"/>
+</div>
+<div>
+    <span>Show start/end</span>
+    <input type="checkbox" id="show-start-end"/>
+</div>
+<div>
+    <span>Sections count</span>
+    <input type="number" id="sections-count"/>
+</div>
+<div>
+    <span>Block distance (y-axis)</span>
+    <input type="number" id="block-distance" value="3"/>
+</div>
+<div>
+    <span>Font size</span>
+    <input type="number" id="font-size" value="5"/>
+</div>
+<div>
+    <span>Alias color</span>
+    <input type="color" id="alias-color" value="#000000"/>
+</div>
+<div>
+    <span>Separators stroke width</span>
+    <input type="number" id="separators-stroke-width" value="0.5"/>
+</div>
+<div>
+    <span>SVG height</span>
+    <input type="number" id="svg-height" value="20"/>
+</div>
+<div>
+    <button id="labels-higher">Labels Higher</button>
+    <button id="labels-lower">Labels Lower</button>
+</div>
+
+<h1>Blocks</h1>
+<div id="blocks-container">
+    <!-- Block inputs will be dynamically added here -->
+</div>
+
+<div>
+    <button id="add-block">Add block</button>
+</div>
+
+<script src="./timeline.js"></script>
+</body>
+
+</html>
