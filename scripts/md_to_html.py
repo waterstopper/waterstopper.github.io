@@ -19,7 +19,7 @@ def wrap_body(title: str, date: str, body: str, head: str) -> str:
     <link rel="stylesheet" href="/css/colors.css">
     <link rel="stylesheet" href="/css/writing.css">
 
-    <link rel="icon" type="image/svg+xml" href="/resources/avatar.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <script type="text/javascript">
         function preLoadFunc() {
 let theme = localStorage.getItem("theme") ?? "light";
