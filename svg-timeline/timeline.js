@@ -89,6 +89,15 @@ document.addEventListener('DOMContentLoaded', function () {
             <div style="display: inline-block">
                 <button class="block-remove">Remove</button>
             </div>
+            <div style="display: inline-block">
+                <div>Linecap</div>
+                <select class="block-linecap">
+                    <option value="">Default</option>
+                    <option value="round">Round</option>
+                    <option value="square">Square</option>
+                    <option value="butt">Butt</option>
+                </select>
+            </div>
         `;
         blocksContainer.appendChild(blockDiv);
 
@@ -100,7 +109,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const blockHigherButton = blockDiv.querySelector('.block-higher');
         const blockLowerButton = blockDiv.querySelector('.block-lower');
         const blockRemoveButton = blockDiv.querySelector('.block-remove');
+        const blockLinecapSelect = blockDiv.querySelector('.block-linecap');
 
+        blockLinecapSelect.addEventListener('change', () => {
+            blocks[index].linecap = blockLinecapSelect.value;
+            saveData();
+            updateTimeline();
+        });
         blockAliasInput.addEventListener('input', () => {
             blocks[index].alias = blockAliasInput.value;
             saveData();
@@ -260,6 +275,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             timeline.appendChild(blockLine);
             timeline.appendChild(aliasGroup); // Append group last for highest z-index
+
+            if (block.linecap) {
+                blockLine.setAttribute('stroke-linecap', block.linecap);
+            }
         });
     }
 
@@ -270,7 +289,8 @@ document.addEventListener('DOMContentLoaded', function () {
             start: 0,
             end: 0,
             color: '#000000',
-            yOffset: 0
+            yOffset: 0,
+            linecap: ''
         };
         blocks.push(newBlock);
         addBlockInputs(newBlock, blocks.length - 1);
