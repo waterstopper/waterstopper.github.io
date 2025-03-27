@@ -186,6 +186,9 @@ obtained token.</p>
 <p>To create AST from tokens, we need a parser. I won’t go into much
 detail here, because parsers are complicated enough for a separate <a
 href="programming/parsers">post</a>.</p>
+<img src="/images/cst.png" />
+<p><code>Expr</code>, <code>Term</code> and <code>Factor</code> nodes do
+not have a semantic purpose, therefore technically it is not an AST.</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -195,11 +198,8 @@ AST called concrete syntax tree. The difference between AST and CST is
 that each AST node has a semantic purpose, while CST may contain
 detrimental tokens that are used to make parsing of a grammar work.
 Example of CST generated probably with a parser based on EBNF arithmetic
-<a href="programming/introduction-to-grammars">grammar</a>: <img
-src="/images/cst.png" alt="cst.png" /> <code>Expr</code>,
-<code>Term</code> and <code>Factor</code> nodes do not have a semantic
-purpose, therefore technically it is not an AST.<a href="#fnref1"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<a href="programming/introduction-to-grammars">grammar</a>:<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

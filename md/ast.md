@@ -123,6 +123,8 @@ complicated enough for a separate [post](programming/parsers).
 difference between AST and CST is that each AST node has a semantic purpose, while CST may contain
 detrimental tokens that are used to make parsing of a grammar work. Example of CST generated probably
 with a parser based on EBNF arithmetic [grammar](programming/introduction-to-grammars):
-![cst.png](/images/cst.png)
+
+![](/images/cst.png)
+
 `Expr`, `Term` and `Factor` nodes do not have a semantic purpose, therefore technically it is not
 an AST.
