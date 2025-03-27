@@ -145,12 +145,18 @@ def rewrite_html_with_wrap(file, date):
     with open(file, "r", encoding="utf-8") as f:
         html_body = f.read()
     with open(file, "w", encoding="utf-8") as f:
-        f.write(wrap_body(filepath_to_title(file), date, embed_svg_or_html(html_body), ""))
+        f.write(wrap_body(filepath_to_title(file), date, embed_svg_or_html(replace_nested_pictures(html_body)), ""))
 
 def get_embed(match):
     embed_path = ".." + match.group(2)
     with open(embed_path) as f:
         return f.read()
+
+# <p><svg></svg></p> -> <svg></svg>
+# <p><img></img></p> -> <img></img>
+def replace_nested_pictures(html_body):
+#     print(html_body)
+    return re.sub(r'<p>(<img ((?!/>)[\s\S])*/>)</p>', r'\1', html_body)
 
 # html doesn't work
 def embed_svg_or_html(html_body):
