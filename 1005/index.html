@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>100 / 5</title>
+    <link rel="stylesheet" href="/css/colors.css">
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--main-color);
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--main-color);
+        }
+
+        .text-content {
+            flex: 1;
+            padding: 10px;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            font-size: 1rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .navigation-container {
+            position: sticky;
+            bottom: 0;
+            background-color: var(--bg-color);
+            padding: 10px 0;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .page-info {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-button {
+            flex: 1;
+            font-size: 1.2rem;
+            padding: 12px 5px;
+            background-color: var(--main-color);
+            color: var(--main-color);
+            border-radius: 4px;
+            cursor: pointer;
+            max-width: 120px;
+            transition: background-color 0.2s;
+        }
+
+        .nav-button:active {
+            background-color: #3367d6;
+        }
+
+        .nav-button:disabled {
+            background-color: var(--light-gray);
+            cursor: not-allowed;
+        }
+
+        .page-input-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex: 1;
+        }
+
+        .page-input {
+            width: 50px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .go-btn {
+            padding: 8px 12px;
+            background-color: var(--bg-color);
+            color: var(--main-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            border: 1px solid var(--light-gray);
+        }
+
+        .go-btn:active {
+            background-color: var(--middle-color);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1rem;
+        }
+
+        /* Touch-friendly sizes */
+        button, input {
+            min-height: 44px;
+        }
+
+        .text-content {
+            white-space: pre;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .text-content {
+                font-size: 0.95rem;
+            }
+
+            .nav-button {
+                padding: 10px 5px;
+                font-size: 1rem;
+            }
+
+            .page-input {
+                width: 40px;
+                padding: 6px;
+            }
+
+            .go-btn {
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>100 / 5</h1>
+    <div class="text-content" id="text-content"></div>
+
+    <div class="navigation-container">
+
+        <div class="page-controls">
+            <button class="nav-button" id="prev-btn" disabled>&larr; Prev</button>
+
+            <div class="page-input-container">
+                <input type="number" id="page-input" min="1" value="1" class="page-input">
+                <button id="go-btn" class="go-btn">Go</button>
+            </div>
+
+            <button class="nav-button" id="next-btn">Next &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Configuration
+    const LINES_PER_PAGE = 20; // Reduced for better mobile viewing
+    let textData = '';
+    let currentPage = 0;
+    let totalPages = 0;
+    let pages = [];
+    let lines = [];
+
+    // DOM elements
+    const textContent = document.getElementById('text-content');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    // const currentPageSpan = document.getElementById('current-page');
+    // const totalPagesSpan = document.getElementById('total-pages');
+    const pageInput = document.getElementById('page-input');
+    const goBtn = document.getElementById('go-btn');
+
+    // Initialize from URL parameters
+    function getPageFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageParam = urlParams.get('page');
+        return pageParam ? Math.max(1, parseInt(pageParam)) : 1;
+    }
+
+    // Update URL parameter
+    function updateURLParameter(page) {
+        const url = new URL(window.location);
+        url.searchParams.set('page', page);
+        window.history.pushState({}, '', url);
+    }
+
+    // Load the text file
+    fetch('text.txt')
+        .then(response => response.text())
+        .then(text => {
+            textData = text;
+            preparePages();
+
+            // Initialize page from URL or default to 1
+            const initialPage = getPageFromURL();
+            displayPage(Math.min(initialPage - 1, totalPages - 1));
+
+            // Update input field
+            pageInput.value = currentPage + 1;
+            pageInput.max = totalPages;
+        })
+        .catch(error => {
+            console.error('Error loading the file:', error);
+            textContent.innerHTML = `<p style="color: #d32f2f;">Error loading the file: ${error.message}</p>`;
+        });
+
+    // Split text into lines and then into pages
+    function preparePages() {
+        lines = textData.split('\n');
+        totalPages = Math.ceil(lines.length / LINES_PER_PAGE);
+        // totalPagesSpan.textContent = totalPages;
+
+        // Create pages array
+        pages = [];
+        for (let i = 0; i < totalPages; i++) {
+            const start = i * LINES_PER_PAGE;
+            const end = start + LINES_PER_PAGE;
+            pages.push(lines.slice(start, end).join('\n'));
+        }
+
+        updateNavButtons();
+    }
+
+    // Display a specific page
+    function displayPage(pageIndex) {
+        if (pageIndex < 0 || pageIndex >= totalPages) return;
+
+        currentPage = pageIndex;
+        textContent.textContent = pages[pageIndex];
+
+        // Scroll to top when page changes
+        textContent.scrollTo(0, 0);
+
+        // currentPageSpan.textContent = currentPage + 1;
+        pageInput.value = currentPage + 1;
+        updateURLParameter(currentPage + 1);
+        updateNavButtons();
+    }
+
+    // Update navigation button states
+    function updateNavButtons() {
+        prevBtn.disabled = currentPage <= 0;
+        nextBtn.disabled = currentPage >= totalPages - 1;
+    }
+
+    // Event listeners for navigation
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+            displayPage(currentPage - 1);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages - 1) {
+            displayPage(currentPage + 1);
+        }
+    });
+
+    // Go to specific page
+    goBtn.addEventListener('click', () => {
+        const pageNum = parseInt(pageInput.value);
+        if (pageNum >= 1 && pageNum <= totalPages) {
+            displayPage(pageNum - 1);
+        } else {
+            pageInput.value = currentPage + 1;
+        }
+    });
+
+    pageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            goBtn.click();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+            displayPage(currentPage - 1);
+        } else if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+            displayPage(currentPage + 1);
+        }
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+        const pageNum = getPageFromURL();
+        if (pageNum >= 1 && pageNum <= totalPages) {
+            displayPage(pageNum - 1);
+        }
+    });
+
+    // Touch event for swipe navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    textContent.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    textContent.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+
+    function handleSwipe() {
+        const threshold = 50; // Minimum swipe distance
+
+        if (touchEndX < touchStartX - threshold && !nextBtn.disabled) {
+            // Swipe left - next page
+            displayPage(currentPage + 1);
+        } else if (touchEndX > touchStartX + threshold && !prevBtn.disabled) {
+            // Swipe right - previous page
+            displayPage(currentPage - 1);
+        }
+    }
+</script>
+</body>
+</html>
